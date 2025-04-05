@@ -4,9 +4,9 @@
 
     <h2>Your Spotify Profile</h2>
     {% if posts['images']|length > 0 %}
-        <img src="{{ post['images']}}" width="150" class="circle-img">
+        <img src="{{ posts['images'][0]['url']}}" width="150" class="circle-img">
     {% else %}
-        <img src="" width="150" class="circle-img">
+        <img src="static/assets/imgUser.jpg" width="150" class="circle-img">
     {% endif %}
     <p><strong>Name: </strong> {{posts['display_name']}}</p>
     <p><strong>Country: </strong> {{posts['country']}}</p>

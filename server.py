@@ -74,7 +74,7 @@ def user_profile():
     return render_template('displayProfile.html', posts=user)
 
 @app.route("/topTracks")
-def get_top_tracks():
+def get_top_tracks(index = 0):
     access_token = session.get('access_token')
     if not access_token:
         return "<p>Access token not found. Please <a href='/'>login</a> again.</p>"
@@ -86,7 +86,7 @@ def get_top_tracks():
         return f"<p>Error fetching data: {tracks_resp.json()}</p>"
 
     tracks_data = tracks_resp.json()['items']
-
+    
     return render_template('displayTracks.html', posts=tracks_data)
 
 @app.route("/topArtists")
