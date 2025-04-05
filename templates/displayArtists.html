@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h2>Top artists</h2>
+    <div class='subtitle'>Your top artists from the past 4 weeks</div>
+    <div class="grid-container">
+        {% for post in posts %}
+            <div class="card">
+                {% if post['images']|length > 0 %}
+                    <img src="{{post['images'][0]['url']}}" alt="{{ post['name']}}">
+                {% else %}
+                    <img src="" alt="{{ post['name']}}">
+                {% endif %}
+                <div class="title">{{ post['name']}}</div>
+                <div class="subtitle-small">{{ post['genres']|join(', ') }}</div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

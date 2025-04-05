@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <h2>Your Spotify Profile</h2>
+    {% if posts['images']|length > 0 %}
+        <img src="{{ post['images']}}" width="150" class="circle-img">
+    {% else %}
+        <img src="" width="150" class="circle-img">
+    {% endif %}
+    <p><strong>Name: </strong> {{posts['display_name']}}</p>
+    <p><strong>Country: </strong> {{posts['country']}}</p>
+    <p><strong>Followers: </strong> {{posts['followers']['total']}}</p>
+    
+{% endblock %}

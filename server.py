@@ -70,17 +70,8 @@ def user_profile():
         return f"<p>Error fetching user profile: {user_resp.json()}</p>"
 
     user = user_resp.json()
-    image_url = user['images'][0]['url'] if user.get('images') else ""
-
-    html = f"""
-    <h2>Your Spotify Profile</h2>
-    <img src="{image_url}" width="150" class="circle-img">
-    <p><strong>Name:</strong> {user['display_name']}</p>
-    <p><strong>Email:</strong> {user['email']}</p>
-    <p><strong>Country:</strong> {user['country']}</p>
-    <p><strong>Followers:</strong> {user['followers']['total']}</p>
-    """
-    return html + "</div>"
+    
+    return render_template('displayProfile.html', posts=user)
 
 @app.route("/topTracks")
 def get_top_tracks():
@@ -89,7 +80,7 @@ def get_top_tracks():
         return "<p>Access token not found. Please <a href='/'>login</a> again.</p>"
 
     headers = {"Authorization": f"Bearer {access_token}"}
-    tracks_resp = requests.get("https://api.spotify.com/v1/me/top/tracks", headers=headers)
+    tracks_resp = requests.get("https://api.spotify.com/v1/me/top/tracks?limit=50", headers=headers)
 
     if tracks_resp.status_code != 200:
         return f"<p>Error fetching data: {tracks_resp.json()}</p>"
@@ -97,18 +88,6 @@ def get_top_tracks():
     tracks_data = tracks_resp.json()['items']
 
     return render_template('displayTracks.html', posts=tracks_data)
-    html = "<h2>Top tracks</h2><div class='subtitle'>Your top tracks from the past 4 weeks</div><div class='grid-container'>"
-    for i, track in enumerate(tracks_data, start=1):
-        image_url = track['album']['images'][0]['url'] if track['album']['images'] else ""
-        html += f"""
-        <div class='card'>
-            <img src="{image_url}" alt="{track['name']}">
-            <div class='title'>{i}. {track['name']}</div>
-            <div class='subtitle-small'>{track['artists'][0]['name']}</div>
-        </div>
-        """
-    html += "</div>"
-    return html 
 
 @app.route("/topArtists")
 def get_top_artists():
@@ -117,25 +96,14 @@ def get_top_artists():
         return "<p>Access token not found. Please <a href='/'>login</a> again.</p>"
 
     headers = {"Authorization": f"Bearer {access_token}"}
-    artists_resp = requests.get("https://api.spotify.com/v1/me/top/artists", headers=headers)
+    artists_resp = requests.get("https://api.spotify.com/v1/me/top/artists?limit=50", headers=headers)
 
     if artists_resp.status_code != 200:
         return f"<p>Error fetching top artists: {artists_resp.json()}</p>"
 
     artists_data = artists_resp.json()['items']
 
-    html = "<h2>Top artists</h2><div class='subtitle'>Your top artists from the past 4 weeks<div class='grid-container'>"
-    for i, artist in enumerate(artists_data, start=1):
-        image_url = artist['images'][0]['url'] if artist['images'] else ""
-        html += f"""
-        <div class='card'>
-            <img src="{image_url}" class="circle-img" alt="{artist['name']}">
-            <div class='title'>{i}. {artist['name']}</div>
-            <div class='subtitle-small'>{', '.join(artist['genres'])}</div>
-        </div>
-        """
-    html += "</div>"
-    return html
+    return render_template('displayArtists.html', posts=artists_data)
 
 if __name__ == "__main__":
     app.run(port=8080)
