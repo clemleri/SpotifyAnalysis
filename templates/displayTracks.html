@@ -3,13 +3,13 @@
 {% block content %}
     <h2>Top tracks</h2>
     <div class='subtitle'>Your top tracks from the past 4 weeks</div>
-    <div class="cursor-button">
-        <a href="" class="rounded-button">
-            <ion-icon name="chevron-back-outline" size="large"></ion-icon>
-        </a>
-    </div>
+    
     <div class="grid-container">
-        
+        <div class="cursor-button">
+            <a href="/topTracks/getPrevious/{{ posts[0]['id']}}" class="rounded-button">
+                <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+            </a>
+        </div>
         {% for post in posts %}
             <div class="card">
                 <img src="{{post['album']['images'][0]['url']}}" alt="{{ post['name']}}">
@@ -17,8 +17,10 @@
                 <div class="subtitle-small">{{ post['artists'][0]['name'] }}</div>
             </div>
         {% endfor %}
-        <button>
-
-        </button>
+        <div class="cursor-button">
+            <a href="/topTracks/getNext/{{ posts[-1]['id']}}" class="rounded-button">
+                <ion-icon name="chevron-forward-outline" size="large"></ion-icon>
+            </a>
+        </div>
     </div>
 {% endblock %}

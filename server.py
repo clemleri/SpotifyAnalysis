@@ -2,6 +2,7 @@ import os
 import requests
 import urllib.parse
 from flask import Flask, request, session, render_template
+import json
 
 app = Flask(__name__)
 app.secret_key = 'spotify_secret_key'
@@ -86,8 +87,11 @@ def get_top_tracks(index = 0):
         return f"<p>Error fetching data: {tracks_resp.json()}</p>"
 
     tracks_data = tracks_resp.json()['items']
+
+    with open("data.json", "w") as data:
+        json.dump(tracks_data, data)
     
-    return render_template('displayTracks.html', posts=tracks_data)
+    return render_template('displayTracks.html', posts=tracks_data[0:6])
 
 @app.route("/topArtists")
 def get_top_artists():
@@ -104,6 +108,31 @@ def get_top_artists():
     artists_data = artists_resp.json()['items']
 
     return render_template('displayArtists.html', posts=artists_data)
+
+@app.route("/topArtists/getNext/<lastId>")
+@app.route("/topTracks/getNext/<lastId>")
+def get_six_next(lastId):
+    with open("data.json", "r") as data:
+        jsonData = json.load(data)
+    for i in range(len(jsonData)):
+        if jsonData[i]['id'] == lastId:
+            if "topArtists" in request.path:
+                return render_template('displayArtist.html', posts=jsonData[i+1:i+7])
+            else:
+                return render_template('displayTracks.html', posts=jsonData[i+1:i+7])
+
+@app.route("/topArtists/getPrevious/<lastId>")
+@app.route("/topTracks/getPrevious/<lastId>")
+def get_six_previous(lastId):
+    with open("data.json", "r") as data:
+        jsonData = json.load(data)
+    for i in range(len(jsonData)):
+        if jsonData[i]['id'] == lastId:
+            if "topArtists" in request.path:
+                return render_template('displayArtist.html', posts=jsonData[i-6:i])
+            else:
+                return render_template('displayTracks.html', posts=jsonData[i-6:i])
+    
 
 if __name__ == "__main__":
     app.run(port=8080)
