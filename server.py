@@ -91,7 +91,7 @@ def get_top_tracks(index = 0):
     with open("data.json", "w") as data:
         json.dump(tracks_data, data)
     
-    return render_template('displayTracks.html', posts=tracks_data[0:6])
+    return render_template('displayTracks.html', posts=tracks_data[0:13])
 
 @app.route("/topArtists")
 def get_top_artists():
