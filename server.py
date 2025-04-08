@@ -91,7 +91,7 @@ def get_top_tracks(index = 0):
     with open("data.json", "w") as data:
         json.dump(tracks_data, data)
 
-    chunksOfTrackData = [tracks_data[i:i+6] for i in range(0, len(tracks_data), 6)]
+    chunksOfTrackData = [tracks_data[i:i+6] for i in range(0, len(tracks_data), 8)]
     
     return render_template('displayTracks.html', topTracks=chunksOfTrackData)
 
