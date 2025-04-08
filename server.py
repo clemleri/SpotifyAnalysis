@@ -54,7 +54,7 @@ def callback():
 
     if "access_token" in token_info:
         session['access_token'] = token_info['access_token']
-        return '<a href="/topTracks">View Top Tracks</a>'
+        return '<a href="/tops">View Top Tracks</a>'
     else:
         return f"<p>Error fetching token: {token_info}</p>"
 
@@ -74,8 +74,7 @@ def user_profile():
     
     return render_template('displayProfile.html', posts=user)
 
-@app.route("/topTracks")
-def get_top_tracks(index = 0):
+def get_top_tracks():
     access_token = session.get('access_token')
     if not access_token:
         return "<p>Access token not found. Please <a href='/'>login</a> again.</p>"
@@ -88,14 +87,10 @@ def get_top_tracks(index = 0):
 
     tracks_data = tracks_resp.json()['items']
 
-    with open("data.json", "w") as data:
-        json.dump(tracks_data, data)
-
     chunksOfTrackData = [tracks_data[i:i+6] for i in range(0, len(tracks_data), 8)]
     
-    return render_template('displayTracks.html', topTracks=chunksOfTrackData)
+    return chunksOfTrackData
 
-@app.route("/topArtists")
 def get_top_artists():
     access_token = session.get('access_token')
     if not access_token:
@@ -109,7 +104,16 @@ def get_top_artists():
 
     artists_data = artists_resp.json()['items']
 
-    return render_template('displayArtists.html', posts=artists_data)
+    chunksOfArtistData = [artists_data[i:i+6] for i in range(0, len(artists_data), 8)]
+
+    return chunksOfArtistData
+
+@app.route("/tops")
+def get_tops():
+    topTracks = get_top_tracks()
+    topArtists = get_top_artists()
+
+    return render_template("displayTops.html", topTracks = topTracks, topArtists = topArtists)
 
 @app.route("/topArtists/getNext/<lastId>")
 @app.route("/topTracks/getNext/<lastId>")
