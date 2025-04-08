@@ -70,4 +70,14 @@
             </a>
         </div>
     </div>
+<h2>Tracks recently played</h2>
+<div class='subtitle'>Your 50 most recently played tracks</div>
+<ul class="list-group">
+    {% for trackPlayed in recently_played_tracks%}
+        <li class="list-group-item">
+            <img src="{{trackPlayed['track']['album']['images'][0]['url']}}" alt="{{ trackPlayed['track']['name']}}">
+            <div class="title">{{ trackPlayed['track']['name']}}</div>
+        </li>
+    {% endfor %}
+  </ul>
 {% endblock %}

@@ -10,7 +10,7 @@ app.secret_key = 'spotify_secret_key'
 CLIENT_ID = "9bf2c0b082f847baa3d7bc2110eed0a4"
 CLIENT_SECRET = "16e18a5a0c0e4e01a64069a8c2a89de7"
 REDIRECT_URI = "http://127.0.0.1:8080/callback"
-SCOPE = "user-read-private user-read-email user-top-read"
+SCOPE = "user-read-private user-read-email user-top-read user-read-recently-played"
 
 auth_url = "https://accounts.spotify.com/authorize"
 token_url = "https://accounts.spotify.com/api/token"
@@ -108,36 +108,29 @@ def get_top_artists():
 
     return chunksOfArtistData
 
+def get_tracks_recently_played():
+    access_token = session.get('access_token')
+    if not access_token:
+        return "<p>Access token not found. Please <a href='/'>login</a> again.</p>"
+
+    headers = {"Authorization": f"Bearer {access_token}"}
+    recently_played_tracks = requests.get("https://api.spotify.com/v1/me/player/recently-played?limit=50", headers=headers)
+
+    if recently_played_tracks.status_code != 200:
+        return f"<p>Error fetching tracks recently played : {recently_played_tracks.json()}</p>"
+
+    recently_played_tracks_data = recently_played_tracks.json()['items']
+
+
+    return recently_played_tracks_data
+
+
 @app.route("/tops")
 def get_tops():
     topTracks = get_top_tracks()
     topArtists = get_top_artists()
-
-    return render_template("displayTops.html", topTracks = topTracks, topArtists = topArtists)
-
-@app.route("/topArtists/getNext/<lastId>")
-@app.route("/topTracks/getNext/<lastId>")
-def get_six_next(lastId):
-    with open("data.json", "r") as data:
-        jsonData = json.load(data)
-    for i in range(len(jsonData)):
-        if jsonData[i]['id'] == lastId:
-            if "topArtists" in request.path:
-                return render_template('displayArtist.html', posts=jsonData[i+1:i+7])
-            else:
-                return render_template('displayTracks.html', posts=jsonData[i+1:i+7])
-
-@app.route("/topArtists/getPrevious/<lastId>")
-@app.route("/topTracks/getPrevious/<lastId>")
-def get_six_previous(lastId):
-    with open("data.json", "r") as data:
-        jsonData = json.load(data)
-    for i in range(len(jsonData)):
-        if jsonData[i]['id'] == lastId:
-            if "topArtists" in request.path:
-                return render_template('displayArtist.html', posts=jsonData[i-6:i])
-            else:
-                return render_template('displayTracks.html', posts=jsonData[i-6:i])
+    recentlyPlayedTracks = get_tracks_recently_played()
+    return render_template("displayTops.html", topTracks = topTracks, topArtists = topArtists, recently_played_tracks = recentlyPlayedTracks)
     
 
 if __name__ == "__main__":
