@@ -61,6 +61,23 @@ h2 {
     margin-bottom: 20px;
 }
 
+.flex-text-container {
+    display: flex;
+}
+
+.flex-text-container {
+
+}
+
+.flex-text-container > .bigTitle,
+.flex-text-container > .subtitle {
+    justify-content: left;
+}
+
+.flex-container > .dropdown {
+    justify-content: right;
+}
+
 .flex-container {
     display: flex;
     flex-direction: row;
@@ -181,6 +198,10 @@ h2 {
     min-height: 262px;
 }
 
+/* DROPDOWN */
+.dropdown, .dropup {
+    justify-content: right;
+}
 /* TRACK RECENTLY PLAYED */
 
 .grid-container {

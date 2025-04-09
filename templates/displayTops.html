@@ -1,8 +1,20 @@
 {% extends 'index.html' %}
 
 {% block content %}
-<h2>Top tracks</h2>
-<div class='subtitle'>Your top tracks from the past 4 weeks</div>
+<div class="flex-text-container">
+    <div class="bigTitle"><h2>Top tracks</h2></div>
+    <div class='subtitle'>Your top tracks from the past 4 weeks</div>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+    </div>
+</div>
 <div id="carouselTopTracks" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         {% for i in range(topTracks|length) %}
@@ -71,7 +83,7 @@
             </div>
         </div>
         <h2>Recent streams</h2>
-        <div class='subtitle'>Your 50 most recently played tracks</div>
+        <div class='subtitle'>Your most recently played tracks</div>
         <div class="grid-container">
             {% for trackPlayed in recently_played_tracks %}
             <div class="track-grid">
