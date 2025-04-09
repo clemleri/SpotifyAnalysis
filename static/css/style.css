@@ -34,6 +34,16 @@ nav a:hover {
     padding: 40px;
 }
 
+.title {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.subtitle-small {
+    font-size: 13px;
+    color: #b3b3b3;
+}
+
 h2 {
     font-size: 26px;
     margin-bottom: 4px;
@@ -69,10 +79,17 @@ h2 {
     transition: transform 0.5s ease-in-out;
 }
 
-.trackCard > img {
+.trackCard>img {
     width: 100%;
 }
 
+.trackCard > .title {
+    margin-top: 10px;
+}
+
+.trackCard > .subtitle {
+    margin-top: 5px;
+}
 .artistCard {
     background-color: transparent;
     text-align: center;
@@ -82,27 +99,23 @@ h2 {
     transition: transform 0.5s ease-in-out;
 }
 
-.artistCard > img {
+.artistCard>img {
     width: 130px;
     height: 130px;
     border-radius: 50%;
     overflow: hidden;
 }
 
+.artistCard > .title {
+    margin-top: 10px;
+}
+
+.artistCard > .subtitle {
+    margin-top: 5px;
+}
 
 .circle-img {
     border-radius: 50%;
-}
-
-.title {
-    font-weight: 600;
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-.subtitle-small {
-    font-size: 13px;
-    color: #b3b3b3;
 }
 
 .cursor-button {
@@ -120,7 +133,7 @@ h2 {
     background: black;
     color: #1DB954;
     display: inline-flex;
-    align-items: center;    
+    align-items: center;
     justify-content: center;
     cursor: pointer;
     border-radius: 50%;
@@ -134,19 +147,21 @@ h2 {
 }
 
 /* for selecting the first card and placing it more on the right */
-.flex-container > div:first-child {
+.flex-container>div:first-child {
     margin-left: 5%;
 }
 
 /* for selecting the last card and placing it more on the left */
-.flex-container > div:last-child {
-    margin-right : 5%
+.flex-container>div:last-child {
+    margin-right: 5%
 }
 
 
 /* ----------------------------- Bootstrap css fixes ----------------------------- */
 
 /* DISPLAY FILES */
+
+/* CAROUSEL */
 .carousel-control-next {
     right: 0;
     margin-bottom: 5%;
@@ -166,6 +181,40 @@ h2 {
     min-height: 262px;
 }
 
+/* TRACK RECENTLY PLAYED */
+
+.grid-container {
+    display: grid;
+    row-gap: 10px;
+}
+
+.track-grid {
+    display: grid;
+    grid-template-columns: 70px auto;
+    grid-template-areas:
+        "image name"
+        "image from";
+}
+
+.grid-item-image {
+    grid-area: image;
+    width: fit-content;
+    height: fit-content;
+}
+
+.grid-item-name {
+    grid-area: name;
+}
+
+.grid-item-from {
+    grid-area: from;
+}
+
+.grid-item-image>img {
+    width: 50px;
+    height: 50px;
+}
+
 /* INDEX FILE */
 nav {
     margin-right: 10%;
@@ -175,5 +224,3 @@ nav {
 .bg-dark {
     background-color: #121212 !important;
 }
-
-

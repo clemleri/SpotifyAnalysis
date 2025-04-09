@@ -3,8 +3,14 @@ import requests
 import urllib.parse
 from flask import Flask, request, session, render_template
 import json
+import sys
+import logging
+
 
 app = Flask(__name__)
+
+logging.basicConfig(level=logging.DEBUG)
+
 app.secret_key = 'spotify_secret_key'
 
 CLIENT_ID = "9bf2c0b082f847baa3d7bc2110eed0a4"
@@ -74,7 +80,7 @@ def user_profile():
     
     return render_template('displayProfile.html', posts=user)
 
-def get_top_tracks():
+def fetch_top_tracks():
     access_token = session.get('access_token')
     if not access_token:
         return "<p>Access token not found. Please <a href='/'>login</a> again.</p>"
@@ -87,11 +93,11 @@ def get_top_tracks():
 
     tracks_data = tracks_resp.json()['items']
 
-    chunksOfTrackData = [tracks_data[i:i+6] for i in range(0, len(tracks_data), 8)]
-    
+    chunksOfTrackData = [tracks_data[i:i+6] for i in range(0, len(tracks_data), 6)]
+
     return chunksOfTrackData
 
-def get_top_artists():
+def fetch_top_artists():
     access_token = session.get('access_token')
     if not access_token:
         return "<p>Access token not found. Please <a href='/'>login</a> again.</p>"
@@ -108,13 +114,13 @@ def get_top_artists():
 
     return chunksOfArtistData
 
-def get_tracks_recently_played():
+def fetch_tracks_recently_played():
     access_token = session.get('access_token')
     if not access_token:
         return "<p>Access token not found. Please <a href='/'>login</a> again.</p>"
 
     headers = {"Authorization": f"Bearer {access_token}"}
-    recently_played_tracks = requests.get("https://api.spotify.com/v1/me/player/recently-played?limit=50", headers=headers)
+    recently_played_tracks = requests.get("https://api.spotify.com/v1/me/player/recently-played?limit=20", headers=headers)
 
     if recently_played_tracks.status_code != 200:
         return f"<p>Error fetching tracks recently played : {recently_played_tracks.json()}</p>"
@@ -127,11 +133,10 @@ def get_tracks_recently_played():
 
 @app.route("/tops")
 def get_tops():
-    topTracks = get_top_tracks()
-    topArtists = get_top_artists()
-    recentlyPlayedTracks = get_tracks_recently_played()
+    topTracks = fetch_top_tracks()
+    topArtists = fetch_top_artists()
+    recentlyPlayedTracks = fetch_tracks_recently_played()
     return render_template("displayTops.html", topTracks = topTracks, topArtists = topArtists, recently_played_tracks = recentlyPlayedTracks)
-    
 
 if __name__ == "__main__":
-    app.run(port=8080)
+    app.run(port=8080, debug=True)
