@@ -80,35 +80,41 @@ def user_profile():
     
     return render_template('displayProfile.html', posts=user)
 
-def fetch_top_tracks():
+def fetch_top_tracks(time_range = 'medium_term'):
     access_token = session.get('access_token')
     if not access_token:
         return "<p>Access token not found. Please <a href='/'>login</a> again.</p>"
 
     headers = {"Authorization": f"Bearer {access_token}"}
-    tracks_resp = requests.get("https://api.spotify.com/v1/me/top/tracks?limit=50", headers=headers)
+    tracks_resp = requests.get(f"https://api.spotify.com/v1/me/top/tracks?limit=50&time_range={time_range}", headers=headers)
 
-    if tracks_resp.status_code != 200:
+    if tracks_resp.status_code != 200:  
         return f"<p>Error fetching data: {tracks_resp.json()}</p>"
 
     tracks_data = tracks_resp.json()['items']
+
+    for i in range(0, len(tracks_data)):
+        tracks_data[i]['place'] = i+1
 
     chunksOfTrackData = [tracks_data[i:i+6] for i in range(0, len(tracks_data), 6)]
 
     return chunksOfTrackData
 
-def fetch_top_artists():
+def fetch_top_artists(time_range = 'medium_term'):
     access_token = session.get('access_token')
     if not access_token:
         return "<p>Access token not found. Please <a href='/'>login</a> again.</p>"
 
     headers = {"Authorization": f"Bearer {access_token}"}
-    artists_resp = requests.get("https://api.spotify.com/v1/me/top/artists?limit=50", headers=headers)
+    artists_resp = requests.get(f"https://api.spotify.com/v1/me/top/artists?limit=50&time_range={time_range}".strip(), headers=headers)
 
     if artists_resp.status_code != 200:
         return f"<p>Error fetching top artists: {artists_resp.json()}</p>"
 
     artists_data = artists_resp.json()['items']
+
+    for i in range(0, len(artists_data)):
+        artists_data[i]['place'] = i+1
 
     chunksOfArtistData = [artists_data[i:i+6] for i in range(0, len(artists_data), 8)]
 
@@ -130,11 +136,11 @@ def fetch_tracks_recently_played():
 
     return recently_played_tracks_data
 
-
-@app.route("/tops")
-def get_tops():
-    topTracks = fetch_top_tracks()
-    topArtists = fetch_top_artists()
+@app.route("/tops", defaults={'top_tracks_time_range' : 'medium_term', 'top_artists_time_range' : 'medium_term'})
+@app.route("/tops/<string:top_tracks_time_range>/<string:top_artists_time_range>")
+def get_tops(top_tracks_time_range, top_artists_time_range):
+    topTracks = fetch_top_tracks(top_tracks_time_range)
+    topArtists = fetch_top_artists(top_artists_time_range)
     recentlyPlayedTracks = fetch_tracks_recently_played()
     return render_template("displayTops.html", topTracks = topTracks, topArtists = topArtists, recently_played_tracks = recentlyPlayedTracks)
 

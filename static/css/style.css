@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
+:root {
+    --TEXT_COLOR: #fff;
+    --BACKGROUND_FIRST_LAYER: #121212;
+    --BACKGROUND_SECOND_LAYER: #212121;
+    --BORDER_COLOR: rgba(255, 255, 255, .1);
+}
+
 body {
     background-color: #121212;
     color: white;
@@ -63,20 +70,16 @@ h2 {
 
 .flex-text-container {
     display: flex;
+    flex-direction: column;
+    float: left;
 }
 
-.flex-text-container {
-
+.flex-components-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.flex-text-container > .bigTitle,
-.flex-text-container > .subtitle {
-    justify-content: left;
-}
-
-.flex-container > .dropdown {
-    justify-content: right;
-}
 
 .flex-container {
     display: flex;
@@ -200,8 +203,38 @@ h2 {
 
 /* DROPDOWN */
 .dropdown, .dropup {
-    justify-content: right;
+    margin-right: 20px;
+    margin-top: 10px;
 }
+
+.dropdown-menu {
+    background-color: var(--BACKGROUND_SECOND_LAYER);
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: var(--BACKGROUND_FIRST_LAYER);
+    border-color: var(--BORDER_COLOR);
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+    color: #fff;
+    background-color: var(--BACKGROUND_FIRST_LAYER);
+    border-color: var(--BORDER_COLOR);
+}
+
+.dropdown-item {
+    background-color: var(--BACKGROUND_FIRST_LAYER);
+    color: var(--TEXT_COLOR);
+    border-color: var(--BACKGROUND_SECOND_LAYER);
+}
+
+.dropdown-item::hover {
+    background-color: var(--BACKGROUND_SECOND_LAYER);
+    color: var(--TEXT_COLOR);
+    border-color: var(--BACKGROUND_SECOND_LAYER);
+}
+
 /* TRACK RECENTLY PLAYED */
 
 .grid-container {

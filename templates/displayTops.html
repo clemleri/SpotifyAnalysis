@@ -1,20 +1,27 @@
 {% extends 'index.html' %}
 
 {% block content %}
-<div class="flex-text-container">
-    <div class="bigTitle"><h2>Top tracks</h2></div>
-    <div class='subtitle'>Your top tracks from the past 4 weeks</div>
+<div class="flex-components-container">
+    <div class="flex-text-container">
+        <div class="bigTitle">
+            <h2>Top tracks</h2>
+        </div>
+        <div class='subtitle'>Your top tracks from the past 4 weeks</div>
+    </div>
     <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown button
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Time Field
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="{{ url_for('get_tops', top_tracks_time_range='short_term', top_artists_time_range='short_term')}}">4 weeks</a>
+            <a class="dropdown-item" href="{{ url_for('get_tops', top_tracks_time_range='medium_term', top_artists_time_range='medium_term')}}">6 months</a>
+            <a class="dropdown-item" href="{{ url_for('get_tops', top_tracks_time_range='long_term', top_artists_time_range='long_term')}}">1 year</a>
         </div>
     </div>
 </div>
+
+
 <div id="carouselTopTracks" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         {% for i in range(topTracks|length) %}
@@ -27,7 +34,7 @@
                     {% for track in topTracks[i] %}
                     <div class="trackCard">
                         <img src="{{track['album']['images'][0]['url']}}" alt="{{ track['name']}}">
-                        <div class="title">{{ track['name']}}</div>
+                        <div class="title">{{track['place']}}. {{ track['name']}}</div>
                         <div class="subtitle-small">{{ track['artists'][0]['name'] }}</div>
                     </div>
                     {% endfor %}
@@ -64,7 +71,7 @@
                             {% else %}
                             <img src="" alt="{{ artist['name']}}">
                             {% endif %}
-                            <div class="title">{{ artist['name']}}</div>
+                            <div class="title">{{artist['place']}}. {{ artist['name']}}</div>
                             <div class="subtitle-small">{{ artist['genres']|join(', ') }}</div>
                         </div>
                         {% endfor %}
@@ -100,7 +107,8 @@
                     {% for artist in trackPlayed['track']['artists'] %}
                     <p hidden>{{ fromArtistsName.append(artist['name']) }}</p>
                     {% endfor %}
-                    <div class="subtitle">{{ fromArtistsName|join(", ")}} &#x25CF {{ trackPlayed['track']['album']['name'] }}</div>
+                    <div class="subtitle">{{ fromArtistsName|join(", ")}} &#x25CF {{
+                        trackPlayed['track']['album']['name'] }}</div>
                 </div>
             </div>
             {% endfor %}
