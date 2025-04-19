@@ -57,7 +57,7 @@ def callback():
 
     response = requests.post(token_url, data=data, headers=headers)
     token_info = response.json()
-
+    print(f"token_access : {token_info['access_token']}")
     if "access_token" in token_info:
         session['access_token'] = token_info['access_token']
         return '<a href="/tops">View Top Tracks</a>'
