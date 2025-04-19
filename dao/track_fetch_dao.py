@@ -5,7 +5,7 @@ Chaque méthode correspond à un endpoint REST de l'API Spotify renvoyant des tr
 """
 from models.track import Track
 from models.saved_tracks import SavedTracks
-from models.play_histiory import PlayHistory
+from models.play_history import PlayHistory
 from models.playlist_track import PlaylistTrack
 import requests
 from typing import Any, Dict, List, Optional
