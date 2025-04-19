@@ -1,4 +1,4 @@
-from typing import List, Dict, Optional
+from typing import List, Optional
 from pydantic import BaseModel
 from models.simplified_artist import SimplifiedArtist
 from models.simplified_album import SimplifiedAlbum
@@ -6,7 +6,6 @@ from models.restrictions import Restrictions
 from models.external_ids import ExternalIds
 from models.external_urls import ExternalUrls
 from models.linked_from import LinkedFrom
-
 
 class Track(BaseModel):
     album: SimplifiedAlbum
