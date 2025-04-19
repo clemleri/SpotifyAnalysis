@@ -22,7 +22,7 @@
 </div>
 
 
-<div id="carouselTopTracks" class="carousel slide" data-ride="carousel">
+<div id="carouselTopTracks" class="carousel slide" data-ride="carousel" data-interval="false">
     <div class="carousel-inner">
         {% for i in range(topTracks|length) %}
         {% if i == 0 %}
@@ -55,7 +55,7 @@
 
     <h2>Top Artists</h2>
     <div class='subtitle'>Your top artist from the past 4 weeks</div>
-    <div id="carouselTopArtists" class="carousel slide" data-ride="carousel">
+    <div id="carouselTopArtists" class="carousel slide" data-ride="carousel" data-interval="false">
         <div class="carousel-inner">
             {% for i in range(topArtists|length) %}
             {% if i == 0 %}
