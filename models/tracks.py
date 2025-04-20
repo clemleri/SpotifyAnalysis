@@ -1,7 +1,8 @@
-from pydantic import BaseModel
+# tracks.py
+from pydantic import BaseModel, conlist
 from typing import List
 from models.simplified_track import SimplifiedTrack
 from models.paginated_response import PaginatedResponse
 
 class Tracks(PaginatedResponse):
-    items : List[SimplifiedTrack]
+    items : conlist(SimplifiedTrack, min_items=1)

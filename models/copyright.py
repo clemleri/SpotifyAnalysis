@@ -1,3 +1,4 @@
+# copyright.py
 from pydantic import BaseModel
 
 class Copyright(BaseModel):

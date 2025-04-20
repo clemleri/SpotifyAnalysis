@@ -1,0 +1,33 @@
+{
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/2SIBY7Jwq1kYng12Zguo3C"
+    },
+    "followers": {
+      "href": null,
+      "total": 367902
+    },
+    "genres": ["animé", "j-pop", "j-rock"],
+    "href": "https://api.spotify.com/v1/artists/2SIBY7Jwq1kYng12Zguo3C?locale=fr-FR%2Cfr%3Bq%3D0.9%2Cen-US%3Bq%3D0.8%2Cen%3Bq%3D0.7",
+    "id": "2SIBY7Jwq1kYng12Zguo3C",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6761610000e5eb3c7a73c999ee39f6336f13a7",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab676161000051743c7a73c999ee39f6336f13a7",
+        "height": 320,
+        "width": 320
+      },
+      {
+        "url": "https://i.scdn.co/image/ab6761610000f1783c7a73c999ee39f6336f13a7",
+        "height": 160,
+        "width": 160
+      }
+    ],
+    "name": "ReoNa",
+    "popularity": 55,
+    "type": "artist",
+    "uri": "spotify:artist:2SIBY7Jwq1kYng12Zguo3C"
+  }
