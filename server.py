@@ -151,21 +151,52 @@ def fetch_tracks_recently_played():
 @app.route("/tops/<string:top_tracks_time_range>/<string:top_artists_time_range>")
 def get_tops(top_tracks_time_range, top_artists_time_range):
     access_token = session.get('access_token')
+
     if not access_token:
         error_msg = "Vous devez être connecté à Spotify pour voir vos tops."
-        return render_template("displayTops.html", topTracks=None, topArtists=None, recently_played_tracks=None, error=error_msg)
+    else:
+        # Vérifier si le token est valide avec un appel à /me
+        headers = {"Authorization": f"Bearer {access_token}"}
+        user_resp = requests.get("https://api.spotify.com/v1/me", headers=headers)
 
-    topTracks = fetch_top_tracks(top_tracks_time_range)
-    topArtists = fetch_top_artists(top_artists_time_range)
-    recentlyPlayedTracks = fetch_tracks_recently_played()
+        if user_resp.status_code != 200:
+            error_msg = user_resp.json().get("error", {}).get("message", "Erreur inconnue lors de la récupération du profil.")
+        else:
+            # Le token est valide, on peut appeler les fonctions
+            topTracks = fetch_top_tracks(top_tracks_time_range)
+            topArtists = fetch_top_artists(top_artists_time_range)
+            recentlyPlayedTracks = fetch_tracks_recently_played()
+
+            if topTracks and topArtists and recentlyPlayedTracks:
+                return render_template(
+                    "displayTops.html",
+                    topTracks=topTracks,
+                    topArtists=topArtists,
+                    recently_played_tracks=recentlyPlayedTracks,
+                    error=None
+                )
+            else:
+                error_msg = "Impossible de récupérer vos données Spotify. Veuillez vous reconnecter."
+
+    # Préparer le lien de reconnexion
+    query_params = {
+        "response_type": "code",
+        "client_id": CLIENT_ID,
+        "scope": SCOPE,
+        "redirect_uri": REDIRECT_URI,
+    }
+    login_url = f"{auth_url}?{urllib.parse.urlencode(query_params)}"
 
     return render_template(
         "displayTops.html",
-        topTracks=topTracks,
-        topArtists=topArtists,
-        recently_played_tracks=recentlyPlayedTracks,
-        error=None
+        topTracks=None,
+        topArtists=None,
+        recently_played_tracks=None,
+        error=error_msg,
+        login_url=login_url
     )
+
+
 
 @app.route("/logout")
 def logout():

@@ -3,9 +3,12 @@
 {% block content %}
 
 {% if error %}
-<div class="alert alert-danger mt-4 text-center">
-    ⚠️ {{ error }}
-</div>
+<div class="alert alert-danger text-center mt-5">
+    <h3>{{ error }}</h3>
+    <a href="{{ login_url }}" class="btn btn-success mt-3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" width="25" class="mr-2">
+        Se connecter avec Spotify
+    </a>
 {% else %}
 <div class="flex-components-container">
     <div class="flex-text-container">
@@ -21,14 +24,11 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item"
-                href="{{ url_for('get_tops', top_tracks_time_range='short_term', top_artists_time_range='short_term') }}">4
-                weeks</a>
+                href="{{ url_for('get_tops', top_tracks_time_range='short_term', top_artists_time_range='short_term') }}">4 weeks</a>
             <a class="dropdown-item"
-                href="{{ url_for('get_tops', top_tracks_time_range='medium_term', top_artists_time_range='medium_term') }}">6
-                months</a>
+                href="{{ url_for('get_tops', top_tracks_time_range='medium_term', top_artists_time_range='medium_term') }}">6 months</a>
             <a class="dropdown-item"
-                href="{{ url_for('get_tops', top_tracks_time_range='long_term', top_artists_time_range='long_term') }}">1
-                year</a>
+                href="{{ url_for('get_tops', top_tracks_time_range='long_term', top_artists_time_range='long_term') }}">1 year</a>
         </div>
     </div>
 </div>
@@ -37,15 +37,17 @@
 {% if topTracks %}
 <div id="carouselTopTracks" class="carousel slide" data-ride="carousel" data-interval="false">
     <div class="carousel-inner">
-        {% for i in range(topTracks|length) %}
-        <div class="carousel-item {% if i == 0 %}active{% endif %}">
+        {% for trackGroup in topTracks %}
+        <div class="carousel-item {% if loop.index0 == 0 %}active{% endif %}">
             <div class="flex-container">
-                {% for track in topTracks[i] %}
+                {% for track in trackGroup %}
+                {% if track.album %}
                 <div class="trackCard">
                     <img src="{{ track['album']['images'][0]['url'] }}" alt="{{ track['name'] }}">
                     <div class="title">{{ track['place'] }}. {{ track['name'] }}</div>
                     <div class="subtitle-small">{{ track['artists'][0]['name'] }}</div>
                 </div>
+                {% endif %}
                 {% endfor %}
             </div>
         </div>
@@ -64,14 +66,14 @@
 
 {# --- Carrousel Top Artists --- #}
 {% if topArtists %}
-<h2>Top Artists</h2>
+<h2 class="mt-5">Top Artists</h2>
 <div class='subtitle'>Your top artist from the past 4 weeks</div>
 <div id="carouselTopArtists" class="carousel slide" data-ride="carousel" data-interval="false">
     <div class="carousel-inner">
-        {% for i in range(topArtists|length) %}
-        <div class="carousel-item {% if i == 0 %}active{% endif %}">
+        {% for artistGroup in topArtists %}
+        <div class="carousel-item {% if loop.index0 == 0 %}active{% endif %}">
             <div class="flex-container">
-                {% for artist in topArtists[i] %}
+                {% for artist in artistGroup %}
                 <div class="artistCard">
                     {% if artist['images']|length > 0 %}
                     <img src="{{ artist['images'][0]['url'] }}" alt="{{ artist['name'] }}">
@@ -99,10 +101,11 @@
 
 {# --- Recently Played --- #}
 {% if recently_played_tracks %}
-<h2>Recent streams</h2>
+<h2 class="mt-5">Recent streams</h2>
 <div class='subtitle'>Your most recently played tracks</div>
 <div class="grid-container">
     {% for trackPlayed in recently_played_tracks %}
+    {% if trackPlayed.track %}
     <div class="track-grid">
         <div class="grid-item-image">
             <img src="{{ trackPlayed['track']['album']['images'][0]['url'] }}" alt="{{ trackPlayed['track']['name'] }}">
@@ -115,10 +118,10 @@
             {% for artist in trackPlayed['track']['artists'] %}
             <p hidden>{{ fromArtistsName.append(artist['name']) }}</p>
             {% endfor %}
-            <div class="subtitle">{{ fromArtistsName|join(", ") }} &#x25CF {{
-                trackPlayed['track']['album']['name'] }}</div>
+            <div class="subtitle">{{ fromArtistsName|join(", ") }} &#x25CF {{ trackPlayed['track']['album']['name'] }}</div>
         </div>
     </div>
+    {% endif %}
     {% endfor %}
 </div>
 {% endif %}
