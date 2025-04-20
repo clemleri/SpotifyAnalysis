@@ -236,3 +236,18 @@ nav {
 .bg-dark {
     background-color: #121212 !important;
 }
+
+.trackCard {
+    background-color: #1f1f1f;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    width: 180px;
+  }
+  
+  .trackCard img {
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+  

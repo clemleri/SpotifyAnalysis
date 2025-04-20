@@ -2,30 +2,48 @@
 
 {% block content %}
 
-<h2>Your Spotify Profile</h2>
+<section class="flex justify-center items-center min-h-[70vh] px-4">
+  {% if error %}
+  <div class="relative max-w-xl mx-auto mt-10 px-6 py-5 rounded-xl bg-red-500/20 border border-red-500/40 text-white text-center overflow-hidden shadow-lg">
+    <div class="absolute inset-0 bg-red-500/20 blur-xl animate-pulse z-0"></div>
+  
+    <div class="relative z-10">
+      <h3 class="text-lg font-semibold mb-2">⚠️ {{ error }}</h3>
+      <a href="{{ login_url }}"
+         class="inline-flex items-center gap-2 mt-2 bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded transition">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" width="20" height="20">
+        Se connecter avec Spotify
+      </a>
+    </div>
+  </div>
+  
+  {% else %}
+    <div class="bg-zinc-900 text-white rounded-xl shadow-lg p-8 max-w-xl w-full">
+      <div class="flex flex-col items-center text-center">
+        <div class="relative w-32 h-32 mb-4">
+          <div class="absolute inset-0 rounded-full blur-xl bg-green-500/30 animate-pulse"></div>
+          <img
+            src="{% if posts['images']|length > 0 %}{{ posts['images'][0]['url'] }}{% else %}{{ url_for('static', filename='assets/imgUser.jpg') }}{% endif %}"
+            alt="User Avatar"
+            class="relative rounded-full w-32 h-32 object-cover border-4 border-green-500 shadow-lg z-10"
+          />
+        </div>
 
-{% if error %}
-    <div class="alert alert-danger mt-3" role="alert">
-        ⚠️ {{ error }}
-    </div>
-{% else %}
-    <div class="card text-center mx-auto mt-5 shadow" style="max-width: 400px; background-color: #181818; color: white;">
-        <div class="card-body">
-        {% if posts['images']|length > 0 %}
-            <img src="{{ posts['images'][0]['url'] }}" class="rounded-circle mb-3" width="120" height="120" style="object-fit: cover;">
-        {% else %}
-            <img src="{{ url_for('static', filename='assets/imgUser.jpg') }}" class="rounded-circle mb-3" width="120" height="120" style="object-fit: cover; ">
-        {% endif %}
-    
-        <h3 class="card-title">{{ posts['display_name'] }}</h3>
-    
-        <div class="d-flex justify-content-center my-3">
-            <span class="badge badge-success mx-2">🌍 {{ posts['country'] }}</span>
-            <span class="badge badge-primary mx-2">👥 {{ posts['followers']['total'] }} followers</span>
+        <h1 class="text-2xl font-bold mb-1">{{ posts['display_name'] }}</h1>
+        <p class="text-sm text-gray-400 mb-4">Ton profil Spotify analysé en temps réel 🎧</p>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-6">
+          <span class="bg-green-600/90 px-3 py-1 rounded-full text-sm">🌍 {{ posts['country'] }}</span>
+          <span class="bg-blue-600/90 px-3 py-1 rounded-full text-sm">👥 {{ posts['followers']['total'] }} followers</span>
         </div>
-    
-        <a href="{{ url_for('logout') }}" class="btn btn-outline-danger mt-3">Se déconnecter</a>
-        </div>
+
+        <a href="{{ url_for('logout') }}"
+           class="text-red-500 hover:bg-red-600 hover:text-white border border-red-500 px-5 py-2 rounded transition-all">
+          Se déconnecter
+        </a>
+      </div>
     </div>
-{% endif %}
+  {% endif %}
+</section>
+
 {% endblock %}

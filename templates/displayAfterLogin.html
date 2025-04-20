@@ -1,17 +1,19 @@
 {% extends 'index.html' %}
 
 {% block content %}
-<div class="text-center mt-5">
+<div class="text-center mt-32 px-4">
     {% if success %}
-        <h2>✅ Connexion réussie !</h2>
-        <p>Bienvenue, vous pouvez maintenant consulter vos tops Spotify.</p>
-        <a href="{{ url_for('get_tops') }}" class="btn btn-primary btn-lg mt-3">
+        <h2 class="text-3xl font-bold text-green-400 mb-4">✅ Connexion réussie !</h2>
+        <p class="text-gray-300">Bienvenue, vous pouvez maintenant consulter vos tops Spotify.</p>
+        <a href="{{ url_for('get_tops') }}" class="inline-block mt-6 bg-green-500 text-black px-6 py-3 rounded-lg text-lg font-medium hover:bg-green-400 transition">
             Voir mes Tops
         </a>
     {% else %}
-        <h2>❌ Erreur lors de la connexion</h2>
-        <p>{{ error_message }}</p>
-        <a href="{{ url_for('login') }}" class="btn btn-danger mt-3">Réessayer</a>
+        <h2 class="text-3xl font-bold text-red-400 mb-4">❌ Erreur lors de la connexion</h2>
+        <p class="text-gray-300">{{ error_message }}</p>
+        <a href="{{ url_for('login') }}" class="inline-block mt-6 bg-red-500 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-red-400 transition">
+            Réessayer
+        </a>
     {% endif %}
 </div>
 {% endblock %}
