@@ -25,7 +25,15 @@ token_url = "https://accounts.spotify.com/api/token"
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    query_params = {
+        "response_type": "code",
+        "client_id": CLIENT_ID,
+        "scope": SCOPE,
+        "redirect_uri": REDIRECT_URI,
+    }
+    url_args = urllib.parse.urlencode(query_params)
+    auth_redirect_url = f"{auth_url}?{url_args}"
+    return render_template("index.html", is_connected=False, login_url=auth_redirect_url)
 
 @app.route("/login")
 def login():
@@ -37,13 +45,13 @@ def login():
     }
     url_args = urllib.parse.urlencode(query_params)
     auth_redirect_url = f"{auth_url}?{url_args}"
-    return f'<a href="{auth_redirect_url}">Click here to authorize with Spotify</a>'
+    return render_template("displayLogin.html", is_connected=False, login_url=auth_redirect_url)
 
 @app.route("/callback")
 def callback():
     code = request.args.get("code")
     if not code:
-        return "<p>Error: Authorization code not found.</p>"
+        return render_template("displayAfterLogin.html", success=False, error_message="Code d'autorisation manquant.")
 
     data = {
         "grant_type": "authorization_code",
@@ -60,9 +68,10 @@ def callback():
     print(f"token_access : {token_info['access_token']}")
     if "access_token" in token_info:
         session['access_token'] = token_info['access_token']
-        return '<a href="/tops">View Top Tracks</a>'
+        return render_template("displayAfterLogin.html", success=True)
     else:
-        return f"<p>Error fetching token: {token_info}</p>"
+        error_message = token_info.get("error_description", "Erreur inconnue lors de la récupération du token.")
+        return render_template("displayAfterLogin.html", success=False, error_message=error_message)
 
 @app.route("/profile")
 def user_profile():

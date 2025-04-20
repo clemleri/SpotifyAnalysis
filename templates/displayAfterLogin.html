@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="text-center mt-5">
+    {% if success %}
+        <h2>✅ Connexion réussie !</h2>
+        <p>Bienvenue, vous pouvez maintenant consulter vos tops Spotify.</p>
+        <a href="{{ url_for('get_tops') }}" class="btn btn-primary btn-lg mt-3">
+            Voir mes Tops
+        </a>
+    {% else %}
+        <h2>❌ Erreur lors de la connexion</h2>
+        <p>{{ error_message }}</p>
+        <a href="{{ url_for('login') }}" class="btn btn-danger mt-3">Réessayer</a>
+    {% endif %}
+</div>
+{% endblock %}
