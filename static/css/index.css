@@ -1,0 +1,28 @@
+header {
+    background-color: #1DB954;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: black;
+    margin: 0;
+}
+
+nav a {
+    color: #1DB954;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.blur-navbar {
+    background-color: rgba(18, 18, 18, 0.7); /* fond noir semi-transparent */
+    backdrop-filter: blur(10px); /* flou */
+    -webkit-backdrop-filter: blur(10px); /* pour Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* fine bordure subtile */
+    z-index: 1030; /* pour rester au-dessus */
+  }

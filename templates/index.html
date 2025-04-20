@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
     <title>Lyra</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-dark border-2 py-3 w-100 left-0 m-0 flex justify-content-center">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark blur-navbar border-bottom border-dark border-2 py-3 w-100 left-0 m-0 flex justify-content-center">
         <div class=" flex align-items-center  w-100" style="max-width: 1200px;">
             <a class="navbar-brand" href="/">Lyra</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -26,8 +27,11 @@
                         <a class="nav-link" href="{{ url_for('get_tops')}}">Tops</a>
                     </li>
                 </ul>
-    
-                <a class="btn btn-outline-success my-2 my-lg-0" href="{{ url_for('user_profile')}}">Profile</a>
+                
+                <div>
+                    <a class="btn btn-outline-success my-2 my-lg-0" href="{{ url_for('user_profile')}}">Profile</a>
+                </div>
+                
 
             </div>
         </div>
@@ -37,7 +41,7 @@
     <div class="container">
         {% block content %} 
         <!-- Hero section -->
-        <section class="hero-section d-flex flex-column justify-content-center align-items-center text-center" style="margin-block: 8rem;">
+        <section class="hero-section d-flex flex-column justify-content-center align-items-center text-center" style="margin-block: 14rem;">
             <p class="display-3 mb-4 flex flex-column">
                 <span>The Build Tool</span>
                 <span>For Your Playlist</span>
