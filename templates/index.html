@@ -11,34 +11,85 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">Lyra</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-dark border-2 py-3 w-100 left-0 m-0 flex justify-content-center">
+        <div class=" flex align-items-center  w-100" style="max-width: 1200px;">
+            <a class="navbar-brand" href="/">Lyra</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('get_tops')}}">Tops</a>
+                    </li>
+                </ul>
+    
+                <a class="btn btn-outline-success my-2 my-lg-0" href="{{ url_for('user_profile')}}">Profile</a>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('get_tops')}}">Tops</a>
-                </li>
-            </ul>
-
-            <li class="btn btn-outline-success my-2 my-lg-0">
-                <a class="nav-link" href="{{ url_for('user_profile')}}">Profile</a>
-            </li>
+            </div>
         </div>
+        
     </nav>
+
     <div class="container">
         {% block content %} 
-        <div style="display: flex; width: 100%; height: 100%; justify-content: center;">
-            <a href="{{ login_url }}" class="btn btn-success btn-lg">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" width="30" height="30" style="margin-right: 10px;">
-                Connect with Spotify
-            </a>
-        </div>
+        <!-- Hero section -->
+        <section class="hero-section d-flex flex-column justify-content-center align-items-center text-center" style="margin-block: 8rem;">
+            <p class="display-3 mb-4 flex flex-column">
+                <span>The Build Tool</span>
+                <span>For Your Playlist</span>
+            </p >
+            <p class="lead mb-5 flex flex-column">
+                <span>Lyra is your musical mirror,</span>
+                <span>revealing what Spotify doesn't.</span>
+            </p>
+
+            <div class="flex w-25 mb-5" style="gap: 1rem;">
+                <a href="{{ login_url }}" class="btn btn-success btn-lg w-50">
+                    Get started
+                </a>
+                <a href="https://github.com/clemleri/SpotifyAnalysis" target="_blank" class="btn btn-outline-success btn-lg w-50">
+                    GitHub
+                </a>
+            </div>
+
+            <div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" width="200" class="my-5">
+            </div>
+          
+            
+          </section>
+
+  <!-- Features -->
+  <section class="features container py-5" id="features">
+    <div class="row text-center">
+      <div class="col-md-4">
+        <h3>📊 Statistiques avancées</h3>
+        <p>Top artistes, titres, albums, durée d’écoute et plus.</p>
+      </div>
+      <div class="col-md-4">
+        <h3>👯‍♀️ Amis & partages</h3>
+        <p>Ajoute tes potes et comparez vos vibes musicales.</p>
+      </div>
+      <div class="col-md-4">
+        <h3>💬 Discussions musicales</h3>
+        <p>Parle de tes sons préférés, crée des groupes, partage tes humeurs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call To Action -->
+  <section class="cta text-center py-5 bg-gradient-dark">
+    <h2 class="text-white">Prêt à explorer ton profil Spotify ?</h2>
+    <p class="text-white">Connexion 100% gratuite et sécurisée avec ton compte Spotify</p>
+    <a href="{{ login_url }}" class="btn btn-success btn-lg mt-3">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" width="30" class="mr-2">
+      Connect with Spotify
+    </a>
+  </section>
         {% endblock %}
     </div>
 
