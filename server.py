@@ -77,17 +77,19 @@ def callback():
 def user_profile():
     access_token = session.get('access_token')
     if not access_token:
-        return "<p>Access token not found. Please <a href='/'>login</a> again.</p>"
+        error_msg = "Token d'accès introuvable. Merci de vous reconnecter."
+        return render_template('displayProfile.html', posts=None, error=error_msg)
 
     headers = {"Authorization": f"Bearer {access_token}"}
     user_resp = requests.get("https://api.spotify.com/v1/me", headers=headers)
 
     if user_resp.status_code != 200:
-        return f"<p>Error fetching user profile: {user_resp.json()}</p>"
+        error_msg = user_resp.json().get('error', {}).get('message', 'Erreur inconnue lors de la récupération du profil.')
+        return render_template('displayProfile.html', posts=None, error=error_msg)
 
     user = user_resp.json()
     
-    return render_template('displayProfile.html', posts=user)
+    return render_template('displayProfile.html', posts=user, error=None)
 
 def fetch_top_tracks(time_range = 'medium_term'):
     access_token = session.get('access_token')
@@ -145,13 +147,30 @@ def fetch_tracks_recently_played():
 
     return recently_played_tracks_data
 
-@app.route("/tops", defaults={'top_tracks_time_range' : 'medium_term', 'top_artists_time_range' : 'medium_term'})
+@app.route("/tops", defaults={'top_tracks_time_range': 'medium_term', 'top_artists_time_range': 'medium_term'})
 @app.route("/tops/<string:top_tracks_time_range>/<string:top_artists_time_range>")
 def get_tops(top_tracks_time_range, top_artists_time_range):
+    access_token = session.get('access_token')
+    if not access_token:
+        error_msg = "Vous devez être connecté à Spotify pour voir vos tops."
+        return render_template("displayTops.html", topTracks=None, topArtists=None, recently_played_tracks=None, error=error_msg)
+
     topTracks = fetch_top_tracks(top_tracks_time_range)
     topArtists = fetch_top_artists(top_artists_time_range)
     recentlyPlayedTracks = fetch_tracks_recently_played()
-    return render_template("displayTops.html", topTracks = topTracks, topArtists = topArtists, recently_played_tracks = recentlyPlayedTracks)
+
+    return render_template(
+        "displayTops.html",
+        topTracks=topTracks,
+        topArtists=topArtists,
+        recently_played_tracks=recentlyPlayedTracks,
+        error=None
+    )
+
+@app.route("/logout")
+def logout():
+    session.pop('access_token', None)
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(port=8080, debug=True)

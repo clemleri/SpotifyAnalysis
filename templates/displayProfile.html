@@ -1,15 +1,23 @@
 {% extends 'index.html' %}
 
 {% block content %}
+<h2>Your Spotify Profile</h2>
 
-    <h2>Your Spotify Profile</h2>
+{% if error %}
+    <div class="alert alert-danger mt-3" role="alert">
+        ⚠️ {{ error }}
+    </div>
+{% else %}
     {% if posts['images']|length > 0 %}
         <img src="{{ posts['images'][0]['url']}}" width="150" class="circle-img">
     {% else %}
         <img src="static/assets/imgUser.jpg" width="150" class="circle-img">
     {% endif %}
-    <p><strong>Name: </strong> {{posts['display_name']}}</p>
-    <p><strong>Country: </strong> {{posts['country']}}</p>
-    <p><strong>Followers: </strong> {{posts['followers']['total']}}</p>
-    
+
+    <p><strong>Name: </strong> {{ posts['display_name'] }}</p>
+    <p><strong>Country: </strong> {{ posts['country'] }}</p>
+    <p><strong>Followers: </strong> {{ posts['followers']['total'] }}</p>
+
+    <a href="{{ url_for('logout') }}" class="btn btn-danger mt-3">Se déconnecter</a>
+{% endif %}
 {% endblock %}
