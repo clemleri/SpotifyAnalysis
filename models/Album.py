@@ -10,7 +10,7 @@ from models.copyright import Copyright
 class Album(SimplifiedAlbum):
     restrictions : Restrictions | None
     tracks : Tracks
-    copyrights : conlist(Copyright, min_items=1)
+    copyrights : conlist(Copyright, min_length=1)
     external_ids : ExternalIds
     genres : List[str] = []
     labels : constr(min_length=1)

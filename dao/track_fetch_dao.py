@@ -8,6 +8,7 @@ from models.saved_tracks import SavedTracks
 from models.play_history import PlayHistory
 from models.playlist_track import PlaylistTrack
 import requests
+import json
 from typing import Any, Dict, List, Optional
 
 from constants.api import (
@@ -67,6 +68,7 @@ class TrackDAO:
         """Récupère plusieurs tracks par leurs IDs conjoints."""
         query = ",".join(track_ids)
         data = self._request(f"{self.url}?ids={query}", access_token)
+        json.dumps(data, indent=2)
         return [Track.parse_obj(item) for item in data.get("tracks", [])]
 
     def fetch_saved_tracks(

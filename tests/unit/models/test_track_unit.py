@@ -6,61 +6,18 @@ from models.simplified_artist import SimplifiedArtist
 from models.external_ids import ExternalIds
 from models.external_urls import ExternalUrls
 
+with open("../../data/track.json", "r", encoding="utf-8") as f:
+    SAMPLE_STR = f.read()
+
 # Fixture minimale pour un Track valide
 def valid_track_data():
-    return {
-        "album": {
-            "album_type": "single",
-            "artists": [{
-                "external_urls": {"spotify": "url_artist"},
-                "href": "href_artist",
-                "id": "id_artist",
-                "name": "name_artist",
-                "type": "artist",
-                "uri": "uri_artist"
-            }],
-            "available_markets": ["US", "FR"],
-            "external_urls": {"spotify": "url_album"},
-            "href": "href_album",
-            "id": "id_album",
-            "images": [],
-            "name": "AlbumName",
-            "release_date": "2021-01-01",
-            "release_date_precision": "day",
-            "total_tracks": 1,
-            "type": "album",
-            "uri": "uri_album"
-        },
-        "artists": [{
-            "external_urls": {"spotify": "url_artist"},
-            "href": "href_artist",
-            "id": "id_artist",
-            "name": "name_artist",
-            "type": "artist",
-            "uri": "uri_artist"
-        }],
-        "available_markets": ["US", "FR"],
-        "disc_number": 1,
-        "duration_ms": 123456,
-        "explicit": False,
-        "external_ids": {"isrc": "CODE123"},
-        "external_urls": {"spotify": "url_track"},
-        "href": "href_track",
-        "id": "id_track",
-        "name": "TrackName",
-        "popularity": 50,
-        "preview_url": None,
-        "track_number": 1,
-        "type": "track",
-        "uri": "uri_track",
-        "is_local": False
-    }
+    return SAMPLE_STR
 
 
 def test_valid_track_parses_without_errors():
     data = valid_track_data()
     track = Track.parse_obj(data)
-    assert track.id == "id_track"
+    assert track.id == "6xvbIzPvmDvk1B0QDdsoEr"
     assert isinstance(track.album, SimplifiedAlbum)
     assert isinstance(track.artists, list)
 
