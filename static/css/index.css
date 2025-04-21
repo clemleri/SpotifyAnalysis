@@ -20,9 +20,5 @@ nav a:hover {
 }
 
 .blur-navbar {
-    background-color: rgba(18, 18, 18, 0.7); /* fond noir semi-transparent */
-    backdrop-filter: blur(10px); /* flou */
-    -webkit-backdrop-filter: blur(10px); /* pour Safari */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* fine bordure subtile */
-    z-index: 1030; /* pour rester au-dessus */
+    background-color: rgba(8, 8, 8, 0.7); /* fond noir semi-transparent */
   }

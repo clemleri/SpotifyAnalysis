@@ -3,17 +3,20 @@
 {% block content %}
 <div class="text-center mt-32 px-4">
     {% if success %}
-        <h2 class="text-3xl font-bold text-green-400 mb-4">✅ Connexion réussie !</h2>
-        <p class="text-gray-300">Bienvenue, vous pouvez maintenant consulter vos tops Spotify.</p>
-        <a href="{{ url_for('get_tops') }}" class="inline-block mt-6 bg-green-500 text-black px-6 py-3 rounded-lg text-lg font-medium hover:bg-green-400 transition">
-            Voir mes Tops
+        <h2 class="text-3xl font-bold text-[--PRIMARY_COLOR] mb-4">Connected successfully</h2>
+        <p class="text-gray-300">Welcome back! You can now explore your top Spotify stats.</p>
+        <a href="{{ url_for('get_tops') }}"
+           class="inline-block mt-6 border border-[--PRIMARY_COLOR] text-[--PRIMARY_COLOR] px-6 py-3 text-lg font-medium rounded hover:bg-[--PRIMARY_COLOR] hover:text-black transition-all hover:-translate-y-1 duration-300">
+            View my Tops
         </a>
     {% else %}
-        <h2 class="text-3xl font-bold text-red-400 mb-4">❌ Erreur lors de la connexion</h2>
-        <p class="text-gray-300">{{ error_message }}</p>
-        <a href="{{ url_for('login') }}" class="inline-block mt-6 bg-red-500 text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-red-400 transition">
-            Réessayer
+        <h2 class="text-3xl font-bold text-rose-400 mb-4">❌ Connection Error</h2>
+        <p class="text-gray-400">{{ error_message }}</p>
+        <a href="{{ url_for('login') }}"
+           class="inline-block mt-6 border border-rose-400 text-rose-400 px-6 py-3 text-lg font-medium rounded hover:bg-rose-400 hover:text-black transition-all hover:-translate-y-1 duration-300">
+            Try again
         </a>
     {% endif %}
 </div>
 {% endblock %}
+

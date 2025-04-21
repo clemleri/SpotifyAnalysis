@@ -3,20 +3,22 @@
 {% block content %}
 
 {% if error %}
-<div class="relative max-w-xl mx-auto mt-10 px-6 py-5 rounded-xl bg-red-500/20 border border-red-500/40 text-white text-center overflow-hidden shadow-lg">
-  <div class="absolute inset-0 bg-red-500/30 blur-xl animate-pulse z-0"></div>
-
-  <div class="relative z-10">
-    <h3 class="text-lg font-semibold mb-2">⚠️ {{ error }}</h3>
-    <p class="text-sm text-red-100">Impossible d'afficher vos tops Spotify.</p>
-
-    <a href="{{ login_url }}"
-       class="inline-flex items-center gap-2 mt-4 bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded transition">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" width="20" height="20">
-      Se connecter avec Spotify
-    </a>
+<div class="flex justify-center items-center min-h-[70vh] px-4">
+  <div class="relative max-w-xl mx-auto mt-10 px-6 py-5 rounded-xl bg-red-500/20 border border-red-500/40 text-white text-center overflow-hidden shadow-lg">
+    <div class="absolute inset-0 bg-red-500/30 blur-xl animate-pulse z-0"></div>
+  
+    <div class="relative z-10">
+      <h3 class="text-lg font-semibold mb-2">⚠️ {{ error }}</h3>
+      <p class="text-sm text-red-100">Impossible d'afficher vos tops Spotify.</p>
+  
+      <a href="{{ login_url }}"
+         class="inline-flex items-center gap-2 mt-4 bg-white hover:bg-gray-300 text-black font-medium py-2 px-4 rounded transition">
+        Se connecter avec Spotify
+      </a>
+    </div>
   </div>
 </div>
+
 
 
 {% else %}

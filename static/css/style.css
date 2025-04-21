@@ -5,7 +5,13 @@
     --BACKGROUND_FIRST_LAYER: #121212;
     --BACKGROUND_SECOND_LAYER: #212121;
     --BORDER_COLOR: rgba(255, 255, 255, .1);
+    --PRIMARY_COLOR: #8a5cf6;
+    --PRIMARY_COLOR_BRIGHT: #9d72ff;
 }
+
+html {
+    scroll-behavior: smooth;
+  }
 
 body {
     background-color: #121212;
