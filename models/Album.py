@@ -5,6 +5,7 @@ from models.restrictions import Restrictions
 from models.external_ids import ExternalIds
 from models.tracks import Tracks
 from models.copyright import Copyright
+from models.simplified_album import SimplifiedAlbum
 
 
 class Album(SimplifiedAlbum):

@@ -1,6 +1,6 @@
 # followers.py
-from pydantic import BaseModel
-from typing import Optional, HttpUrl, conint, PositiveInt
+from pydantic import BaseModel, HttpUrl, PositiveInt
+from typing import Optional
 
 class Followers(BaseModel):
     href: Optional[HttpUrl] = None

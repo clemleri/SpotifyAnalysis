@@ -1,5 +1,6 @@
 import pytest
 from pydantic import ValidationError
+from models.simplified_track import SimplifiedTrack
 from tests.helpers.models.constraints import (
     assert_conint_between,
     assert_constr_regex_field,
@@ -10,10 +11,14 @@ from tests.helpers.models.constraints import (
     assert_positive_int,
     assert_literal
 )
-from constants.tests import TRACK_TYPE, TRACK_FILE_NAME
+from typing import Final
 
 
-@pytest.mark.parametrize("data", [TRACK_FILE_NAME], indirect=True)
+
+
+
+
+@pytest.mark.parametrize("data", ["simplified_track.json"], indirect=True)
 def test_track_model(data, model_factory):
     """
     Teste le modèle Track via model_factory pour :
@@ -47,27 +52,24 @@ def test_track_model(data, model_factory):
         "restrictions",
         "preview_url"
     ]
-    model_factory(TRACK_TYPE, data, required, optional)
+    model_factory(Track, data, required, optional)
     
-@pytest.mark.parametrize("data", [TRACK_FILE_NAME], indirect=True)
-def test_track_popularity_field(data):
-    assert_conint_between(TRACK_TYPE, data, "popularity", 0, 100)
 
-@pytest.mark.parametrize("data", [TRACK_FILE_NAME], indirect=True)
+@pytest.mark.parametrize("data", ["track.json"], indirect=True)
 def test_track_artists_non_empty(data):
-    assert_non_empty_list_field(TRACK_TYPE, data, "artists")
+    assert_non_empty_list_field(Track, data, "artists")
     
-@pytest.mark.parametrize("data", [TRACK_FILE_NAME], indirect=True)
+@pytest.mark.parametrize("data", ["track.json"], indirect=True)
 def test_track_disc_number_field(data):
-    assert_conint_ge(TRACK_TYPE, data, "disc_number", 1)
+    assert_conint_ge(Track, data, "disc_number", 1)
     
-@pytest.mark.parametrize("data", [TRACK_FILE_NAME], indirect=True)
+@pytest.mark.parametrize("data", ["track.json"], indirect=True)
 def test_track_duration_ms_field(data):
-    assert_positive_int(TRACK_TYPE, data, "duration_ms")
+    assert_positive_int(Track, data, "duration_ms")
     
-@pytest.mark.parametrize("data", [TRACK_FILE_NAME], indirect=True)
+@pytest.mark.parametrize("data", ["track.json"], indirect=True)
 def test_track_id_field(data):
-    model_cls = TRACK_TYPE
+    model_cls = Track
     field = "id"
 
     # Cas valide : 22 caractères alphanumériques
@@ -94,23 +96,23 @@ def test_track_id_field(data):
         invalid_values=invalid_values
     )
     
-@pytest.mark.parametrize("data", [TRACK_FILE_NAME], indirect=True)
+@pytest.mark.parametrize("data", ["track.json"], indirect=True)
 def test_track_name_field(data):
-    assert_non_empty_str_field(TRACK_TYPE, data, "name")
+    assert_non_empty_str_field(Track, data, "name")
     
-@pytest.mark.parametrize("data", [TRACK_FILE_NAME], indirect=True)
+@pytest.mark.parametrize("data", ["track.json"], indirect=True)
 def test_track_track_number_field(data):
-    assert_conint_ge(TRACK_TYPE, data, "track_number", 1)
+    assert_conint_ge(Track, data, "track_number", 1)
     
-@pytest.mark.parametrize("data", [TRACK_FILE_NAME], indirect=True)
+@pytest.mark.parametrize("data", ["track.json"], indirect=True)
 def test_track_type_field(data):
     valid_values=['track']
     invalid_values=['album', 'artist', 'episode', 'playlist']
-    assert_literal(TRACK_TYPE, data, "type", valid_values, invalid_values)
+    assert_literal(Track, data, "type", valid_values, invalid_values)
 
-@pytest.mark.parametrize("data", [TRACK_FILE_NAME], indirect=True)
+@pytest.mark.parametrize("data", ["track.json"], indirect=True)
 def test_track_uri_field(data):
-    model_cls = TRACK_TYPE
+    model_cls = Track
     field = "uri"
 
     # Préfixe et suffixe valides
@@ -154,10 +156,3 @@ def test_track_uri_field(data):
         valid_values=[valid_uri],
         invalid_values=invalid_uris
     )
-
-
-
-    
-
-
-    
