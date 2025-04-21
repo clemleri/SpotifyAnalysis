@@ -22,10 +22,10 @@
 
 <div class="flex min-h-screen mt-[-4rem]">
   <!-- Sidebar -->
-  <!-- Burger button (visible seulement sur mobile) -->
-   <div class="fixed top-0 left-0 mt-16 h-full px-2">
-    <button id="menu-toggle" class="md:hidden z-50 p-2 rounded text-white">
-      <img src="{{ url_for('static', filename='assets/menu.png') }}" alt="" width="25" height="25" class="dark:invert">
+  <!-- Menu button (visible seulement sur mobile) -->
+   <div class="fixed top-0 left-0 mt-16 h-[30px] px-4 py-6 z-50">
+    <button id="menu-toggle" class="md:hidden z-50  rounded text-white">
+      <img src="{{ url_for('static', filename='assets/menu.png') }}" alt="" width="30" height="30" class="dark:invert">
     </button>
    </div>
   
@@ -60,7 +60,7 @@ aria-hidden="true"></div>
           </svg>
         </button>
     
-        <ul id="dropdownMenu" class="hidden absolute left-0 top-0 mt-12 bg-white text-black rounded shadow w-48 z-50">
+        <ul id="dropdownMenu" class="hidden absolute w-full md:w-fit left-0 top-0 mt-12 bg-white text-black rounded shadow w-48 z-50">
           <li><a href="{{ url_for('get_tops', top_tracks_time_range='short_term', top_artists_time_range='short_term') }}" class="block px-4 py-2 hover:bg-gray-200">4 weeks</a></li>
           <li><a href="{{ url_for('get_tops', top_tracks_time_range='medium_term', top_artists_time_range='medium_term') }}" class="block px-4 py-2 hover:bg-gray-200">6 months</a></li>
           <li><a href="{{ url_for('get_tops', top_tracks_time_range='long_term', top_artists_time_range='long_term') }}" class="block px-4 py-2 hover:bg-gray-200">1 year</a></li>
