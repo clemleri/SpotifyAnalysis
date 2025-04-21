@@ -25,7 +25,7 @@
   <!-- Burger button (visible seulement sur mobile) -->
    <div class="fixed top-0 left-0 mt-16 h-full px-2">
     <button id="menu-toggle" class="md:hidden z-50 p-2 rounded text-white">
-      <img src="{{ url_for('static', filename='assets/app.png') }}" alt="" width="25" height="25" class="dark:invert">
+      <img src="{{ url_for('static', filename='assets/menu.png') }}" alt="" width="25" height="25" class="dark:invert">
     </button>
    </div>
   
@@ -47,54 +47,96 @@ aria-hidden="true"></div>
 
   <!-- Contenu principal -->
   <main class="md:ml-60 flex-1 overflow-y-auto p-8 space-y-16">
+
+    
+
     <section id="section-tracks" class="section-content mt-16">
+      <div class="fixed top-0 right-0 mt-16 h-full px-2">
+        <button id="view-toggle-tracks" class="z-50 p-2 mt-4 rounded text-white">
+          <img id="view-toggle-tracks-box" src="{{ url_for('static', filename='assets/menu-bis.png') }}" alt="" width="25" height="25" class="hidden dark:invert">
+          <img id="view-toggle-tracks-scroll" src="{{ url_for('static', filename='assets/scroll.png') }}" alt="" width="30" height="30" class=" dark:invert -rotate-90">
+        </button>
+      </div>
+
       {% set flat_tracks = topTracks | sum(start=[]) %}
       {% set podium_tracks = flat_tracks[0:3] %}
       {% set rest_tracks = flat_tracks[3:] %}
 
       {# --- Podium des 3 premiers tracks --- #}
-      <div class="flex justify-center items-end lg:gap-32 md:gap-16 gap-8 px-4 max-w-5xl mx-auto">
+      <div class="flex justify-center items-end lg:gap-24 md:gap-16 gap-8 px-4 max-w-5xl mx-auto">
         <!-- 2ème place -->
         <div class="relative flex flex-col items-center">
           <!-- Glow pulsé -->
           <div class="absolute inset-0 flex justify-center items-center -z-10">
-            <div class="w-24 h-24 dark:bg-gray-400/50 bg-gray-800 blur-2xl rounded-lg animate-pulse"></div>
+            <div class="w-full h-full dark:bg-gray-400/50 bg-gray-800 blur-2xl rounded-lg animate-pulse"></div>
           </div>
           <img src="{{ podium_tracks[1]['album']['images'][0]['url'] }}"
-              class="w-24 h-24 rounded-lg border-4 border-gray-400 mb-2 object-cover z-10" />
-          <span class="truncate w-24 block text-center text-sm dark:text-gray-300 text-gray-800">{{ podium_tracks[1]['name'] }}</span>
-          <span class="text-xs text-gray-500">#2</span>
+              class="max-w-48 w-full h-auto rounded-lg border-4 border-gray-400 mb-2 object-cover z-10" />
+          <span class="truncate w-24 block text-center text-sm  ">{{ podium_tracks[1]['name'] }}</span>
+          <span class="text-xs ">#2</span>
         </div>
 
         <!-- 1ère place -->
         <div class="relative flex flex-col items-center transform translate-y-[-20px]">
           <!-- Glow pulsé -->
           <div class="absolute inset-0 flex justify-center items-center -z-10">
-            <div class="w-28 h-28 dark:bg-yellow-400/50 bg-yellow-600 blur-2xl rounded-lg animate-pulse"></div>
+            <div class="w-full h-full dark:bg-yellow-400/50 bg-yellow-600 blur-2xl rounded-lg animate-pulse"></div>
           </div>
           <img src="{{ podium_tracks[0]['album']['images'][0]['url'] }}"
-              class="w-28 h-28 rounded-lg border-4 border-yellow-400 mb-2 object-cover z-10" />
+              class="max-w-48 w-full h-auto rounded-lg border-4 border-yellow-400 mb-2 object-cover z-10" />
           <span class="truncate w-28 block text-center font-semibold">{{ podium_tracks[0]['name'] }}</span>
-          <span class="text-sm text-yellow-500">#1</span>
+          <span class="text-sm ">#1</span>
         </div>
 
         <!-- 3ème place -->
         <div class="relative flex flex-col items-center">
           <!-- Glow pulsé -->
           <div class="absolute inset-0 flex justify-center items-center -z-10">
-            <div class="w-24 h-24 dark:bg-orange-400/50 bg-orange-600 blur-2xl rounded-lg animate-pulse"></div>
+            <div class="w-full h-full dark:bg-orange-400/50 bg-orange-600 blur-2xl rounded-lg animate-pulse"></div>
           </div>
           <img src="{{ podium_tracks[2]['album']['images'][0]['url'] }}"
-              class="w-24 h-24 rounded-lg border-4 border-orange-400 mb-2 object-cover z-10" />
-          <span class="truncate w-24 block text-center text-sm dark:text-gray-300 text-gray-600">{{ podium_tracks[2]['name'] }}</span>
-          <span class="text-xs text-gray-500">#3</span>
+              class="max-w-48 w-full h-auto rounded-lg border-4 border-orange-400 mb-2 object-cover z-10" />
+          <span class="truncate w-24 block text-center text-sm  ">{{ podium_tracks[2]['name'] }}</span>
+          <span class="text-xs ">#3</span>
         </div>
-
-
       </div>
 
+      {% if topTracks %}
+        <div class="hidden relative glide my-10 w-full flex justify-center" id="glideTopTracks">
+            <div class="glide__track max-w-6xl relative" data-glide-el="track">
+                <ul class="glide__slides gap-x-2">
+                {% for trackGroup in topTracks %}
+                  {% for track in trackGroup %}
+                    {% if track.album %}
+                    <li class="glide__slide">
+                      <div class="dark:trackCard-dark trackCard ">
+                        <img src="{{ track['album']['images'][0]['url'] }}" alt="{{ track['name'] }}">
+                        <div class="title">{{ track['place'] }}. {{ track['name'] }}</div>
+                        <div class="dark:subtitle-small-dark subtitle-small">{{ track['artists'][0]['name'] }}</div>
+                      </div>
+                    </li>
+                    {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                </ul>
+
+                <div class="absolute h-full top-0 left-0 flex items-center z-10" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--left bg-black dark:bg-white text-white dark:text-black w-10 h-10 px-3 py-2 rounded-full ml-2" data-glide-dir="<">
+                    ‹
+                    </button>
+                </div>
+                <div class="absolute h-full top-0 right-0 flex items-center z-10" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--right bg-black dark:bg-white text-white dark:text-black  w-10 h-10 px-3 py-2 rounded-full mr-2" data-glide-dir=">">
+                    ›
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+      {% endif %}
+
       {# --- Masonry des autres tracks --- #}
-      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 px-4 max-w-7xl mx-auto mt-10">
+      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 px-4 max-w-7xl mx-auto mt-10" id="gridTopTracks">
         {% for track in rest_tracks %}
           {% if track.album %}
           <div class="rounded-lg overflow-hidden dark:bg-zinc-900 bg-gray-200 border dark:border-zinc-700 border-gray-300 shadow-md hover:shadow-[--PRIMARY_COLOR]/30 transition duration-300 group">
@@ -123,7 +165,12 @@ aria-hidden="true"></div>
 
     </section>
     <section id="section-artists" class="section-content hidden">
-      
+      <div class="fixed top-0 right-0 mt-16 h-full px-2">
+        <button id="view-toggle-artists" class="z-50 p-2 mt-4 rounded text-white">
+          <img id="view-toggle-artists-box" src="{{ url_for('static', filename='assets/menu-bis.png') }}" alt="" width="25" height="25" class="hidden dark:invert">
+          <img id="view-toggle-artists-scroll" src="{{ url_for('static', filename='assets/scroll.png') }}" alt="" width="30" height="30" class=" dark:invert -rotate-90">
+        </button>
+      </div>
       <!-- Tops Artistes -->
       {# Aplatit topArtists (qui est une liste de listes) #}
       {% set flat_artists = topArtists | sum(start=[]) %}
@@ -137,9 +184,9 @@ aria-hidden="true"></div>
         <div class="relative flex flex-col items-center">
           <!-- Glow -->
           <div class="absolute inset-0 flex justify-center items-center -z-10">
-            <div class="w-24 h-24 dark:bg-gray-400/50 bg-gray-800 blur-2xl rounded-full animate-pulse"></div>
+            <div class="w-full h-full dark:bg-gray-400/50 bg-gray-800 blur-2xl rounded-full animate-pulse"></div>
           </div>
-          <img src="{{ podium[1]['images'][0]['url'] }}" class="w-24 h-24 rounded-full border-4 border-gray-400 mb-2 z-10 object-cover" />
+          <img src="{{ podium[1]['images'][0]['url'] }}" class="max-w-48 w-full h-auto rounded-full border-4 border-gray-400 mb-2 z-10 object-cover" />
           <span class="dark:text-gray-300 text-gray-800 text-sm">{{ podium[1]['name'] }}</span>
           <span class="text-xs text-gray-500">#2</span>
         </div>
@@ -150,10 +197,10 @@ aria-hidden="true"></div>
         <div class="relative flex flex-col items-center transform translate-y-[-20px]">
           <!-- Glow -->
           <div class="absolute inset-0 flex justify-center items-center -z-10">
-            <div class="w-32 h-32 dark:bg-yellow-400/50 bg-yellow-600 blur-2xl rounded-full animate-pulse"></div>
+            <div class="w-full h-full dark:bg-yellow-400/50 bg-yellow-600 blur-2xl rounded-full animate-pulse"></div>
           </div>
-          <img src="{{ podium[0]['images'][0]['url'] }}" class="w-32 h-32 rounded-full border-4 border-yellow-400 mb-2 z-10 object-cover" />
-          <span class="text-white font-semibold">{{ podium[0]['name'] }}</span>
+          <img src="{{ podium[0]['images'][0]['url'] }}" class="max-w-48 w-full h-auto rounded-full border-4 border-yellow-400 mb-2 z-10 object-cover" />
+          <span class=" font-semibold">{{ podium[0]['name'] }}</span>
           <span class="text-sm text-yellow-500">#1</span>
         </div>
         {% endif %}
@@ -163,19 +210,55 @@ aria-hidden="true"></div>
         <div class="relative flex flex-col items-center">
           <!-- Glow -->
           <div class="absolute inset-0 flex justify-center items-center -z-10">
-            <div class="w-24 h-24 dark:bg-orange-400/50 bg-orange-600 blur-2xl rounded-full animate-pulse"></div>
+            <div class="w-full h-full dark:bg-orange-400/50 bg-orange-600 blur-2xl rounded-full animate-pulse"></div>
           </div>
-          <img src="{{ podium[2]['images'][0]['url'] }}" class="w-24 h-24 rounded-full border-4 border-orange-400 mb-2 z-10 object-cover" />
-          <span class="dark:text-gray-300 text-gray-600 text-sm">{{ podium[2]['name'] }}</span>
+          <img src="{{ podium[2]['images'][0]['url'] }}" class="max-w-48 w-full h-auto rounded-full border-4 border-orange-400 mb-2 z-10 object-cover" />
+          <span class="dark:text-gray-300 text-gray-700 text-sm">{{ podium[2]['name'] }}</span>
           <span class="text-xs text-gray-500">#3</span>
         </div>
         {% endif %}
 
       </div>
+      
+      {# --- Carrousel Top Artists --- #}
+      {% if topArtists %}
+      <div class="relative glide w-full flex my-10 justify-center hidden" id="glideTopArtists">
+          <div class="glide__track max-w-6xl relative" data-glide-el="track">
+              <ul class="glide__slides gap-x-2">
+              {% for artistGroup in topArtists %}
+                  {% for artist in artistGroup %}
+                  <li class="glide__slide">
+                      <div class="artistCard text-center">
+                          {% if artist['images']|length > 0 %}
+                          <img src="{{ artist['images'][0]['url'] }}" alt="{{ artist['name'] }}" class="rounded-full w-36 h-36 object-cover mx-auto mb-2">
+                          {% else %}
+                          <img src="" alt="{{ artist['name'] }}" class="rounded-full w-36 h-36 object-cover mx-auto mb-2">
+                          {% endif %}
+                          <div class="title font-semibold">{{ artist['place'] }}. {{ artist['name'] }}</div>
+                          <div class="dark:subtitle-small-dark subtitle-small text-sm">{{ artist['genres']|join(', ') }}</div>
+                      </div>
+                  </li>
+                  {% endfor %}
+              {% endfor %}
+              </ul>
+
+              <!-- Arrows -->
+              <div class="absolute h-full top-0 left-0 flex items-center z-10" data-glide-el="controls">
+                  <button class="glide__arrow glide__arrow--left bg-black dark:bg-white text-white dark:text-black  w-10 h-10 px-3 py-2 rounded-full ml-2" data-glide-dir="<">
+                  ‹
+                  </button>
+              </div>
+              <div class="absolute h-full top-0 right-0 flex items-center z-10" data-glide-el="controls">
+                  <button class="glide__arrow glide__arrow--right bg-black dark:bg-white text-white dark:text-black  w-10 h-10 px-3 py-2 rounded-full mr-2" data-glide-dir=">">
+                  ›
+                  </button>
+              </div>
+          </div>
+      </div>
+      {% endif %}
 
       {# --- Grid circulaire des autres artistes --- #}
-
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 px-4 max-w-6xl mx-auto mt-10">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 px-4 max-w-6xl mx-auto mt-10" id="gridTopArtists">
         {% for artist in rest %}
           <div class="flex flex-col items-center text-center hover:scale-105 transition duration-300">
             {% if artist['images'] %}
