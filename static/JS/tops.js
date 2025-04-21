@@ -123,6 +123,46 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
 
   elements.forEach(el => observer.observe(el));
+
+  const dropdownBtn = document.getElementById('dropdownButton');
+  const dropdownMenu = document.getElementById('dropdownMenu');
+
+  dropdownBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // évite de fermer direct après ouverture
+    dropdownMenu.classList.toggle('hidden');
+  });
+
+  // Ferme le menu si on clique ailleurs
+  document.addEventListener('click', (e) => {
+    if (!dropdownMenu.classList.contains('hidden')) {
+      dropdownMenu.classList.add('hidden');
+    }
+  });
+
+  // Empêche la fermeture quand on clique sur un lien dans le menu
+  dropdownMenu.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+
+  const dropdownBtnArtist = document.getElementById('dropdownButtonArtist');
+  const dropdownMenuArtist = document.getElementById('dropdownMenuArtist');
+
+  dropdownBtnArtist.addEventListener('click', (e) => {
+    e.stopPropagation(); // évite de fermer direct après ouverture
+    dropdownMenuArtist.classList.toggle('hidden');
+  });
+
+  // Ferme le menu si on clique ailleurs
+  document.addEventListener('click', (e) => {
+    if (!dropdownMenuArtist.classList.contains('hidden')) {
+      dropdownMenuArtist.classList.add('hidden');
+    }
+  });
+
+  // Empêche la fermeture quand on clique sur un lien dans le menu
+  dropdownMenuArtist.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
 });
  
 

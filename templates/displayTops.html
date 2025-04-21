@@ -48,9 +48,25 @@ aria-hidden="true"></div>
   <!-- Contenu principal -->
   <main class="md:ml-60 flex-1 overflow-y-auto p-8 space-y-16">
 
-    
-
     <section id="section-tracks" class="section-content mt-16">
+
+      <!-- Dropdown à droite -->
+      <div class="absolute w-full flex left-0 top-0 md:ml-64 mt-24 mx-auto justify-center md:justify-start max-w-6xl">
+        <button id="dropdownButton" class="dark:bg-white bg-black text-white dark:text-black px-4 py-2 rounded-xl inline-flex items-center">
+          Time Field
+          <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+    
+        <ul id="dropdownMenu" class="hidden absolute left-0 top-0 mt-12 bg-white text-black rounded shadow w-48 z-50">
+          <li><a href="{{ url_for('get_tops', top_tracks_time_range='short_term', top_artists_time_range='short_term') }}" class="block px-4 py-2 hover:bg-gray-200">4 weeks</a></li>
+          <li><a href="{{ url_for('get_tops', top_tracks_time_range='medium_term', top_artists_time_range='medium_term') }}" class="block px-4 py-2 hover:bg-gray-200">6 months</a></li>
+          <li><a href="{{ url_for('get_tops', top_tracks_time_range='long_term', top_artists_time_range='long_term') }}" class="block px-4 py-2 hover:bg-gray-200">1 year</a></li>
+        </ul>
+      </div>
+      
       <div class="fixed top-0 right-0 mt-16 h-full px-2">
         <button id="view-toggle-tracks" class="z-50 p-2 mt-4 rounded text-white">
           <img id="view-toggle-tracks-box" src="{{ url_for('static', filename='assets/menu-bis.png') }}" alt="" width="25" height="25" class="hidden dark:invert">
@@ -63,7 +79,7 @@ aria-hidden="true"></div>
       {% set rest_tracks = flat_tracks[3:] %}
 
       {# --- Podium des 3 premiers tracks --- #}
-      <div class="flex justify-center items-end lg:gap-24 md:gap-16 gap-8 px-4 max-w-5xl mx-auto">
+      <div class="flex justify-center items-end pt-8 lg:gap-24 md:gap-16 gap-8 px-4 max-w-5xl mx-auto">
         <!-- 2ème place -->
         <div class="relative flex flex-col items-center">
           <!-- Glow pulsé -->
@@ -165,6 +181,23 @@ aria-hidden="true"></div>
 
     </section>
     <section id="section-artists" class="section-content hidden">
+      <!-- Dropdown à droite -->
+      <div class="absolute w-full flex left-0 top-0 md:ml-64 mt-24 mx-auto justify-center md:justify-start max-w-6xl">
+        <button id="dropdownButtonArtist" class="dark:bg-white bg-black text-white dark:text-black px-4 py-2 rounded-xl inline-flex items-center">
+          Time Field
+          <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+    
+        <ul id="dropdownMenuArtist" class="hidden absolute left-0 top-0 mt-12 bg-white text-black rounded shadow w-48 z-50">
+          <li><a href="{{ url_for('get_tops', top_tracks_time_range='short_term', top_artists_time_range='short_term') }}" class="block px-4 py-2 hover:bg-gray-200">4 weeks</a></li>
+          <li><a href="{{ url_for('get_tops', top_tracks_time_range='medium_term', top_artists_time_range='medium_term') }}" class="block px-4 py-2 hover:bg-gray-200">6 months</a></li>
+          <li><a href="{{ url_for('get_tops', top_tracks_time_range='long_term', top_artists_time_range='long_term') }}" class="block px-4 py-2 hover:bg-gray-200">1 year</a></li>
+        </ul>
+      </div>
+
       <div class="fixed top-0 right-0 mt-16 h-full px-2">
         <button id="view-toggle-artists" class="z-50 p-2 mt-4 rounded text-white">
           <img id="view-toggle-artists-box" src="{{ url_for('static', filename='assets/menu-bis.png') }}" alt="" width="25" height="25" class="hidden dark:invert">
@@ -178,7 +211,7 @@ aria-hidden="true"></div>
       {% set rest = flat_artists[3:] %}
 
       {# --- Podium des 3 premiers artistes --- #}
-      <div class="flex justify-center items-end lg:gap-24 md:gap-16 gap-8 mt-12">
+      <div class="flex justify-center pt-8 items-end lg:gap-24 md:gap-16 gap-8 mt-12">
         <!-- 2ème place -->
         {% if podium[1]['images'] %}
         <div class="relative flex flex-col items-center">
