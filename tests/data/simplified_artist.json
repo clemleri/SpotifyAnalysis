@@ -1,0 +1,10 @@
+{
+    "external_urls": {
+      "spotify": "https://open.spotify.com/artist/4kqFrZkeqDfOIEqTWqbOOV"
+    },
+    "href": "https://api.spotify.com/v1/artists/4kqFrZkeqDfOIEqTWqbOOV",
+    "id": "4kqFrZkeqDfOIEqTWqbOOV",
+    "name": "brakence",
+    "type": "artist",
+    "uri": "spotify:artist:4kqFrZkeqDfOIEqTWqbOOV"
+}

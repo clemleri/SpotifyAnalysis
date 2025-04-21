@@ -170,6 +170,43 @@ def assert_literal(
         d[field] = bad
         with pytest.raises(ValidationError, match=field):
             model_cls.model_validate(d)
+            
+def assert_constr_depending_literal(
+    model_cls,
+    data : dict,
+    constr_field : str,
+    literal_field : str,
+    valid_values : list,
+    invalid_values : list
+):
+    """
+    Teste qu'un champ `constr(pattern=...)` dépendant d'un autre champ Literal[str]:
+      - accepte toutes les valeurs de `valid_values` en fonction d'un Literal[str] donné
+      - rejette toutes celles de `invalid_values` en fonction d'un Literal[str] donné
+    """
+    
+    # Cas valide 
+    for good_tuple in valid_values:
+        d = data.copy()
+        d[constr_field] = good_tuple[0]
+        d[literal_field] = good_tuple[1]
+        obj = model_cls.model_validate(d)
+        assert getattr(obj, constr_field) == good_tuple[0], (
+            f"Valeur valide '{good}' rejetée pour {model_cls.__name__}.{constr_field}"
+        )
+        assert getattr(obj, literal_field) == good_tuple[1], (
+            f"Valeur valide '{good}' rejetée pour {model_cls.__name__}.{literal_field}"
+        )
+        
+    # Cas invalide
+    for bad_tuple in invalid_values:
+        d = data.copy()
+        d[constr_field] = bad_tuple[0]
+        d[literal_field] = bad_tuple[1]
+        with pytest.raises(ValidationError):
+            obj = model_cls.model_validate(d)
+        
+    
 
 
     

@@ -10,11 +10,11 @@ from tests.helpers.models.constraints import (
     assert_positive_int,
     assert_literal
 )
-from constants.tests import SIMPLIFIED_ARTIST_TYPE, SIMPLIFIED_ARTIST_FILE_NAME
+from constants.tests import ARTIST_TYPE, ARTIST_FILE_NAME
 
 
-@pytest.mark.parametrize("data", [SIMPLIFIED_ARTIST_FILE_NAME], indirect=True)
-def test_simplified_artist_model(data, model_factory):
+@pytest.mark.parametrize("data", [ARTIST_FILE_NAME], indirect=True)
+def test_artist_model(data, model_factory):
     """
     Teste le modèle Track via model_factory pour :
       1. parsing valide -> OK
@@ -32,11 +32,11 @@ def test_simplified_artist_model(data, model_factory):
         "uri",
     ]
     optional = []
-    model_factory(SIMPLIFIED_ARTIST_TYPE, data, required, optional)
+    model_factory(ARTIST_TYPE, data, required, optional)
     
-@pytest.mark.parametrize("data", [SIMPLIFIED_ARTIST_FILE_NAME], indirect=True)
-def test_simplified_artist_id_field(data):
-    model_cls = SIMPLIFIED_ARTIST_TYPE
+@pytest.mark.parametrize("data", [ARTIST_FILE_NAME], indirect=True)
+def test_artist_id_field(data):
+    model_cls = ARTIST_TYPE
     field = "id"
 
     # Cas valide : 22 caractères alphanumériques
@@ -63,19 +63,19 @@ def test_simplified_artist_id_field(data):
         invalid_values=invalid_values
     )
 
-@pytest.mark.parametrize("data", [SIMPLIFIED_ARTIST_FILE_NAME], indirect=True)
-def test_simplified_artist_name_field(data):
-    assert_non_empty_str_field(SIMPLIFIED_ARTIST_TYPE, data, "name")
+@pytest.mark.parametrize("data", [ARTIST_FILE_NAME], indirect=True)
+def test_artist_name_field(data):
+    assert_non_empty_str_field(ARTIST_TYPE, data, "name")
     
-@pytest.mark.parametrize("data", [SIMPLIFIED_ARTIST_FILE_NAME], indirect=True)
-def test_simplified_artist_type_field(data):
+@pytest.mark.parametrize("data", [ARTIST_FILE_NAME], indirect=True)
+def test_artist_type_field(data):
     valid_values=['artist']
     invalid_values=['album', 'track', 'episode', 'playlist']
-    assert_literal(SIMPLIFIED_ARTIST_TYPE, data, "type", valid_values, invalid_values)
+    assert_literal(ARTIST_TYPE, data, "type", valid_values, invalid_values)
     
-@pytest.mark.parametrize("data", [SIMPLIFIED_ARTIST_FILE_NAME], indirect=True)
-def test_simplified_artist_uri_field(data):
-    model_cls = SIMPLIFIED_ARTIST_TYPE
+@pytest.mark.parametrize("data", [ARTIST_FILE_NAME], indirect=True)
+def test_artist_uri_field(data):
+    model_cls = ARTIST_TYPE
     field = "uri"
 
     # Préfixe et suffixe valides
@@ -119,3 +119,7 @@ def test_simplified_artist_uri_field(data):
         valid_values=[valid_uri],
         invalid_values=invalid_uris
     )
+
+@pytest.mark.parametrize("data", [ARTIST_FILE_NAME], indirect=True)
+def test_artist_popularity_field(data):
+    assert_conint_between(ARTIST_TYPE, data, "popularity", 0, 100)
