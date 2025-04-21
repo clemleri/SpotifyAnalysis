@@ -2,6 +2,7 @@
 import json
 from pathlib import Path
 import pytest
+from pydantic import ValidationError
 
 @pytest.fixture
 def data(request):
@@ -37,7 +38,8 @@ def model_factory():
         for f in required_fields:
             d = data.copy()
             d.pop(f, None)
-            with pytest.raises(Exception):
+            print(f"validation for field : {f}")
+            with pytest.raises(ValidationError):
                 model_cls.model_validate(d)
 
         # 3. optionnels manquant → OK

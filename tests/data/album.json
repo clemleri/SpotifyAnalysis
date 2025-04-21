@@ -1,0 +1,286 @@
+{
+    "album_type": "single",
+    "total_tracks": 4,
+    "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+    "external_urls": {
+      "spotify": "https://open.spotify.com/album/4h5AIxtznwZXyGgloviHkP"
+    },
+    "href": "https://api.spotify.com/v1/albums/4h5AIxtznwZXyGgloviHkP?locale=fr-FR%2Cfr%3Bq%3D0.9%2Cen-US%3Bq%3D0.8%2Cen%3Bq%3D0.7",
+    "id": "4h5AIxtznwZXyGgloviHkP",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab67616d0000b2730a901039a48eeb80471b4349",
+        "height": 640,
+        "width": 640
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616d00001e020a901039a48eeb80471b4349",
+        "height": 300,
+        "width": 300
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67616d000048510a901039a48eeb80471b4349",
+        "height": 64,
+        "width": 64
+      }
+    ],
+    "name": "in a mood",
+    "release_date": "2025-01-15",
+    "release_date_precision": "day",
+    "type": "album",
+    "uri": "spotify:album:4h5AIxtznwZXyGgloviHkP",
+    "artists": [
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/7dBfMrBdX0ndoAieklkd7r"
+        },
+        "href": "https://api.spotify.com/v1/artists/7dBfMrBdX0ndoAieklkd7r",
+        "id": "7dBfMrBdX0ndoAieklkd7r",
+        "name": "mad routine",
+        "type": "artist",
+        "uri": "spotify:artist:7dBfMrBdX0ndoAieklkd7r"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/3CiuuHKIxxJPoNRvF94GtR"
+        },
+        "href": "https://api.spotify.com/v1/artists/3CiuuHKIxxJPoNRvF94GtR",
+        "id": "3CiuuHKIxxJPoNRvF94GtR",
+        "name": "Veela",
+        "type": "artist",
+        "uri": "spotify:artist:3CiuuHKIxxJPoNRvF94GtR"
+      },
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/6c8Tj7dw38XeyB2JvTxAi9"
+        },
+        "href": "https://api.spotify.com/v1/artists/6c8Tj7dw38XeyB2JvTxAi9",
+        "id": "6c8Tj7dw38XeyB2JvTxAi9",
+        "name": "My City Glory",
+        "type": "artist",
+        "uri": "spotify:artist:6c8Tj7dw38XeyB2JvTxAi9"
+      }
+    ],
+    "tracks": {
+      "href": "https://api.spotify.com/v1/albums/4h5AIxtznwZXyGgloviHkP/tracks?offset=0&limit=50&locale=fr-FR,fr;q%3D0.9,en-US;q%3D0.8,en;q%3D0.7",
+      "limit": 50,
+      "next": null,
+      "offset": 0,
+      "previous": null,
+      "total": 4,
+      "items": [
+        {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/7dBfMrBdX0ndoAieklkd7r"
+              },
+              "href": "https://api.spotify.com/v1/artists/7dBfMrBdX0ndoAieklkd7r",
+              "id": "7dBfMrBdX0ndoAieklkd7r",
+              "name": "mad routine",
+              "type": "artist",
+              "uri": "spotify:artist:7dBfMrBdX0ndoAieklkd7r"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/3CiuuHKIxxJPoNRvF94GtR"
+              },
+              "href": "https://api.spotify.com/v1/artists/3CiuuHKIxxJPoNRvF94GtR",
+              "id": "3CiuuHKIxxJPoNRvF94GtR",
+              "name": "Veela",
+              "type": "artist",
+              "uri": "spotify:artist:3CiuuHKIxxJPoNRvF94GtR"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/6c8Tj7dw38XeyB2JvTxAi9"
+              },
+              "href": "https://api.spotify.com/v1/artists/6c8Tj7dw38XeyB2JvTxAi9",
+              "id": "6c8Tj7dw38XeyB2JvTxAi9",
+              "name": "My City Glory",
+              "type": "artist",
+              "uri": "spotify:artist:6c8Tj7dw38XeyB2JvTxAi9"
+            }
+          ],
+          "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+          "disc_number": 1,
+          "duration_ms": 213758,
+          "explicit": true,
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/5D3ruFHZQYp6agIj91mzD3"
+          },
+          "href": "https://api.spotify.com/v1/tracks/5D3ruFHZQYp6agIj91mzD3",
+          "id": "5D3ruFHZQYp6agIj91mzD3",
+          "name": "rude instinct",
+          "preview_url": null,
+          "track_number": 1,
+          "type": "track",
+          "uri": "spotify:track:5D3ruFHZQYp6agIj91mzD3",
+          "is_local": false
+        },
+        {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/7dBfMrBdX0ndoAieklkd7r"
+              },
+              "href": "https://api.spotify.com/v1/artists/7dBfMrBdX0ndoAieklkd7r",
+              "id": "7dBfMrBdX0ndoAieklkd7r",
+              "name": "mad routine",
+              "type": "artist",
+              "uri": "spotify:artist:7dBfMrBdX0ndoAieklkd7r"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/3CiuuHKIxxJPoNRvF94GtR"
+              },
+              "href": "https://api.spotify.com/v1/artists/3CiuuHKIxxJPoNRvF94GtR",
+              "id": "3CiuuHKIxxJPoNRvF94GtR",
+              "name": "Veela",
+              "type": "artist",
+              "uri": "spotify:artist:3CiuuHKIxxJPoNRvF94GtR"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/6c8Tj7dw38XeyB2JvTxAi9"
+              },
+              "href": "https://api.spotify.com/v1/artists/6c8Tj7dw38XeyB2JvTxAi9",
+              "id": "6c8Tj7dw38XeyB2JvTxAi9",
+              "name": "My City Glory",
+              "type": "artist",
+              "uri": "spotify:artist:6c8Tj7dw38XeyB2JvTxAi9"
+            }
+          ],
+          "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+          "disc_number": 1,
+          "duration_ms": 208140,
+          "explicit": false,
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/2wvvSgeNhsskMZ80Mg43oP"
+          },
+          "href": "https://api.spotify.com/v1/tracks/2wvvSgeNhsskMZ80Mg43oP",
+          "id": "2wvvSgeNhsskMZ80Mg43oP",
+          "name": "disappear",
+          "preview_url": null,
+          "track_number": 2,
+          "type": "track",
+          "uri": "spotify:track:2wvvSgeNhsskMZ80Mg43oP",
+          "is_local": false
+        },
+        {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/7dBfMrBdX0ndoAieklkd7r"
+              },
+              "href": "https://api.spotify.com/v1/artists/7dBfMrBdX0ndoAieklkd7r",
+              "id": "7dBfMrBdX0ndoAieklkd7r",
+              "name": "mad routine",
+              "type": "artist",
+              "uri": "spotify:artist:7dBfMrBdX0ndoAieklkd7r"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/3CiuuHKIxxJPoNRvF94GtR"
+              },
+              "href": "https://api.spotify.com/v1/artists/3CiuuHKIxxJPoNRvF94GtR",
+              "id": "3CiuuHKIxxJPoNRvF94GtR",
+              "name": "Veela",
+              "type": "artist",
+              "uri": "spotify:artist:3CiuuHKIxxJPoNRvF94GtR"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/6c8Tj7dw38XeyB2JvTxAi9"
+              },
+              "href": "https://api.spotify.com/v1/artists/6c8Tj7dw38XeyB2JvTxAi9",
+              "id": "6c8Tj7dw38XeyB2JvTxAi9",
+              "name": "My City Glory",
+              "type": "artist",
+              "uri": "spotify:artist:6c8Tj7dw38XeyB2JvTxAi9"
+            }
+          ],
+          "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+          "disc_number": 1,
+          "duration_ms": 162578,
+          "explicit": false,
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/32xrCmn4um5DVzoLY9cKvO"
+          },
+          "href": "https://api.spotify.com/v1/tracks/32xrCmn4um5DVzoLY9cKvO",
+          "id": "32xrCmn4um5DVzoLY9cKvO",
+          "name": "won't stop runnin'",
+          "preview_url": null,
+          "track_number": 3,
+          "type": "track",
+          "uri": "spotify:track:32xrCmn4um5DVzoLY9cKvO",
+          "is_local": false
+        },
+        {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/7dBfMrBdX0ndoAieklkd7r"
+              },
+              "href": "https://api.spotify.com/v1/artists/7dBfMrBdX0ndoAieklkd7r",
+              "id": "7dBfMrBdX0ndoAieklkd7r",
+              "name": "mad routine",
+              "type": "artist",
+              "uri": "spotify:artist:7dBfMrBdX0ndoAieklkd7r"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/3CiuuHKIxxJPoNRvF94GtR"
+              },
+              "href": "https://api.spotify.com/v1/artists/3CiuuHKIxxJPoNRvF94GtR",
+              "id": "3CiuuHKIxxJPoNRvF94GtR",
+              "name": "Veela",
+              "type": "artist",
+              "uri": "spotify:artist:3CiuuHKIxxJPoNRvF94GtR"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/6c8Tj7dw38XeyB2JvTxAi9"
+              },
+              "href": "https://api.spotify.com/v1/artists/6c8Tj7dw38XeyB2JvTxAi9",
+              "id": "6c8Tj7dw38XeyB2JvTxAi9",
+              "name": "My City Glory",
+              "type": "artist",
+              "uri": "spotify:artist:6c8Tj7dw38XeyB2JvTxAi9"
+            }
+          ],
+          "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+          "disc_number": 1,
+          "duration_ms": 211359,
+          "explicit": false,
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/0O3Wox4z2Pby9X4ZT0J5dI"
+          },
+          "href": "https://api.spotify.com/v1/tracks/0O3Wox4z2Pby9X4ZT0J5dI",
+          "id": "0O3Wox4z2Pby9X4ZT0J5dI",
+          "name": "find a way back",
+          "preview_url": null,
+          "track_number": 4,
+          "type": "track",
+          "uri": "spotify:track:0O3Wox4z2Pby9X4ZT0J5dI",
+          "is_local": false
+        }
+      ]
+    },
+    "copyrights": [
+      {
+        "text": "2024 City Cole Productions",
+        "type": "C"
+      },
+      {
+        "text": "2024 City Cole Productions",
+        "type": "P"
+      }
+    ],
+    "external_ids": {
+      "upc": "199096361482"
+    },
+    "genres": [],
+    "label": "City Cole Productions",
+    "popularity": 27
+}

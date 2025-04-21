@@ -25,6 +25,11 @@ from models.restrictions import Restrictions
 # constantes file_name tests/unit/models
 TRACK_FILE_NAME: Final[str] = "track.json"
 SIMPLIFIED_TRACK_FILE_NAME: Final[str] = "simplified_track.json"
+ARTIST_FILE_NAME : Final[str] = "artist.json"
+SIMPLIFIED_ARTIST_FILE_NAME : Final[str] = "simplified_artist.json"
+ALBUM_FILE_NAME: Final[str] = "album.json"
+SIMPLIFIED_ALBUM_FILE_NAME: Final[str] = "simplified_album.json"
+
 
 # constantes type tests/unit/models
 TRACK_TYPE: Final[type] = Track
