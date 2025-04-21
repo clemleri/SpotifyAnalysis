@@ -31,25 +31,63 @@
     <!-- Navbar -->
     <div class="fixed top-0 w-full z-50 backdrop-blur border-b dark:border-zinc-700 border-gray-300 py-4">
       <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
-        <a href="/" class="text-xl font-semibold">Lyra</a>
-        <div class="flex items-center gap-4">
+    
+        <!-- Logo + Nom -->
+        <a href="/" class="text-xl flex items-center font-semibold gap-2">
+          <img src="{{ url_for('static', filename='assets/Lyre_black.png') }}"
+               width="30"
+               height="30"
+               alt="Lyra Logo (Light)"
+               class="block dark:hidden" />
+          <img src="{{ url_for('static', filename='assets/Lyre_white.png') }}"
+               width="30"
+               height="30"
+               alt="Lyra Logo (Dark)"
+               class="hidden dark:block" />
+          Lyra
+        </a>
+    
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-4">
           <a href="{{ url_for('get_tops') }}" class="hover:text-[--PRIMARY_COLOR] transition">Tops</a>
           <a href="{{ url_for('user_profile') }}" class="border border-[--PRIMARY_COLOR] text-[--PRIMARY_COLOR] px-4 py-2 rounded-[10px] hover:bg-[--PRIMARY_COLOR] dark:hover:text-black hover:text-white transition">
             Profile
           </a>
-          <!-- Switch thème -->
           <button id="theme-toggle" class="p-2 rounded transition" aria-label="Toggle Theme">
             <img src="{{ url_for('static', filename='assets/day-and-night.png') }}"
-              width="25"
-              height="25"
-              alt="Lyra Logo (Light)"
-              class="block opacity-80 dark:invert" />
+                 width="25"
+                 height="25"
+                 alt="Theme Toggle"
+                 class="opacity-80 dark:invert" />
           </button>
-          
-
         </div>
+    
+        <!-- Burger Button (Mobile only) -->
+        <button id="mobile-menu-toggle" class="h-full w-full flex justify-end items-center md:hidden p-2 focus:outline-none">
+          <svg id="burger-icon" class="absolute w-6 h-6 transition-all duration-300 ease-in-out" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+
+          <!-- Cross Icon -->
+          <svg id="close-icon" class="absolute w-6 h-6 opacity-0 scale-90 transition-all duration-300 ease-in-out"
+            fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+      </div>
+    
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden px-4 pt-4 pb-6 h-[100vh] bg-white dark:bg-[#0f0f0f] transition-all duration-300 ease-out transform opacity-0 -translate-y-4">
+        <a href="{{ url_for('get_tops') }}" class="block  py-2">Tops</a>
+        <a href="{{ url_for('user_profile') }}" class="block py-2">Profile</a>
+        <button id="theme-toggle-mobile" class="mt-2 flex items-center gap-2">
+          <img src="{{ url_for('static', filename='assets/day-and-night.png') }}" width="20" class="opacity-80 dark:invert" />
+        </button>
       </div>
     </div>
+    
   
     <main class="pt-32">
   
