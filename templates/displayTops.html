@@ -4,15 +4,15 @@
 
 {% if error %}
 <div class="flex justify-center items-center min-h-[70vh] px-4">
-  <div class="relative max-w-xl mx-auto mt-10 px-6 py-5 rounded-xl bg-red-500/20 border border-red-500/40 text-white text-center overflow-hidden shadow-lg">
+  <div class="relative max-w-xl mx-auto mt-10 px-6 py-5 rounded-xl bg-red-500/20 border border-red-500/40 text-center overflow-hidden shadow-lg">
     <div class="absolute inset-0 bg-red-500/30 blur-xl animate-pulse z-0"></div>
   
     <div class="relative z-10">
       <h3 class="text-lg font-semibold mb-2">⚠️ {{ error }}</h3>
-      <p class="text-sm text-red-100">Impossible d'afficher vos tops Spotify.</p>
+      <p class="text-sm dark:text-red-100 text-gray-800">Impossible d'afficher vos tops Spotify.</p>
   
       <a href="{{ login_url }}"
-         class="inline-flex items-center gap-2 mt-4 bg-white hover:bg-gray-300 text-black font-medium py-2 px-4 rounded transition">
+         class="inline-flex items-center gap-2 mt-4 dark:bg-white bg-black dark:hover:bg-gray-300 hover:bg-gray-800 dark:text-black text-white font-medium py-2 px-4 rounded-xl transition">
         Se connecter avec Spotify
       </a>
     </div>
@@ -26,12 +26,12 @@
     <!-- Texte à gauche -->
     <div class="text-center md:text-left">
       <h2 class="text-3xl font-bold mb-1 text-center">Top Tracks</h2>
-      <p class="text-gray-400 text-center">Your top tracks from the past 4 weeks</p>
+      <p class="dark:text-gray-300 text-gray-500  text-center">Your top tracks from the past 4 weeks</p>
     </div>
   
     <!-- Dropdown à droite -->
     <div class="absolute w-full flex justify-end max-w-6xl">
-      <button id="dropdownButton" class="bg-gray-800 text-white px-4 py-2 rounded inline-flex items-center">
+      <button id="dropdownButton" class="dark:bg-white bg-black text-white dark:text-black px-4 py-2 rounded-xl inline-flex items-center">
         Time Field
         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
           viewBox="0 0 24 24">
@@ -57,10 +57,10 @@
           {% for track in trackGroup %}
             {% if track.album %}
             <li class="glide__slide">
-              <div class="trackCard">
+              <div class="dark:trackCard-dark trackCard ">
                 <img src="{{ track['album']['images'][0]['url'] }}" alt="{{ track['name'] }}">
                 <div class="title">{{ track['place'] }}. {{ track['name'] }}</div>
-                <div class="subtitle-small">{{ track['artists'][0]['name'] }}</div>
+                <div class="dark:subtitle-small-dark subtitle-small">{{ track['artists'][0]['name'] }}</div>
               </div>
             </li>
             {% endif %}
@@ -87,7 +87,7 @@
 {# --- Carrousel Top Artists --- #}
 {% if topArtists %}
 <h2 class="mt-10 text-3xl font-bold text-center">Top Artists</h2>
-<p class="subtitle text-center text-gray-400 mb-6">Your top artists from the past 4 weeks</p>
+<p class="subtitle text-center dark:text-gray-300 text-gray-500 mb-6">Your top artists from the past 4 weeks</p>
 
 <div class="relative glide w-full flex justify-center" id="glideTopArtists">
     <div class="glide__track max-w-6xl relative" data-glide-el="track">
@@ -101,8 +101,8 @@
                     {% else %}
                     <img src="" alt="{{ artist['name'] }}" class="rounded-full w-36 h-36 object-cover mx-auto mb-2">
                     {% endif %}
-                    <div class="title text-white font-semibold">{{ artist['place'] }}. {{ artist['name'] }}</div>
-                    <div class="subtitle-small text-sm text-gray-400">{{ artist['genres']|join(', ') }}</div>
+                    <div class="title font-semibold">{{ artist['place'] }}. {{ artist['name'] }}</div>
+                    <div class="dark:subtitle-small-dark subtitle-small text-sm">{{ artist['genres']|join(', ') }}</div>
                 </div>
             </li>
             {% endfor %}
@@ -128,22 +128,22 @@
 {# --- Recently Played --- #}
 {% if recently_played_tracks %}
 <h2 class="mt-10 text-3xl font-bold text-center">Recent streams</h2>
-<p class="subtitle text-center text-gray-400 mb-4">Your most recently played tracks</p>
+<p class="subtitle text-center dark:text-gray-300 text-gray-500 mb-4">Your most recently played tracks</p>
 
 <div class="flex flex-col gap-3 px-4 max-w-4xl mx-auto">
   {% for trackPlayed in recently_played_tracks %}
     {% if trackPlayed.track %}
-    <div class="bg-zinc-800 rounded-md shadow p-2 flex items-center gap-3">
+    <div class="dark:bg-zinc-800 bg-gray-200 rounded-md shadow p-2 flex items-center gap-3">
       <img src="{{ trackPlayed['track']['album']['images'][0]['url'] }}"
            alt="{{ trackPlayed['track']['name'] }}"
            class="w-16 h-16 object-cover rounded" />
       <div class="flex-1">
-        <h3 class="text-sm font-medium text-white">{{ trackPlayed['track']['name'] }}</h3>
+        <h3 class="text-sm font-medium ">{{ trackPlayed['track']['name'] }}</h3>
         {% set fromArtistsName = [] %}
         {% for artist in trackPlayed['track']['artists'] %}
           <p hidden>{{ fromArtistsName.append(artist['name']) }}</p>
         {% endfor %}
-        <p class="text-gray-400 text-xs">
+        <p class="dark:text-gray-400 text-gray-700 text-xs">
           {{ fromArtistsName|join(", ") }} &#x25CF {{ trackPlayed['track']['album']['name'] }}
         </p>
       </div>
@@ -154,44 +154,5 @@
 {% endif %}
 
 {% endif %}
-
-
-<script>
-    new Glide('#glideTopTracks', {
-    type: 'carousel',
-    perView: 6,
-    gap: 12,
-    breakpoints: {
-      1024: { perView: 4 },
-      768: { perView: 3 },
-      480: { perView: 2 }
-    }
-  }).mount()
-
-  new Glide('#glideTopArtists', {
-    type: 'carousel',
-    perView: 6,
-    gap: 12,
-    breakpoints: {
-      1024: { perView: 4 },
-      768: { perView: 3 },
-      480: { perView: 2 }
-    }
-  }).mount()
-
-  const dropdownBtn = document.getElementById('dropdownButton');
-  const dropdownMenu = document.getElementById('dropdownMenu');
-
-  dropdownBtn.addEventListener('click', () => {
-    dropdownMenu.classList.toggle('hidden');
-  });
-
-  window.addEventListener('click', (e) => {
-    if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
-      dropdownMenu.classList.add('hidden');
-    }
-  });
-</script>
-  
 
 {% endblock %}

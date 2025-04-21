@@ -19,6 +19,10 @@ nav a:hover {
     text-decoration: underline;
 }
 
-.blur-navbar {
+.blur-navbar-dark {
     background-color: rgba(8, 8, 8, 0.7); /* fond noir semi-transparent */
-  }
+}
+
+.blur-navbar {
+    background-color: rgba(255, 255, 255, 0.7); /* fond noir semi-transparent */
+}

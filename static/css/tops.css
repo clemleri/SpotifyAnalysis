@@ -4,9 +4,14 @@
     font-size: 16px;
 }
 
+.subtitle-small-dark {
+    font-size: 13px;
+    color: #cacaca;
+}
+
 .subtitle-small {
     font-size: 13px;
-    color: #b3b3b3;
+    color: #636363;
 }
 
 h2 {
@@ -49,13 +54,26 @@ h2 {
 }
 
 .trackCard {
-    background-color: transparent;
+    border-radius: 20px;
     text-align: center;
     min-width: 150px;
     max-width: 150px;
     padding: 10px;
     transition: transform 0.5s ease-in-out;
 }
+
+.trackCard-dark {
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    width: 180px;
+  }
+  
+  .trackCard img {
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
 
 .trackCard>img {
     width: 100%;
@@ -237,17 +255,6 @@ nav {
     background-color: #121212 !important;
 }
 
-.trackCard {
-    background-color: #1f1f1f;
-    border-radius: 12px;
-    padding: 1rem;
-    text-align: center;
-    width: 180px;
-  }
-  
-  .trackCard img {
-    border-radius: 8px;
-    margin-bottom: 0.5rem;
-    width: 100%;
-  }
+
+
   
