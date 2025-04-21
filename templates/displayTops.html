@@ -32,11 +32,11 @@
 
   <!-- Sidebar -->
   <aside id="sidebar"
-        class="fixed top-0 left-0 mt-16 h-full w-60 border-r dark:bg-[#0f0f0f] bg-white dark:border-zinc-700 border-gray-300 z-40 transform -translate-x-full md:translate-x-0 md:block transition-transform duration-300 ease-in-out">
-    <div class="pt-3">
-      <button class="block w-full text-left py-4 px-8 hover:bg-[--PRIMARY_COLOR] active dark:hover:text-black hover:text-white transition" data-section="tracks">Top Tracks</button>
-      <button class="block w-full text-left py-4 px-8 hover:bg-[--PRIMARY_COLOR] dark:hover:text-black hover:text-white transition" data-section="artists">Top Artists</button>
-      <button class="block w-full text-left py-4 px-8 hover:bg-[--PRIMARY_COLOR] dark:hover:text-black hover:text-white transition" data-section="recent">Recent Streams</button>
+        class="fixed flex justify-center p-6 top-0 left-0 mt-16 h-full w-60 border-r dark:bg-[#0f0f0f] bg-white dark:border-zinc-700 border-gray-300 z-40 transform -translate-x-full md:translate-x-0 md:block transition-transform duration-300 ease-in-out">
+    <div class=" text-[0.8rem] dark:bg-[#19191c] bg-gray-200 rounded-md h-fit">
+      <button class="block w-full text-left  py-4 rounded-t-md px-8 hover:bg-[--PRIMARY_COLOR] active dark:hover:text-black hover:text-white transition" data-section="tracks">Top Tracks</button>
+      <button class="block w-full text-left py-4 border-y dark:border-gray-600 border-gray-400 px-8 hover:bg-[--PRIMARY_COLOR] dark:hover:text-black hover:text-white transition" data-section="artists">Top Artists</button>
+      <button class="block w-full text-left py-4 rounded-b-md px-8 hover:bg-[--PRIMARY_COLOR] dark:hover:text-black hover:text-white transition" data-section="recent">Recent Streams</button>
     </div>
   </aside>
 
@@ -52,7 +52,7 @@ aria-hidden="true"></div>
 
       <!-- Dropdown à droite -->
       <div class="absolute w-full flex left-0 top-0 md:ml-64 mt-24 mx-auto justify-center md:justify-start max-w-6xl">
-        <button id="dropdownButton" class="dark:bg-white bg-black text-white dark:text-black px-4 py-2 rounded-xl inline-flex items-center">
+        <button id="dropdownButton" class="text-[14px] border dark:border-white border-[#121212] text-black dark:text-white px-4 py-2 rounded-md inline-flex items-center">
           Time Field
           <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
             viewBox="0 0 24 24">
@@ -60,10 +60,10 @@ aria-hidden="true"></div>
           </svg>
         </button>
     
-        <ul id="dropdownMenu" class="hidden absolute w-full md:w-fit left-0 top-0 mt-12 bg-white text-black rounded shadow w-48 z-50">
-          <li><a href="{{ url_for('get_tops', top_tracks_time_range='short_term', top_artists_time_range='short_term') }}" class="block px-4 py-2 hover:bg-gray-200">4 weeks</a></li>
-          <li><a href="{{ url_for('get_tops', top_tracks_time_range='medium_term', top_artists_time_range='medium_term') }}" class="block px-4 py-2 hover:bg-gray-200">6 months</a></li>
-          <li><a href="{{ url_for('get_tops', top_tracks_time_range='long_term', top_artists_time_range='long_term') }}" class="block px-4 py-2 hover:bg-gray-200">1 year</a></li>
+        <ul id="dropdownMenu" class="hidden absolute w-full md:w-fit left-0 top-0 mt-12 dark:bg-white bg-[#121212] dark:text-black text-white rounded shadow w-48 z-50">
+          <li><a href="{{ url_for('get_tops', top_tracks_time_range='short_term', top_artists_time_range='short_term') }}" class="block px-4 py-2 dark:hover:bg-gray-200 hover:bg-[--PRIMARY_COLOR]">4 weeks</a></li>
+          <li><a href="{{ url_for('get_tops', top_tracks_time_range='medium_term', top_artists_time_range='medium_term') }}" class="block px-4 py-2 dark:hover:bg-gray-200 hover:bg-[--PRIMARY_COLOR]">6 months</a></li>
+          <li><a href="{{ url_for('get_tops', top_tracks_time_range='long_term', top_artists_time_range='long_term') }}" class="block px-4 py-2 dark:hover:bg-gray-200 hover:bg-[--PRIMARY_COLOR]">1 year</a></li>
         </ul>
       </div>
       
@@ -183,7 +183,7 @@ aria-hidden="true"></div>
     <section id="section-artists" class="section-content hidden">
       <!-- Dropdown à droite -->
       <div class="absolute w-full flex left-0 top-0 md:ml-64 mt-24 mx-auto justify-center md:justify-start max-w-6xl">
-        <button id="dropdownButtonArtist" class="dark:bg-white bg-black text-white dark:text-black px-4 py-2 rounded-xl inline-flex items-center">
+        <button id="dropdownButtonArtist" class="text-[14px] border dark:border-white border-[#121212] text-black dark:text-white px-4 py-2 rounded-md inline-flex items-center">
           Time Field
           <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2"
             viewBox="0 0 24 24">
@@ -191,10 +191,10 @@ aria-hidden="true"></div>
           </svg>
         </button>
     
-        <ul id="dropdownMenuArtist" class="hidden absolute left-0 top-0 mt-12 bg-white text-black rounded shadow w-48 z-50">
-          <li><a href="{{ url_for('get_tops', top_tracks_time_range='short_term', top_artists_time_range='short_term') }}" class="block px-4 py-2 hover:bg-gray-200">4 weeks</a></li>
-          <li><a href="{{ url_for('get_tops', top_tracks_time_range='medium_term', top_artists_time_range='medium_term') }}" class="block px-4 py-2 hover:bg-gray-200">6 months</a></li>
-          <li><a href="{{ url_for('get_tops', top_tracks_time_range='long_term', top_artists_time_range='long_term') }}" class="block px-4 py-2 hover:bg-gray-200">1 year</a></li>
+        <ul id="dropdownMenuArtist" class="hidden absolute w-full md:w-fit left-0 top-0 mt-12 dark:bg-white bg-[#121212] dark:text-black text-white rounded shadow w-48 z-50">
+          <li><a href="{{ url_for('get_tops', top_tracks_time_range='short_term', top_artists_time_range='short_term') }}" class="block px-4 py-2 dark:hover:bg-gray-200 hover:bg-[--PRIMARY_COLOR]">4 weeks</a></li>
+          <li><a href="{{ url_for('get_tops', top_tracks_time_range='medium_term', top_artists_time_range='medium_term') }}" class="block px-4 py-2 dark:hover:bg-gray-200 hover:bg-[--PRIMARY_COLOR]">6 months</a></li>
+          <li><a href="{{ url_for('get_tops', top_tracks_time_range='long_term', top_artists_time_range='long_term') }}" class="block px-4 py-2 dark:hover:bg-gray-200 hover:bg-[--PRIMARY_COLOR]">1 year</a></li>
         </ul>
       </div>
 
@@ -307,7 +307,7 @@ aria-hidden="true"></div>
     </section>
     <section id="section-recent" class="section-content hidden">
       <section class="max-w-3xl mx-auto my-16 px-4">
-        <div class="relative border-l-2 border-gray-300 dark:border-zinc-600 pl-6 space-y-5">
+        <div class="relative pl-6 space-y-5">
           {% for trackPlayed in recently_played_tracks %}
             {% if trackPlayed.track %}
             <div class="relative group opacity-0 translate-y-4 transition-all duration-500 ease-out animate-fade-in-up scroll-animate">

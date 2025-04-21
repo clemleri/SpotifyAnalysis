@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sidebar.classList.add('-translate-x-full');
       overlay.classList.add('hidden');
       document.body.classList.remove('overflow-hidden');
-
+      SidebartoggleBtn.classList.toggle("hidden")
       // Masquer toutes les sections
       sections.forEach(section => {
         section.classList.add('hidden');
@@ -28,12 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   SidebartoggleBtn.addEventListener('click', () => {
+    SidebartoggleBtn.classList.toggle("hidden")
     sidebar.classList.toggle('-translate-x-full');
     overlay.classList.toggle('hidden');
     document.body.classList.toggle('overflow-hidden');
   });
 
   overlay.addEventListener('click', () => {
+    SidebartoggleBtn.classList.toggle("hidden")
     sidebar.classList.add('-translate-x-full');
     overlay.classList.add('hidden');
     document.body.classList.remove('overflow-hidden');

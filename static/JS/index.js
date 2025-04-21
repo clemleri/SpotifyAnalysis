@@ -4,19 +4,21 @@ const toggleBtnMenu = document.getElementById('mobile-menu-toggle');
 const html = document.documentElement;
 const burgerIcon = document.getElementById('burger-icon');
 const closeIcon = document.getElementById('close-icon');
+const SidebartoggleBtn = document.getElementById('menu-toggle');
 
 toggleBtnMenu.addEventListener('click', () => {
   const isOpen = !mobileMenu.classList.contains('hidden');
 
   if (isOpen) {
     // Fermer le menu
+    SidebartoggleBtn.classList.toggle("hidden")
+
     mobileMenu.classList.add('opacity-0', '-translate-y-4');
     mobileMenu.classList.remove('opacity-100', 'translate-y-0');
     setTimeout(() => {
       mobileMenu.classList.add('hidden');
       document.body.classList.remove('overflow-hidden');
     }, 300);
-
     // Switch icons
     burgerIcon.classList.remove('opacity-0', 'scale-90');
     burgerIcon.classList.add('opacity-100', 'scale-100');
@@ -30,12 +32,12 @@ toggleBtnMenu.addEventListener('click', () => {
       mobileMenu.classList.add('opacity-100', 'translate-y-0');
     }, 10);
     document.body.classList.add('overflow-hidden');
-
     // Switch icons
     burgerIcon.classList.remove('opacity-100', 'scale-100');
     burgerIcon.classList.add('opacity-0', 'scale-90');
     closeIcon.classList.remove('opacity-0', 'scale-90');
     closeIcon.classList.add('opacity-100', 'scale-100');
+    SidebartoggleBtn.classList.toggle("hidden")
   }
 });
 
