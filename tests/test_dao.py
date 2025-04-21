@@ -33,7 +33,7 @@ class FakeResponse:
 def test_fetch_track(monkeypatch):
     data = {'id': 't1'}
     monkeypatch.setattr(requests, 'get', lambda url, headers=None, params=None: FakeResponse(data))
-    monkeypatch.setattr(Track, 'parse_obj', classmethod(lambda cls, obj: obj))
+    monkeypatch.setattr(Track, 'model_validate', classmethod(lambda cls, obj: obj))
     dao = TrackDAO()
     assert dao.fetch_track('token', 't1') == data
 
@@ -41,7 +41,7 @@ def test_fetch_track(monkeypatch):
 def test_fetch_tracks(monkeypatch):
     items = [{'id': 't1'}, {'id': 't2'}]
     monkeypatch.setattr(requests, 'get', lambda url, headers=None, params=None: FakeResponse({'tracks': items}))
-    monkeypatch.setattr(Track, 'parse_obj', classmethod(lambda cls, obj: obj))
+    monkeypatch.setattr(Track, 'model_validate', classmethod(lambda cls, obj: obj))
     dao = TrackDAO()
     assert dao.fetch_tracks('token', ['t1', 't2']) == items
 
@@ -49,7 +49,7 @@ def test_fetch_tracks(monkeypatch):
 def test_fetch_saved_tracks(monkeypatch):
     data = {'saved': True}
     monkeypatch.setattr(requests, 'get', lambda url, headers=None, params=None: FakeResponse(data))
-    monkeypatch.setattr(SavedTracks, 'parse_obj', classmethod(lambda cls, obj: obj))
+    monkeypatch.setattr(SavedTracks, 'model_validate', classmethod(lambda cls, obj: obj))
     dao = TrackDAO()
     assert dao.fetch_saved_tracks('token') == data
 
@@ -64,7 +64,7 @@ def test_fetch_check_track_is_saved(monkeypatch):
 def test_fetch_play_history(monkeypatch):
     items = [{'id': 'p1'}]
     monkeypatch.setattr(requests, 'get', lambda url, headers=None, params=None: FakeResponse(items))
-    monkeypatch.setattr(PlayHistory, 'parse_obj', classmethod(lambda cls, obj: obj))
+    monkeypatch.setattr(PlayHistory, 'model_validate', classmethod(lambda cls, obj: obj))
     dao = TrackDAO()
     assert dao.fetch_play_history('token') == items
 
@@ -72,7 +72,7 @@ def test_fetch_play_history(monkeypatch):
 def test_fetch_top_tracks(monkeypatch):
     items = [{'id': 't1'}, {'id': 't2'}]
     monkeypatch.setattr(requests, 'get', lambda url, headers=None, params=None: FakeResponse(items))
-    monkeypatch.setattr(Track, 'parse_obj', classmethod(lambda cls, obj: obj))
+    monkeypatch.setattr(Track, 'model_validate', classmethod(lambda cls, obj: obj))
     dao = TrackDAO()
     assert dao.fetch_top_tracks('token') == items
 
@@ -80,7 +80,7 @@ def test_fetch_top_tracks(monkeypatch):
 def test_fetch_playlist_item(monkeypatch):
     items = [{'id': 'pt1'}]
     monkeypatch.setattr(requests, 'get', lambda url, headers=None, params=None: FakeResponse(items))
-    monkeypatch.setattr(PlaylistTrack, 'parse_obj', classmethod(lambda cls, obj: obj))
+    monkeypatch.setattr(PlaylistTrack, 'model_validate', classmethod(lambda cls, obj: obj))
     dao = TrackDAO()
     assert dao.fetch_playlist_item('token', 'pl1') == items
 
@@ -90,7 +90,7 @@ def test_fetch_playlist_item(monkeypatch):
 def test_fetch_artist(monkeypatch):
     data = {'id': 'a1'}
     monkeypatch.setattr(requests, 'get', lambda url, headers=None, params=None: FakeResponse(data))
-    monkeypatch.setattr(Artist, 'parse_obj', classmethod(lambda cls, obj: obj))
+    monkeypatch.setattr(Artist, 'model_validate', classmethod(lambda cls, obj: obj))
     dao = ArtistDAO()
     assert dao.fetch_artist('token', 'a1') == data
 
@@ -98,7 +98,7 @@ def test_fetch_artist(monkeypatch):
 def test_fetch_artists(monkeypatch):
     items = [{'id': 'a1'}, {'id': 'a2'}]
     monkeypatch.setattr(requests, 'get', lambda url, headers=None, params=None: FakeResponse({'artists': items}))
-    monkeypatch.setattr(Artist, 'parse_obj', classmethod(lambda cls, obj: obj))
+    monkeypatch.setattr(Artist, 'model_validate', classmethod(lambda cls, obj: obj))
     dao = ArtistDAO()
     assert dao.fetch_artists('token', ['a1', 'a2']) == items
 
@@ -106,7 +106,7 @@ def test_fetch_artists(monkeypatch):
 def test_fetch_top_artists(monkeypatch):
     items = [{'id': 'sa1'}]
     monkeypatch.setattr(requests, 'get', lambda url, headers=None, params=None: FakeResponse({'items': items}))
-    monkeypatch.setattr(SimplifiedArtist, 'parse_obj', classmethod(lambda cls, obj: obj))
+    monkeypatch.setattr(SimplifiedArtist, 'model_validate', classmethod(lambda cls, obj: obj))
     dao = ArtistDAO()
     assert dao.fetch_top_artists('token') == items
 
@@ -130,7 +130,7 @@ def test_fetch_check_user_follows_artists(monkeypatch):
 def test_fetch_album(monkeypatch):
     data = {'id': 'alb1'}
     monkeypatch.setattr(requests, 'get', lambda url, headers=None, params=None: FakeResponse(data))
-    monkeypatch.setattr(Album, 'parse_obj', classmethod(lambda cls, obj: obj))
+    monkeypatch.setattr(Album, 'model_validate', classmethod(lambda cls, obj: obj))
     dao = AlbumDAO()
     assert dao.fetch_album('token', 'alb1') == data
 
@@ -138,7 +138,7 @@ def test_fetch_album(monkeypatch):
 def test_fetch_albums(monkeypatch):
     items = [{'id': 'alb1'}, {'id': 'alb2'}]
     monkeypatch.setattr(requests, 'get', lambda url, headers=None, params=None: FakeResponse({'albums': items}))
-    monkeypatch.setattr(Album, 'parse_obj', classmethod(lambda cls, obj: obj))
+    monkeypatch.setattr(Album, 'model_validate', classmethod(lambda cls, obj: obj))
     dao = AlbumDAO()
     assert dao.fetch_albums('token', ['alb1', 'alb2']) == items
 
@@ -146,7 +146,7 @@ def test_fetch_albums(monkeypatch):
 def test_fetch_album_tracks(monkeypatch):
     items = [{'id': 't1'}]
     monkeypatch.setattr(requests, 'get', lambda url, headers=None, params=None: FakeResponse({'items': items}))
-    monkeypatch.setattr(Track, 'parse_obj', classmethod(lambda cls, obj: obj))
+    monkeypatch.setattr(Track, 'model_validate', classmethod(lambda cls, obj: obj))
     dao = AlbumDAO()
     assert dao.fetch_album_tracks('token', 'alb1') == items
 
@@ -154,7 +154,7 @@ def test_fetch_album_tracks(monkeypatch):
 def test_fetch_saved_albums(monkeypatch):
     data = ["saved"]
     monkeypatch.setattr(requests, 'get', lambda url, headers=None, params=None: FakeResponse(data))
-    monkeypatch.setattr(SavedAlbum, 'parse_obj', classmethod(lambda cls, obj: obj))
+    monkeypatch.setattr(SavedAlbum, 'model_validate', classmethod(lambda cls, obj: obj))
     dao = AlbumDAO()
     assert dao.fetch_saved_albums('token') == data
 

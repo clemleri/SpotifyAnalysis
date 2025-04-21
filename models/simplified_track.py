@@ -18,7 +18,7 @@ class SimplifiedTrack(BaseModel):
     external_urls: ExternalUrls
     href: HttpUrl                         # URL valide
     id: constr(pattern=r'^[A-Za-z0-9]{22}$')  # ID Spotify (22 chars)
-    is_playable: bool
+    is_playable: Optional[bool] = None
     linked_from: Optional[LinkedFrom] = None
     restrictions: Optional[Restrictions] = None
     name: constr(min_length=1)            # nom non vide
