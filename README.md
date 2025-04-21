@@ -40,7 +40,7 @@ L'objectif est de fournir un dashboard clair et interactif pour mieux comprendre
    ```bash
    SPOTIFY_CLIENT_ID="votre_client_id"
    SPOTIFY_CLIENT_SECRET="votre_client_secret"
-   SPOTIFY_REDIRECT_URI="http://localhost:8888/callback"
+   SPOTIFY_REDIRECT_URI="http://127.0.0.1:8080/callback"
    ```
 
 ## Utilisation
