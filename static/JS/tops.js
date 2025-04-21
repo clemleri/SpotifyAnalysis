@@ -42,10 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Init Glide sliders
   const glideTrack = new Glide('#glideTopTracks', {
     type: 'carousel',
-    perView: 7,
+    perView: 6,
     breakpoints: {
-      1400: { perView: 6},
-      1200: { perView: 5},
       1024: { perView: 4 },
       768: { perView: 3 },
       480: { perView: 2 },
@@ -89,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
       allReadyMountTrack = true
     }
     
-    glideTrack.go('=15');
+    glideTrack.go('=12');
   });
 
   // Toggle artists view
