@@ -93,14 +93,7 @@ def assert_non_empty_str_field(
     with pytest.raises(ValidationError):
         model_cls.model_validate(d)
         
-def assert_conlist_pattern_country  (
-    model_cls,
-    data : dict,
-    field: str
-):
-    """
-    vérifie qu'une liste a bien les bons patterns
-    """
+
     
 def assert_conint_ge(
     model_cls,
@@ -123,7 +116,7 @@ def assert_conint_ge(
     # Cas invalide : valeur de field stricement inférieur de min_value
     bad = min_value-1
     d = data.copy()
-    d[filed] = bad
+    d[field] = bad
     with pytest.raises(ValidationError):
         model_cls.model_validate(d)
         
@@ -151,34 +144,6 @@ def assert_positive_int(
     with pytest.raises(ValidationError):
         model_cls.model_validate(d)
 
-def assert_id(
-    model_cls,
-    data : dict,
-    field : str
-):
-    """
-    Vérfie que le champ id de type str (constr(pattern=r'^[A-Za-z0-9]{22}$')) soit valide lorsque la chaine est bien formée et invalide lorsque la chaîne est mal formée
-    Pour tester cela nous utiliserons la fonction assert_constr_regex_field définis antérieurement
-    """
-    good = '1UnPDzVRkrTBflEQ9MJUhX'
-    
-    # teste sur la longeur de la chaine : chaine trop petite
-    bad_length_small = '1UnPDzVRkrTBflEQ9' # longueur de la chaine -> 17
-    
-    # teste sur la longeur de la chaine : chaine trop grande
-    bad_length_long = '1UnPDzVRkrTBflEQ9MJUhXs6tH4' # longueur de la chaine -> 27
-    
-    # teste sur les caractères renseigner dans la chaîne
-    bad_caracters = '1U#PDzVRkrT*flEQ9M^UhX' # présence des caractères #, *, ^
-    
-    assert_constr_regex_field(
-        model_cls,
-        data,
-        field,
-        [good],
-        [bad_length_small, bad_length_long, bad_caracters]
-    )
-    
 def assert_literal(
     model_cls,
     data : dict,

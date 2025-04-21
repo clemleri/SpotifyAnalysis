@@ -1,13 +1,13 @@
 # saved_track.py
 from datetime import datetime, timezone
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, field_validator
 from models.track import Track
 
 class SavedTrack(BaseModel):
     added_at: datetime
     track: Track
 
-    @validator('added_at')
+    @field_validator('added_at', mode='before')
     def added_at_not_in_future(cls, v: datetime) -> datetime:
         if v.tzinfo is None:
             raise ValueError('added_at doit être timezone-aware')

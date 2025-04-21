@@ -1,5 +1,6 @@
 # artist.py
-from pydantic import BaseModel
+from pydantic import BaseModel, conint
+from models.simplified_artist import SimplifiedArtist
 from typing import List, Optional
 from models.external_urls import ExternalUrls
 from models.followers import Followers

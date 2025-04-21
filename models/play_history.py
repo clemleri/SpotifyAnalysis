@@ -1,7 +1,7 @@
 # play_history.py
 from datetime import datetime, timezone
 from typing import Optional
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, field_validator
 from models.track import Track
 from models.context import Context
 
@@ -10,7 +10,7 @@ class PlayHistory(BaseModel):
     played_at: datetime
     context: Context
 
-    @validator('played_at')
+    @field_validator('played_at', mode='before')
     def played_at_timezone_and_not_future(cls, v: datetime) -> datetime:
         if v.tzinfo is None:
             raise ValueError('played_at doit être timezone-aware')
