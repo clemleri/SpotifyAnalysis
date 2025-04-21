@@ -58,7 +58,7 @@ class TrackDAO:
     ) -> Track:
         """Récupère un track par son ID."""
         data = self._request(f"{self.url}/{track_id}", access_token)
-        return Track.parse_obj(data)
+        return Track.model_validate(data)
 
     def fetch_tracks(
         self,
@@ -69,7 +69,7 @@ class TrackDAO:
         query = ",".join(track_ids)
         data = self._request(f"{self.url}?ids={query}", access_token)
         json.dumps(data, indent=2)
-        return [Track.parse_obj(item) for item in data.get("tracks", [])]
+        return [Track.model_validate(item) for item in data.get("tracks", [])]
 
     def fetch_saved_tracks(
         self,
@@ -83,7 +83,7 @@ class TrackDAO:
         if market:
             params["market"] = market
         data = self._request(self.url_saved_tracks, access_token, params)
-        return SavedTracks.parse_obj(data)
+        return SavedTracks.model_validate(data)
 
     def fetch_check_track_is_saved(
         self,
@@ -109,7 +109,7 @@ class TrackDAO:
         elif before:
             params["before"] = before
         data = self._request(self.url_play_history, access_token, params)
-        return [PlayHistory.parse_obj(item) for item in data]
+        return [PlayHistory.model_validate(item) for item in data]
 
     def fetch_top_tracks(
         self,
@@ -120,7 +120,7 @@ class TrackDAO:
         """Récupère les top tracks de l'utilisateur selon une plage temporelle."""
         params: Dict[str, Any] = {"time_range": time_range, "limit": limit}
         data = self._request(self.url_top_tracks, access_token, params)
-        return [Track.parse_obj(item) for item in data]
+        return [Track.model_validate(item) for item in data]
 
     def fetch_playlist_item(
         self,
@@ -140,4 +140,4 @@ class TrackDAO:
             params["fields"] = fields
         url = self.url_playlist_tracks.format(playlist_id=playlist_id)
         data = self._request(url, access_token, params)
-        return [PlaylistTrack.parse_obj(item) for item in data]
+        return [PlaylistTrack.model_validate(item) for item in data]

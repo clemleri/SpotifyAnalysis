@@ -52,7 +52,7 @@ class AlbumDAO:
     ) -> Album:
         """Récupère un album par son ID."""
         data = self._request(f"{self.url}/{album_id}", access_token)
-        return Album.parse_obj(data)
+        return Album.model_validate(data)
 
     def fetch_albums(
         self,
@@ -62,7 +62,7 @@ class AlbumDAO:
         """Récupère plusieurs albums par leurs IDs conjoints."""
         query = ",".join(album_ids)
         data = self._request(f"{self.url}?ids={query}", access_token)
-        return [Album.parse_obj(item) for item in data.get("albums", [])]
+        return [Album.model_validate(item) for item in data.get("albums", [])]
 
     def fetch_album_tracks(
         self,
@@ -75,7 +75,7 @@ class AlbumDAO:
         params: Dict[str, Any] = {"limit": limit, "offset": offset}
         url = self.url_album_tracks.format(album_id=album_id)
         data = self._request(url, access_token, params)
-        return [Track.parse_obj(item) for item in data.get("items", [])]
+        return [Track.model_validate(item) for item in data.get("items", [])]
 
     def fetch_saved_albums(
         self,
@@ -86,7 +86,7 @@ class AlbumDAO:
         """Récupère les albums sauvegardés de l'utilisateur."""
         params: Dict[str, Any] = {"limit": limit, "offset": offset}
         data_albums = self._request(self.url_saved_albums, access_token, params)
-        return [SavedAlbum.parse_obj(data_album) for data_album in data_albums]
+        return [SavedAlbum.model_validate(data_album) for data_album in data_albums]
 
     def fetch_check_album_is_saved(
         self,

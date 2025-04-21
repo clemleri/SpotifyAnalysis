@@ -51,7 +51,7 @@ class ArtistDAO:
     ) -> Artist:
         """Récupère un artiste par son ID."""
         data = self._request(f"{self.url}/{artist_id}", access_token)
-        return Artist.parse_obj(data)
+        return Artist.model_validate(data)
 
     def fetch_artists(
         self,
@@ -61,7 +61,7 @@ class ArtistDAO:
         """Récupère plusieurs artistes par leurs IDs conjoints."""
         query = ",".join(artist_ids)
         data = self._request(f"{self.url}?ids={query}", access_token)
-        return [Artist.parse_obj(item) for item in data.get("artists", [])]
+        return [Artist.model_validate(item) for item in data.get("artists", [])]
 
     def fetch_top_artists(
         self,
@@ -73,7 +73,7 @@ class ArtistDAO:
         params: Dict[str, Any] = {"time_range": time_range, "limit": limit}
         data = self._request(self.url_top_artists, access_token, params)
         items = data.get("items", [])
-        return [SimplifiedArtist.parse_obj(item) for item in items]
+        return [SimplifiedArtist.model_validate(item) for item in items]
 
     def fetch_followed_artists(
         self,

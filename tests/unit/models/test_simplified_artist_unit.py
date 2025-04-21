@@ -16,7 +16,7 @@ def valid_artist_data():
 
 
 def test_valid_artist_parses():
-    art = SimplifiedArtist.parse_obj(valid_artist_data())
+    art = SimplifiedArtist.model_validate(valid_artist_data())
     assert art.id == "id_artist"
     assert isinstance(art.external_urls, ExternalUrls)
 
@@ -25,4 +25,4 @@ def test_missing_field_raises():
     data = valid_artist_data()
     del data['name']
     with pytest.raises(ValidationError):
-        SimplifiedArtist.parse_obj(data)
+        SimplifiedArtist.model_validate(data)

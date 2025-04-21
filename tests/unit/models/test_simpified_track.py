@@ -1,10 +1,8 @@
 import pytest
 from pydantic import ValidationError
-from models.track import Track
-from tests.helpers.models.constraints import assert_conint_between, assert_non_empty_list_field
+from models.simplified_track import SimplifiedTrack
 
-
-@pytest.mark.parametrize("data", ["track.json"], indirect=True)
+@pytest.mark.parametrize("data", ["simplified_track.json"], indirect=True)
 def test_track_model(data, model_factory):
     """
     Teste le modèle Track via model_factory pour :
@@ -28,9 +26,6 @@ def test_track_model(data, model_factory):
         "type",
         "uri",
         "is_local",
-        "album",
-        "external_ids",
-        "popularity"
     ]
     optional = [
         "is_playable",
@@ -38,14 +33,4 @@ def test_track_model(data, model_factory):
         "restrictions",
         "preview_url"
     ]
-    model_factory(Track, data, required, optional)
-    
-@pytest.mark.parametrize("data", ["track.json"], indirect=True)
-def test_track_popularity_field(data):
-    assert_conint_between(Track, data, "popularity", 0, 100)
-
-@pytest.mark.parametrize("data", ["track.json"], indirect=True)
-def test_track_artists_non_empty(data):
-    assert_non_empty_list_field(Track, data, "artists")
-    
-    
+    model_factory(SimplifiedTrack, data, required, optional)
