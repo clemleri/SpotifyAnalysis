@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export default function UserAvatar({ username, language, followers, avatarUrl, onLogout }) {
   return (
-    <div className="bg-white dark:bg-[#141414] border dark:border-[#212121] border-[#b5b5b5] rounded-xl shadow-md p-6 flex items-center gap-5 w-full max-w-md">
+    <div className="bg-white dark:bg-background-600 border dark:border-gray-700 border-[#b5b5b5] rounded-xl shadow-md p-6 flex items-center gap-5 w-full max-w-md">
       {/* Avatar */}
       <div className="relative w-16 h-16 rounded-full overflow-hidden border dark:border-zinc-700 border-gray-300">
         <Image
@@ -24,7 +24,7 @@ export default function UserAvatar({ username, language, followers, avatarUrl, o
       {/* Logout */}
       <button
         onClick={onLogout}
-        className="text-sm font-medium px-4 py-2 rounded-lg border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition"
+        className="text-sm font-medium px-4 py-2 rounded-xl border border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition"
         >
         Logout
       </button>

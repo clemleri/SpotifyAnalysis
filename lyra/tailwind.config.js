@@ -18,8 +18,8 @@ module.exports = {
         },
         background: {
           DEFAULT: '#0f0f0f',
-          darker: '#080808',
-          darkBright: '#262629',
+          500: '#080808',
+          600: '#262629',
         }
 
         // ajoute d'autres couleurs selon tes besoins

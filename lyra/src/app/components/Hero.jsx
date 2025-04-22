@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Hero() {
   return (
     <section className="text-center max-w-4xl mx-auto overflow-x-clip md:overflow-visible mt-[-8rem]">
@@ -12,12 +14,12 @@ export default function Hero() {
         </p>
 
         <div className="flex justify-center gap-4 mb-10">
-          <a
+          <Link
             href="/login"
             className="z-10 bg-primary hover:bg-primary-dark text-white dark:text-black px-6 py-3 text-lg font-medium rounded-xl hover:-translate-y-1 transition duration-300"
           >
             Get started
-          </a>
+          </Link>
           <a
             href="#pricing"
             className="z-10 border border-primary text-primary px-6 py-3 text-lg font-medium rounded-xl hover:border-primary-dark hover:text-primary-dark hover:-translate-y-1 transition duration-300"

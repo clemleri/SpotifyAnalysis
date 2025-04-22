@@ -15,11 +15,11 @@ export default function Sidebar() {
   const [open, setOpen] = useState(false)
 
   const links = [
-    { name: 'Dashboard', href: '#', icon: ChartBarIcon },
-    { name: 'Tops Tracks', href: '#', icon: Squares2X2Icon, },
-    { name: 'Tops Artist', href: '#', icon: UsersIcon, },
-    { name: 'Recents Tracks', href: '#', icon: InboxIcon },
-    { name: 'Sport Stats', href: '#', icon: HeartIcon },
+    { name: 'Dashboard', href: '#dashboard', icon: ChartBarIcon },
+    { name: 'Tops Tracks', href: '#topsTracks', icon: Squares2X2Icon, },
+    { name: 'Tops Artists', href: '#topsArtists', icon: UsersIcon, },
+    { name: 'Recent Tracks', href: '#recentTracks', icon: InboxIcon },
+    { name: 'Sport Stats', href: '#sportStats', icon: HeartIcon },
   ]
 
   return (
@@ -44,11 +44,11 @@ export default function Sidebar() {
       </button>
 
       <aside
-        className={`fixed  top-0 left-0 z-40 w-64 h-screen transition-transform bg-white dark:bg-[#0f0f0f] ${
+        className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform bg-white dark:bg-[#0f0f0f] ${
           open ? 'translate-x-0' : '-translate-x-full'
         } sm:translate-x-0`}
       >
-        <div className="h-full  border-r dark:border-zinc-700 border-gray-300 px-3 py-4 overflow-y-auto mt-[4rem]">
+        <div className="h-full  border-r dark:border-zinc-700 border-gray-300 px-3 py-4 overflow-y-auto mt-[4.5rem]">
           <ul className="space-y-2 font-medium">
             {links.map((link) => (
               <li key={link.name}>
@@ -57,7 +57,7 @@ export default function Sidebar() {
                   onClick={() => {
                     if (window.innerWidth < 640) setOpen(false)
                   }}
-                  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-background-darker group"
+                  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-800 group"
                 >
                   <link.icon className="w-5 h-5 text-gray-500 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
                   <span className="ms-3 flex-1 whitespace-nowrap">{link.name}</span>

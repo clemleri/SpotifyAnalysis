@@ -1,19 +1,40 @@
-// pages/homepage.jsx
+"use client";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import Features from "../components/Features";
-import Testimonials from "../components/Testimonials";
-import Pricing from "../components/Pricing";
-import Footer from "../components/Footer";
-import Sidebar from "../components/Sidebar";
 import LayoutWithSidebar from "../components/LayoutWithSidebar";
+import SpotifyLoginButton from "../components/SpotifyLoginButton";
+import StravaLoginButton from "../components/StravaLoginButton";
 
 export default function Tops() {
+  const [showSportStats, setShowSportStats] = useState(false);
+
+  useEffect(() => {
+    const checkHash = () => {
+      const currentHash = window.location.hash;
+      setShowSportStats(currentHash === "#sportStats");
+    };
+
+    checkHash();
+
+    // écoute les changements d’ancre (hash)
+    window.addEventListener("hashchange", checkHash);
+
+    return () => {
+      window.removeEventListener("hashchange", checkHash);
+    };
+  }, []);
+
   return (
     <main className="text-black dark:text-white min-h-screen">
       <Navbar />
-      <LayoutWithSidebar></LayoutWithSidebar>
-
+      <LayoutWithSidebar>
+        {showSportStats && (
+          <div className="w-full h-[100vh] mt-[-4rem] gap-6 flex-col md:flex-row flex justify-center items-center">
+            <SpotifyLoginButton isConnected={false} />
+            <StravaLoginButton isConnected={false} />
+          </div>
+        )}
+      </LayoutWithSidebar>
     </main>
   );
 }

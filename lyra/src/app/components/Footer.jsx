@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer({ extend = true }) {
   return (
     <footer className="mt-32">
@@ -31,12 +33,12 @@ export default function Footer({ extend = true }) {
               <span>Explore a new dimension of music analytics</span>
               <span>with a tool that listens deeper than Spotify ever could.</span>
             </p>
-            <a
+            <Link
               href="/login"
               className="bg-primary w-[10rem] text-white dark:text-black text-center px-6 py-3 text-lg font-medium rounded-xl hover:bg-primary-dark hover:-translate-y-1 transition duration-300"
             >
               Get started
-            </a>
+            </Link>
           </div>
         </div>
       )}

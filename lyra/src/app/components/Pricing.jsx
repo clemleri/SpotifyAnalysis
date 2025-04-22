@@ -1,4 +1,5 @@
 import { CheckIcon } from '@heroicons/react/20/solid';
+import Link from 'next/link';
 
 const tiers = [
   {
@@ -100,7 +101,7 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-            <a
+            <Link
               href={tier.href}
               aria-describedby={tier.id}
               className={classNames(
@@ -111,7 +112,7 @@ export default function Pricing() {
               )}
             >
               Get started today
-            </a>
+            </Link>
           </div>
         ))}
       </div>
