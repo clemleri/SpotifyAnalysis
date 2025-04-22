@@ -1,0 +1,421 @@
+{
+    "added_at": "2025-04-20T10:14:05Z",
+    "album": {
+      "album_type": "album",
+      "total_tracks": 12,
+      "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+      "external_urls": {
+        "spotify": "https://open.spotify.com/album/6ICmpCjtc248TVKtJo97Se"
+      },
+      "href": "https://api.spotify.com/v1/albums/6ICmpCjtc248TVKtJo97Se?locale=fr-FR%2Cfr%3Bq%3D0.9%2Cen-US%3Bq%3D0.8%2Cen%3Bq%3D0.7",
+      "id": "6ICmpCjtc248TVKtJo97Se",
+      "images": [
+        {
+          "url": "https://i.scdn.co/image/ab67616d0000b2734cdacd2b53bc23d44f2d16f6",
+          "height": 640,
+          "width": 640
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616d00001e024cdacd2b53bc23d44f2d16f6",
+          "height": 300,
+          "width": 300
+        },
+        {
+          "url": "https://i.scdn.co/image/ab67616d000048514cdacd2b53bc23d44f2d16f6",
+          "height": 64,
+          "width": 64
+        }
+      ],
+      "name": "Gravity",
+      "release_date": "2024-06-21",
+      "release_date_precision": "day",
+      "type": "album",
+      "uri": "spotify:album:6ICmpCjtc248TVKtJo97Se",
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/0iMnpaEHXkgMT956CmP1kj"
+          },
+          "href": "https://api.spotify.com/v1/artists/0iMnpaEHXkgMT956CmP1kj",
+          "id": "0iMnpaEHXkgMT956CmP1kj",
+          "name": "The Dangerous Summer",
+          "type": "artist",
+          "uri": "spotify:artist:0iMnpaEHXkgMT956CmP1kj"
+        }
+      ],
+      "tracks": {
+        "href": "https://api.spotify.com/v1/albums/6ICmpCjtc248TVKtJo97Se/tracks?offset=0&limit=50&locale=fr-FR,fr;q%3D0.9,en-US;q%3D0.8,en;q%3D0.7",
+        "limit": 50,
+        "next": null,
+        "offset": 0,
+        "previous": null,
+        "total": 12,
+        "items": [
+          {
+            "artists": [
+              {
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/artist/0iMnpaEHXkgMT956CmP1kj"
+                },
+                "href": "https://api.spotify.com/v1/artists/0iMnpaEHXkgMT956CmP1kj",
+                "id": "0iMnpaEHXkgMT956CmP1kj",
+                "name": "The Dangerous Summer",
+                "type": "artist",
+                "uri": "spotify:artist:0iMnpaEHXkgMT956CmP1kj"
+              }
+            ],
+            "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+            "disc_number": 1,
+            "duration_ms": 223973,
+            "explicit": false,
+            "external_urls": {
+              "spotify": "https://open.spotify.com/track/2PTL35ccoqiC4WMfdMbPT0"
+            },
+            "href": "https://api.spotify.com/v1/tracks/2PTL35ccoqiC4WMfdMbPT0",
+            "id": "2PTL35ccoqiC4WMfdMbPT0",
+            "name": "I Feel More Like Myself When I'm Losing It",
+            "preview_url": null,
+            "track_number": 1,
+            "type": "track",
+            "uri": "spotify:track:2PTL35ccoqiC4WMfdMbPT0",
+            "is_local": false
+          },
+          {
+            "artists": [
+              {
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/artist/0iMnpaEHXkgMT956CmP1kj"
+                },
+                "href": "https://api.spotify.com/v1/artists/0iMnpaEHXkgMT956CmP1kj",
+                "id": "0iMnpaEHXkgMT956CmP1kj",
+                "name": "The Dangerous Summer",
+                "type": "artist",
+                "uri": "spotify:artist:0iMnpaEHXkgMT956CmP1kj"
+              }
+            ],
+            "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+            "disc_number": 1,
+            "duration_ms": 196173,
+            "explicit": false,
+            "external_urls": {
+              "spotify": "https://open.spotify.com/track/1FSSKCjj4MgqtEg0cn0URS"
+            },
+            "href": "https://api.spotify.com/v1/tracks/1FSSKCjj4MgqtEg0cn0URS",
+            "id": "1FSSKCjj4MgqtEg0cn0URS",
+            "name": "Pacific Ocean",
+            "preview_url": null,
+            "track_number": 2,
+            "type": "track",
+            "uri": "spotify:track:1FSSKCjj4MgqtEg0cn0URS",
+            "is_local": false
+          },
+          {
+            "artists": [
+              {
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/artist/0iMnpaEHXkgMT956CmP1kj"
+                },
+                "href": "https://api.spotify.com/v1/artists/0iMnpaEHXkgMT956CmP1kj",
+                "id": "0iMnpaEHXkgMT956CmP1kj",
+                "name": "The Dangerous Summer",
+                "type": "artist",
+                "uri": "spotify:artist:0iMnpaEHXkgMT956CmP1kj"
+              }
+            ],
+            "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+            "disc_number": 1,
+            "duration_ms": 262800,
+            "explicit": true,
+            "external_urls": {
+              "spotify": "https://open.spotify.com/track/3LFHbS0LxHi6eZiNsIdczL"
+            },
+            "href": "https://api.spotify.com/v1/tracks/3LFHbS0LxHi6eZiNsIdczL",
+            "id": "3LFHbS0LxHi6eZiNsIdczL",
+            "name": "Gravity",
+            "preview_url": null,
+            "track_number": 3,
+            "type": "track",
+            "uri": "spotify:track:3LFHbS0LxHi6eZiNsIdczL",
+            "is_local": false
+          },
+          {
+            "artists": [
+              {
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/artist/0iMnpaEHXkgMT956CmP1kj"
+                },
+                "href": "https://api.spotify.com/v1/artists/0iMnpaEHXkgMT956CmP1kj",
+                "id": "0iMnpaEHXkgMT956CmP1kj",
+                "name": "The Dangerous Summer",
+                "type": "artist",
+                "uri": "spotify:artist:0iMnpaEHXkgMT956CmP1kj"
+              }
+            ],
+            "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+            "disc_number": 1,
+            "duration_ms": 218511,
+            "explicit": false,
+            "external_urls": {
+              "spotify": "https://open.spotify.com/track/1UdlKZTKEERcQk31LAR8iM"
+            },
+            "href": "https://api.spotify.com/v1/tracks/1UdlKZTKEERcQk31LAR8iM",
+            "id": "1UdlKZTKEERcQk31LAR8iM",
+            "name": "You'll See It All Coming",
+            "preview_url": null,
+            "track_number": 4,
+            "type": "track",
+            "uri": "spotify:track:1UdlKZTKEERcQk31LAR8iM",
+            "is_local": false
+          },
+          {
+            "artists": [
+              {
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/artist/0iMnpaEHXkgMT956CmP1kj"
+                },
+                "href": "https://api.spotify.com/v1/artists/0iMnpaEHXkgMT956CmP1kj",
+                "id": "0iMnpaEHXkgMT956CmP1kj",
+                "name": "The Dangerous Summer",
+                "type": "artist",
+                "uri": "spotify:artist:0iMnpaEHXkgMT956CmP1kj"
+              }
+            ],
+            "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+            "disc_number": 1,
+            "duration_ms": 213141,
+            "explicit": false,
+            "external_urls": {
+              "spotify": "https://open.spotify.com/track/1k2mTW331o9dlo7jPjp617"
+            },
+            "href": "https://api.spotify.com/v1/tracks/1k2mTW331o9dlo7jPjp617",
+            "id": "1k2mTW331o9dlo7jPjp617",
+            "name": "What's An Hour Really Worth",
+            "preview_url": null,
+            "track_number": 5,
+            "type": "track",
+            "uri": "spotify:track:1k2mTW331o9dlo7jPjp617",
+            "is_local": false
+          },
+          {
+            "artists": [
+              {
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/artist/0iMnpaEHXkgMT956CmP1kj"
+                },
+                "href": "https://api.spotify.com/v1/artists/0iMnpaEHXkgMT956CmP1kj",
+                "id": "0iMnpaEHXkgMT956CmP1kj",
+                "name": "The Dangerous Summer",
+                "type": "artist",
+                "uri": "spotify:artist:0iMnpaEHXkgMT956CmP1kj"
+              }
+            ],
+            "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+            "disc_number": 1,
+            "duration_ms": 261592,
+            "explicit": false,
+            "external_urls": {
+              "spotify": "https://open.spotify.com/track/4qeDD5F5SYorEccc0fvQPT"
+            },
+            "href": "https://api.spotify.com/v1/tracks/4qeDD5F5SYorEccc0fvQPT",
+            "id": "4qeDD5F5SYorEccc0fvQPT",
+            "name": "Turning Love Into War",
+            "preview_url": null,
+            "track_number": 6,
+            "type": "track",
+            "uri": "spotify:track:4qeDD5F5SYorEccc0fvQPT",
+            "is_local": false
+          },
+          {
+            "artists": [
+              {
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/artist/0iMnpaEHXkgMT956CmP1kj"
+                },
+                "href": "https://api.spotify.com/v1/artists/0iMnpaEHXkgMT956CmP1kj",
+                "id": "0iMnpaEHXkgMT956CmP1kj",
+                "name": "The Dangerous Summer",
+                "type": "artist",
+                "uri": "spotify:artist:0iMnpaEHXkgMT956CmP1kj"
+              }
+            ],
+            "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+            "disc_number": 1,
+            "duration_ms": 247713,
+            "explicit": false,
+            "external_urls": {
+              "spotify": "https://open.spotify.com/track/2BomjKuUpvylOjpmGERZew"
+            },
+            "href": "https://api.spotify.com/v1/tracks/2BomjKuUpvylOjpmGERZew",
+            "id": "2BomjKuUpvylOjpmGERZew",
+            "name": "Where Did All The Time Go?",
+            "preview_url": null,
+            "track_number": 7,
+            "type": "track",
+            "uri": "spotify:track:2BomjKuUpvylOjpmGERZew",
+            "is_local": false
+          },
+          {
+            "artists": [
+              {
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/artist/0iMnpaEHXkgMT956CmP1kj"
+                },
+                "href": "https://api.spotify.com/v1/artists/0iMnpaEHXkgMT956CmP1kj",
+                "id": "0iMnpaEHXkgMT956CmP1kj",
+                "name": "The Dangerous Summer",
+                "type": "artist",
+                "uri": "spotify:artist:0iMnpaEHXkgMT956CmP1kj"
+              }
+            ],
+            "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+            "disc_number": 1,
+            "duration_ms": 179996,
+            "explicit": true,
+            "external_urls": {
+              "spotify": "https://open.spotify.com/track/2k553qLPCPIraqlkIZXVbq"
+            },
+            "href": "https://api.spotify.com/v1/tracks/2k553qLPCPIraqlkIZXVbq",
+            "id": "2k553qLPCPIraqlkIZXVbq",
+            "name": "With My Pen",
+            "preview_url": null,
+            "track_number": 8,
+            "type": "track",
+            "uri": "spotify:track:2k553qLPCPIraqlkIZXVbq",
+            "is_local": false
+          },
+          {
+            "artists": [
+              {
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/artist/0iMnpaEHXkgMT956CmP1kj"
+                },
+                "href": "https://api.spotify.com/v1/artists/0iMnpaEHXkgMT956CmP1kj",
+                "id": "0iMnpaEHXkgMT956CmP1kj",
+                "name": "The Dangerous Summer",
+                "type": "artist",
+                "uri": "spotify:artist:0iMnpaEHXkgMT956CmP1kj"
+              }
+            ],
+            "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+            "disc_number": 1,
+            "duration_ms": 213667,
+            "explicit": false,
+            "external_urls": {
+              "spotify": "https://open.spotify.com/track/2Ts0FGCcBjEbIV0HZXoEph"
+            },
+            "href": "https://api.spotify.com/v1/tracks/2Ts0FGCcBjEbIV0HZXoEph",
+            "id": "2Ts0FGCcBjEbIV0HZXoEph",
+            "name": "Wild One",
+            "preview_url": null,
+            "track_number": 9,
+            "type": "track",
+            "uri": "spotify:track:2Ts0FGCcBjEbIV0HZXoEph",
+            "is_local": false
+          },
+          {
+            "artists": [
+              {
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/artist/0iMnpaEHXkgMT956CmP1kj"
+                },
+                "href": "https://api.spotify.com/v1/artists/0iMnpaEHXkgMT956CmP1kj",
+                "id": "0iMnpaEHXkgMT956CmP1kj",
+                "name": "The Dangerous Summer",
+                "type": "artist",
+                "uri": "spotify:artist:0iMnpaEHXkgMT956CmP1kj"
+              }
+            ],
+            "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+            "disc_number": 1,
+            "duration_ms": 237210,
+            "explicit": false,
+            "external_urls": {
+              "spotify": "https://open.spotify.com/track/7Kfe9HDcKk9foSSFmCibsF"
+            },
+            "href": "https://api.spotify.com/v1/tracks/7Kfe9HDcKk9foSSFmCibsF",
+            "id": "7Kfe9HDcKk9foSSFmCibsF",
+            "name": "Clouds In My Eyes",
+            "preview_url": null,
+            "track_number": 10,
+            "type": "track",
+            "uri": "spotify:track:7Kfe9HDcKk9foSSFmCibsF",
+            "is_local": false
+          },
+          {
+            "artists": [
+              {
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/artist/0iMnpaEHXkgMT956CmP1kj"
+                },
+                "href": "https://api.spotify.com/v1/artists/0iMnpaEHXkgMT956CmP1kj",
+                "id": "0iMnpaEHXkgMT956CmP1kj",
+                "name": "The Dangerous Summer",
+                "type": "artist",
+                "uri": "spotify:artist:0iMnpaEHXkgMT956CmP1kj"
+              }
+            ],
+            "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+            "disc_number": 1,
+            "duration_ms": 228516,
+            "explicit": false,
+            "external_urls": {
+              "spotify": "https://open.spotify.com/track/4T9BBm7nYtmdnPB1yMaj3p"
+            },
+            "href": "https://api.spotify.com/v1/tracks/4T9BBm7nYtmdnPB1yMaj3p",
+            "id": "4T9BBm7nYtmdnPB1yMaj3p",
+            "name": "Dream",
+            "preview_url": null,
+            "track_number": 11,
+            "type": "track",
+            "uri": "spotify:track:4T9BBm7nYtmdnPB1yMaj3p",
+            "is_local": false
+          },
+          {
+            "artists": [
+              {
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/artist/0iMnpaEHXkgMT956CmP1kj"
+                },
+                "href": "https://api.spotify.com/v1/artists/0iMnpaEHXkgMT956CmP1kj",
+                "id": "0iMnpaEHXkgMT956CmP1kj",
+                "name": "The Dangerous Summer",
+                "type": "artist",
+                "uri": "spotify:artist:0iMnpaEHXkgMT956CmP1kj"
+              }
+            ],
+            "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+            "disc_number": 1,
+            "duration_ms": 303499,
+            "explicit": false,
+            "external_urls": {
+              "spotify": "https://open.spotify.com/track/2x8GJzmsTwMMbmBvOtU9XD"
+            },
+            "href": "https://api.spotify.com/v1/tracks/2x8GJzmsTwMMbmBvOtU9XD",
+            "id": "2x8GJzmsTwMMbmBvOtU9XD",
+            "name": "Into The Stratosphere",
+            "preview_url": null,
+            "track_number": 12,
+            "type": "track",
+            "uri": "spotify:track:2x8GJzmsTwMMbmBvOtU9XD",
+            "is_local": false
+          }
+        ]
+      },
+      "copyrights": [
+        {
+          "text": "(C) 2024 Rude Records",
+          "type": "C"
+        },
+        {
+          "text": "(P) 2024 Rude Records",
+          "type": "P"
+        }
+      ],
+      "external_ids": {
+        "upc": "198391148873"
+      },
+      "genres": [],
+      "label": "Rude Records",
+      "popularity": 35
+    }
+}

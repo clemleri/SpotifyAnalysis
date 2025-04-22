@@ -1,6 +1,7 @@
 # constants/tests.py
 from typing import Final
 from models.track import Track
+from models.tracks import Tracks
 from models.simplified_track import SimplifiedTrack
 from models.album import Album
 from models.simplified_album import SimplifiedAlbum
@@ -21,6 +22,9 @@ from models.cursors import Cursors
 from models.copyright import Copyright
 from models.context import Context
 from models.restrictions import Restrictions
+from models.playlist import Playlist
+from models.track_without_available_markets import TrackWithoutAvailableMarkets
+from models.album_without_available_markets import AlbumWithoutAvailableMarkets
 
 # constantes file_name tests/unit/models
 TRACK_FILE_NAME: Final[str] = "track.json"
@@ -29,11 +33,20 @@ ARTIST_FILE_NAME : Final[str] = "artist.json"
 SIMPLIFIED_ARTIST_FILE_NAME : Final[str] = "simplified_artist.json"
 ALBUM_FILE_NAME: Final[str] = "album.json"
 SIMPLIFIED_ALBUM_FILE_NAME: Final[str] = "simplified_album.json"
-
+PAGINATED_RESPONSE_FILE_NAME : Final[str] = "paginated_response.json"
+FOLLOWERS_FILE_NAME : Final[str] = "followers.json"
+TRACKS_FILE_NAME: Final[str] = "tracks.json"
+CONTEXT_FILE_NAME : Final[str] = "context.json"
+LINKED_FROM_FILE_NAME : Final[str] = "linked_from.json"
+PLAY_HISTORY_FILE_NAME : Final[str] = "play_history.json"
+PLAYLIST_TRACK_FILENAME : Final[str] = "playlist_track.json"
+SAVED_ALBUM_FILE_NAME : Final[str] = "saved_album.json"
+PLAYLIST_FILE_NAME : Final[str] = "playlist.json"
+SAVED_TRACK_FILENAME : Final[str] = "saved_track.json"
 
 # constantes type tests/unit/models
 TRACK_TYPE: Final[type] = Track
-TRACKS_TYPE: Final[type] = Track  # à ajuster si vous avez un wrapper spécifique
+TRACKS_TYPE: Final[type] = Tracks  
 SIMPLIFIED_TRACK_TYPE: Final[type] = SimplifiedTrack
 ALBUM_TYPE: Final[type] = Album
 SIMPLIFIED_ALBUM_TYPE: Final[type] = SimplifiedAlbum
@@ -54,3 +67,5 @@ CURSORS_TYPE: Final[type] = Cursors
 COPYRIGHT_TYPE: Final[type] = Copyright
 CONTEXT_TYPE: Final[type] = Context
 RESTRICTIONS_TYPE: Final[type] = Restrictions
+TRACK_WITHOUT_AVAILABLE_MARKETS_TYPE : Final[type] = TrackWithoutAvailableMarkets
+ALBUM_WITHOUT_AVAILABLE_MARKETS_TYPE : Final[type] = AlbumWithoutAvailableMarkets

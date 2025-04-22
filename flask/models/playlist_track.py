@@ -1,19 +1,36 @@
 # playlist_track.py
 from datetime import datetime, timezone
-from pydantic import BaseModel, field_validator
+from typing import Union
+from pydantic import BaseModel, field_validator, conlist, constr
 from models.linked_from import LinkedFrom
-from models.track import Track
+from models.track_without_available_markets import TrackWithoutAvailableMarkets
+from models.simplified_album import SimplifiedAlbum
 
 class PlaylistTrack(BaseModel):
+    track: TrackWithoutAvailableMarkets
     added_at: datetime
     added_by: LinkedFrom
     is_local: bool
-    track: Track
+
 
     @field_validator('added_at', mode='before')
-    def added_at_not_in_future(cls, v: datetime) -> datetime:
+    def played_at_timezone_and_not_future(cls, v: Union[str, datetime]) -> datetime:
+        """
+        Validator pour s'assurer que :
+        - la date est au format ISO avec timezone (ou datetime à tzinfo)
+        - la date n'est pas dans le futur
+        """
+        # Conversion depuis une chaîne ISO
+        if isinstance(v, str):
+            # Gère le suffixe 'Z' pour UTC
+            iso = v
+            if iso.endswith('Z'):
+                iso = iso[:-1] + '+00:00'
+            v = datetime.fromisoformat(iso)
+        # Vérifier timezone-aware
         if v.tzinfo is None:
             raise ValueError('added_at doit être timezone-aware')
+        # Vérifier que ce n'est pas une date future
         if v > datetime.now(timezone.utc):
             raise ValueError('added_at ne peut être dans le futur')
         return v
