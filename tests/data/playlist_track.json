@@ -1,0 +1,112 @@
+{
+    "added_at": "2025-01-03T15:55:58Z",
+    "added_by": {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/user/31b3yikgfs3a6dypwxxij2ts5jz4"
+      },
+      "href": "https://api.spotify.com/v1/users/31b3yikgfs3a6dypwxxij2ts5jz4",
+      "id": "31b3yikgfs3a6dypwxxij2ts5jz4",
+      "type": "user",
+      "uri": "spotify:user:31b3yikgfs3a6dypwxxij2ts5jz4"
+    },
+    "is_local": false,
+    "track": {
+      "album": {
+        "album_type": "single",
+        "total_tracks": 1,
+        "available_markets": [],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/5lKZ0Fpsgo8nHt6Y6ZezEQ"
+        },
+        "href": "https://api.spotify.com/v1/albums/5lKZ0Fpsgo8nHt6Y6ZezEQ",
+        "id": "5lKZ0Fpsgo8nHt6Y6ZezEQ",
+        "images": [
+          {
+            "url": "https://i.scdn.co/image/ab67616d0000b27369905475c7940fba24458ed9",
+            "height": 640,
+            "width": 640
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d00001e0269905475c7940fba24458ed9",
+            "height": 300,
+            "width": 300
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d0000485169905475c7940fba24458ed9",
+            "height": 64,
+            "width": 64
+          }
+        ],
+        "name": "Love For You",
+        "release_date": "2024-05-22",
+        "release_date_precision": "day",
+        "type": "album",
+        "uri": "spotify:album:5lKZ0Fpsgo8nHt6Y6ZezEQ",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/7mcE0EmrnPmyAGU3UBJrFg"
+            },
+            "href": "https://api.spotify.com/v1/artists/7mcE0EmrnPmyAGU3UBJrFg",
+            "id": "7mcE0EmrnPmyAGU3UBJrFg",
+            "name": "LOVELI LORI",
+            "type": "artist",
+            "uri": "spotify:artist:7mcE0EmrnPmyAGU3UBJrFg"
+          },
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/3oSZKapuKjNzTOejmMFXn3"
+            },
+            "href": "https://api.spotify.com/v1/artists/3oSZKapuKjNzTOejmMFXn3",
+            "id": "3oSZKapuKjNzTOejmMFXn3",
+            "name": "ovg!",
+            "type": "artist",
+            "uri": "spotify:artist:3oSZKapuKjNzTOejmMFXn3"
+          }
+        ]
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/7mcE0EmrnPmyAGU3UBJrFg"
+          },
+          "href": "https://api.spotify.com/v1/artists/7mcE0EmrnPmyAGU3UBJrFg",
+          "id": "7mcE0EmrnPmyAGU3UBJrFg",
+          "name": "LOVELI LORI",
+          "type": "artist",
+          "uri": "spotify:artist:7mcE0EmrnPmyAGU3UBJrFg"
+        },
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/3oSZKapuKjNzTOejmMFXn3"
+          },
+          "href": "https://api.spotify.com/v1/artists/3oSZKapuKjNzTOejmMFXn3",
+          "id": "3oSZKapuKjNzTOejmMFXn3",
+          "name": "ovg!",
+          "type": "artist",
+          "uri": "spotify:artist:3oSZKapuKjNzTOejmMFXn3"
+        }
+      ],
+      "available_markets": [],
+      "disc_number": 1,
+      "duration_ms": 170233,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "USWB12402085"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/3SDJGyVK6sDBkwan0Sxj6R"
+      },
+      "href": "https://api.spotify.com/v1/tracks/3SDJGyVK6sDBkwan0Sxj6R",
+      "id": "3SDJGyVK6sDBkwan0Sxj6R",
+      "name": "Love For You",
+      "popularity": 33,
+      "preview_url": null,
+      "track_number": 1,
+      "type": "track",
+      "uri": "spotify:track:3SDJGyVK6sDBkwan0Sxj6R",
+      "is_local": false,
+      "episode": false,
+      "track": true
+    }
+}

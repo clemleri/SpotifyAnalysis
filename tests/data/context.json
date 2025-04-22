@@ -1,0 +1,8 @@
+{
+    "type": "playlist",
+    "href": "https://api.spotify.com/v1/playlists/1dCMRwqK70BUdgZVN27asI",
+    "external_urls": {
+      "spotify": "https://open.spotify.com/playlist/1dCMRwqK70BUdgZVN27asI"
+    },
+    "uri": "spotify:playlist:1dCMRwqK70BUdgZVN27asI"
+}
