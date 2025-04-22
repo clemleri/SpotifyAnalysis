@@ -1,0 +1,142 @@
+{
+    "collaborative": false,
+    "description": "",
+    "external_urls": {
+      "spotify": "https://open.spotify.com/playlist/4LMI9ZqmGj4df2E3tTdrIB"
+    },
+    "href": "https://api.spotify.com/v1/playlists/4LMI9ZqmGj4df2E3tTdrIB?locale=fr-FR%2Cfr%3Bq%3D0.9%2Cen-US%3Bq%3D0.8%2Cen%3Bq%3D0.7",
+    "id": "4LMI9ZqmGj4df2E3tTdrIB",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab67616d00001e02547390db59fa3388016da5fa",
+        "height": null,
+        "width": null
+      }
+    ],
+    "name": "Ma playlist n° 15",
+    "owner": {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/user/31b3yikgfs3a6dypwxxij2ts5jz4"
+      },
+      "href": "https://api.spotify.com/v1/users/31b3yikgfs3a6dypwxxij2ts5jz4",
+      "id": "31b3yikgfs3a6dypwxxij2ts5jz4",
+      "type": "user",
+      "uri": "spotify:user:31b3yikgfs3a6dypwxxij2ts5jz4",
+      "display_name": "Clem"
+    },
+    "public": true,
+    "snapshot_id": "AAAAAcvqa7CQE0VhsIo5bIIvEy7EZNIS",
+    "tracks": {
+      "href": "https://api.spotify.com/v1/playlists/4LMI9ZqmGj4df2E3tTdrIB/tracks?offset=0&limit=100&locale=fr-FR,fr;q%3D0.9,en-US;q%3D0.8,en;q%3D0.7",
+      "limit": 100,
+      "next": null,
+      "offset": 0,
+      "previous": null,
+      "total": 1,
+      "items": [
+        {
+          "added_at": "2025-04-22T12:34:22Z",
+          "added_by": {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/user/31b3yikgfs3a6dypwxxij2ts5jz4"
+            },
+            "href": "https://api.spotify.com/v1/users/31b3yikgfs3a6dypwxxij2ts5jz4",
+            "id": "31b3yikgfs3a6dypwxxij2ts5jz4",
+            "type": "user",
+            "uri": "spotify:user:31b3yikgfs3a6dypwxxij2ts5jz4"
+          },
+          "is_local": false,
+          "track": {
+            "album": {
+              "album_type": "single",
+              "total_tracks": 1,
+              "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+              "external_urls": {
+                "spotify": "https://open.spotify.com/album/5OM3Mt1ai4rGCJ0BMUnfar"
+              },
+              "href": "https://api.spotify.com/v1/albums/5OM3Mt1ai4rGCJ0BMUnfar",
+              "id": "5OM3Mt1ai4rGCJ0BMUnfar",
+              "images": [
+                {
+                  "url": "https://i.scdn.co/image/ab67616d0000b273547390db59fa3388016da5fa",
+                  "height": 640,
+                  "width": 640
+                },
+                {
+                  "url": "https://i.scdn.co/image/ab67616d00001e02547390db59fa3388016da5fa",
+                  "height": 300,
+                  "width": 300
+                },
+                {
+                  "url": "https://i.scdn.co/image/ab67616d00004851547390db59fa3388016da5fa",
+                  "height": 64,
+                  "width": 64
+                }
+              ],
+              "name": "Whispers",
+              "release_date": "2025-02-28",
+              "release_date_precision": "day",
+              "type": "album",
+              "uri": "spotify:album:5OM3Mt1ai4rGCJ0BMUnfar",
+              "artists": [
+                {
+                  "external_urls": {
+                    "spotify": "https://open.spotify.com/artist/1ZZOH5sVtg6KLXJydOm43Q"
+                  },
+                  "href": "https://api.spotify.com/v1/artists/1ZZOH5sVtg6KLXJydOm43Q",
+                  "id": "1ZZOH5sVtg6KLXJydOm43Q",
+                  "name": "☆NoAki☆",
+                  "type": "artist",
+                  "uri": "spotify:artist:1ZZOH5sVtg6KLXJydOm43Q"
+                }
+              ]
+            },
+            "artists": [
+              {
+                "external_urls": {
+                  "spotify": "https://open.spotify.com/artist/1ZZOH5sVtg6KLXJydOm43Q"
+                },
+                "href": "https://api.spotify.com/v1/artists/1ZZOH5sVtg6KLXJydOm43Q",
+                "id": "1ZZOH5sVtg6KLXJydOm43Q",
+                "name": "☆NoAki☆",
+                "type": "artist",
+                "uri": "spotify:artist:1ZZOH5sVtg6KLXJydOm43Q"
+              }
+            ],
+            "available_markets": ["AR", "AU", "AT", "BE", "BO", "BR", "BG", "CA", "CL", "CO", "CR", "CY", "CZ", "DK", "DO", "DE", "EC", "EE", "SV", "FI", "FR", "GR", "GT", "HN", "HK", "HU", "IS", "IE", "IT", "LV", "LT", "LU", "MY", "MT", "MX", "NL", "NZ", "NI", "NO", "PA", "PY", "PE", "PH", "PL", "PT", "SG", "SK", "ES", "SE", "CH", "TW", "TR", "UY", "US", "GB", "AD", "LI", "MC", "ID", "JP", "TH", "VN", "RO", "IL", "ZA", "SA", "AE", "BH", "QA", "OM", "KW", "EG", "MA", "DZ", "TN", "LB", "JO", "PS", "IN", "BY", "KZ", "MD", "UA", "AL", "BA", "HR", "ME", "MK", "RS", "SI", "KR", "BD", "PK", "LK", "GH", "KE", "NG", "TZ", "UG", "AG", "AM", "BS", "BB", "BZ", "BT", "BW", "BF", "CV", "CW", "DM", "FJ", "GM", "GE", "GD", "GW", "GY", "HT", "JM", "KI", "LS", "LR", "MW", "MV", "ML", "MH", "FM", "NA", "NR", "NE", "PW", "PG", "PR", "WS", "SM", "ST", "SN", "SC", "SL", "SB", "KN", "LC", "VC", "SR", "TL", "TO", "TT", "TV", "VU", "AZ", "BN", "BI", "KH", "CM", "TD", "KM", "GQ", "SZ", "GA", "GN", "KG", "LA", "MO", "MR", "MN", "NP", "RW", "TG", "UZ", "ZW", "BJ", "MG", "MU", "MZ", "AO", "CI", "DJ", "ZM", "CD", "CG", "IQ", "LY", "TJ", "VE", "ET", "XK"],
+            "disc_number": 1,
+            "duration_ms": 111155,
+            "explicit": false,
+            "external_ids": {
+              "isrc": "GB8KE2505106"
+            },
+            "external_urls": {
+              "spotify": "https://open.spotify.com/track/1BksmTSEoibC7dkI7UVENd"
+            },
+            "href": "https://api.spotify.com/v1/tracks/1BksmTSEoibC7dkI7UVENd",
+            "id": "1BksmTSEoibC7dkI7UVENd",
+            "name": "Whispers",
+            "popularity": 35,
+            "preview_url": null,
+            "track_number": 1,
+            "type": "track",
+            "uri": "spotify:track:1BksmTSEoibC7dkI7UVENd",
+            "is_local": false,
+            "episode": false,
+            "track": true
+          },
+          "primary_color": null,
+          "video_thumbnail": {
+            "url": null
+          }
+        }
+      ]
+    },
+    "type": "playlist",
+    "uri": "spotify:playlist:4LMI9ZqmGj4df2E3tTdrIB",
+    "followers": {
+      "href": null,
+      "total": 0
+    },
+    "primary_color": null
+  }

@@ -1,4 +1,4 @@
-# image.py
+# models/image.py
 from pydantic import BaseModel
 from typing import Optional
 

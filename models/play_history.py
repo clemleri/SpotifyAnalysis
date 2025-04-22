@@ -1,4 +1,4 @@
-# play_history.py
+# models/play_history.py
 from datetime import datetime, timezone
 from typing import Union
 from pydantic import BaseModel, field_validator

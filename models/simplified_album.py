@@ -1,21 +1,20 @@
-# simplified_album.py
+# models/simplified_album.py
 from typing import List, Literal
 import re
 from pydantic import BaseModel, conlist, constr, conint, HttpUrl, model_validator
 from models.external_urls import ExternalUrls
 from models.image import Image
 from models.simplified_artist import SimplifiedArtist
+from models.spotify_id import SpotifyID
+from models.available_markets import AvailableMarkets
 
 class SimplifiedAlbum(BaseModel):
     album_type: Literal['album', 'single', 'compilation', 'appears_on']
     artists: conlist(SimplifiedArtist, min_length=1)
-    available_markets: conlist(
-        constr(pattern=r'^[A-Z]{2}$'),  # codes ISO 3166‑1 alpha‑2
-        min_length=1
-    )
+    available_markets: AvailableMarkets
     external_urls: ExternalUrls
     href: HttpUrl
-    id: constr(pattern=r'^[A-Za-z0-9]{22}$')  # Spotify IDs font 22 caractères
+    id: SpotifyID
     images: conlist(Image, min_length=1)
     name: constr(min_length=1)
     release_date: constr(pattern=r'^\d{4}(?:-\d{2}(?:-\d{2})?)?$')

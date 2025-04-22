@@ -1,4 +1,4 @@
-# album.py
+# models/album.py
 from pydantic import BaseModel, conlist, constr, conint, HttpUrl, root_validator
 from typing import List, Optional
 from models.restrictions import Restrictions

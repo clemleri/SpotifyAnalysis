@@ -1,11 +1,11 @@
-# saved_album.py
+# models/saved_album.py
 from pydantic import BaseModel, field_validator
-from models.album_without_available_markets import AlbumWithoutAvailableMarkets
 from datetime import datetime, timezone
+from models.album import Album
 
 class SavedAlbum(BaseModel):
     added_at: datetime
-    album: AlbumWithoutAvailableMarkets
+    album: Album
 
     @field_validator('added_at', mode='before')
     def parse_and_check_added_at(cls, v):

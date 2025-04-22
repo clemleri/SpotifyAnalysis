@@ -1,4 +1,4 @@
-# context.py
+# models/context.py
 from pydantic import BaseModel, HttpUrl, constr
 from typing import Literal
 from models.external_urls import ExternalUrls

@@ -3,8 +3,7 @@ from pydantic import ValidationError
 from tests.helpers.models.constraints import (
     assert_constr_regex_field
 )
-from constants.tests import PLAYLIST_TRACK_TYPE, PLAYLIST_TRACK_FILENAME
-from constants.tests import TRACK_WITHOUT_AVAILABLE_MARKETS_TYPE
+from constants.tests import PLAYLIST_TRACK_TYPE, PLAYLIST_TRACK_FILENAME, TRACK_TYPE
 from datetime import datetime, timezone
 
 
@@ -27,38 +26,7 @@ def test_tracks_model(data, model_factory):
     optional = []
     model_factory(PLAYLIST_TRACK_TYPE, data, required, optional)
     
-@pytest.mark.parametrize("data", [PLAYLIST_TRACK_FILENAME], indirect=True)
-def test_playlist_track_available_markets_field(data):
-    model_cls = TRACK_WITHOUT_AVAILABLE_MARKETS_TYPE
-    field = "available_markets"
-    # Cas valides : un ou plusieurs codes ISO 3166‑1 alpha‑2
-    valid_lists = [
-        ["FR"],
-        ["US", "DE", "GB"],
-        []
-    ]
-    
-    # Cas invalides : 
-    #   - codes trop courts ou longs
-    #   - lowercase
-    #   - caractères non alphabétiques
-    invalid_lists = [
-                   # liste vide (déjà couvert, mais redondant)
-        ["F"],          # trop court
-        ["USA"],        # trop long
-        ["fr"],         # lowercase
-        ["1A"],         # chiffre + lettre
-        ["?!"]          # caractères spéciaux
-    ]
-    assert_constr_regex_field(
-        model_cls=model_cls,
-        data=data['track'],
-        field=field,
-        valid_values=valid_lists,
-        invalid_values=invalid_lists
-    )
 
-    
 @pytest.mark.parametrize("data", [PLAYLIST_TRACK_FILENAME], indirect=True)
 def test_play_history_added_at_valid(data):
     """

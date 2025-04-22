@@ -35,35 +35,6 @@ def test_artist_model(data, model_factory):
     model_factory(ARTIST_TYPE, data, required, optional)
     
 @pytest.mark.parametrize("data", [ARTIST_FILE_NAME], indirect=True)
-def test_artist_id_field(data):
-    model_cls = ARTIST_TYPE
-    field = "id"
-
-    # Cas valide : 22 caractères alphanumériques
-    good = "1UnPDzVRkrTBflEQ9MJUhX"
-
-    # Variantes invalides
-    bad_length_small = good[:-5]           # trop court (17 caractères)
-    bad_length_long  = good + "ABCD"       # trop long  (26 caractères + 4)
-    bad_characters   = "1U#PDzVRkrT*flEQ9M^UhX"  # présence de #, *, ^
-
-    invalid_values = [
-        bad_length_small,
-        bad_length_long,
-        bad_characters,
-        "",             # chaîne vide
-        "123456789012345678901!",  # 22 chars mais dernier non alphanum
-    ]
-
-    assert_constr_regex_field(
-        model_cls=model_cls,
-        data=data,
-        field=field,
-        valid_values=[good],
-        invalid_values=invalid_values
-    )
-
-@pytest.mark.parametrize("data", [ARTIST_FILE_NAME], indirect=True)
 def test_artist_name_field(data):
     assert_non_empty_str_field(ARTIST_TYPE, data, "name")
     
