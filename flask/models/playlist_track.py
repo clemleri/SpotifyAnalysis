@@ -1,15 +1,15 @@
-# playlist_track.py
+# models/playlist_track.py
 from datetime import datetime, timezone
 from typing import Union
 from pydantic import BaseModel, field_validator, conlist, constr
-from models.linked_from import LinkedFrom
-from models.track_without_available_markets import TrackWithoutAvailableMarkets
+from models.linked_from import LinkedFromUser
+from models.track import Track
 from models.simplified_album import SimplifiedAlbum
 
 class PlaylistTrack(BaseModel):
-    track: TrackWithoutAvailableMarkets
+    track: Track
     added_at: datetime
-    added_by: LinkedFrom
+    added_by: LinkedFromUser
     is_local: bool
 
 

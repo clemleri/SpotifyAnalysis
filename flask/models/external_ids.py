@@ -1,4 +1,4 @@
-# external_ids.py
+# models/external_ids.py
 from pydantic import BaseModel
 from typing import Optional
 

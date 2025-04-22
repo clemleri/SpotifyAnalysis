@@ -13,7 +13,8 @@ from models.saved_album import SavedAlbum
 from models.playlist_track import PlaylistTrack
 from models.play_history import PlayHistory
 from models.paginated_response import PaginatedResponse
-from models.linked_from import LinkedFrom
+from models.linked_from import LinkedFromUser
+from models.linked_from import LinkedFromTrack
 from models.image import Image
 from models.followers import Followers
 from models.external_urls import ExternalUrls
@@ -23,8 +24,8 @@ from models.copyright import Copyright
 from models.context import Context
 from models.restrictions import Restrictions
 from models.playlist import Playlist
-from models.track_without_available_markets import TrackWithoutAvailableMarkets
-from models.album_without_available_markets import AlbumWithoutAvailableMarkets
+from models.available_markets import AvailableMarkets
+from models.spotify_id import SpotifyID
 
 # constantes file_name tests/unit/models
 TRACK_FILE_NAME: Final[str] = "track.json"
@@ -37,12 +38,15 @@ PAGINATED_RESPONSE_FILE_NAME : Final[str] = "paginated_response.json"
 FOLLOWERS_FILE_NAME : Final[str] = "followers.json"
 TRACKS_FILE_NAME: Final[str] = "tracks.json"
 CONTEXT_FILE_NAME : Final[str] = "context.json"
-LINKED_FROM_FILE_NAME : Final[str] = "linked_from.json"
+LINKED_FROM_USER_FILE_NAME : Final[str] = "linked_from_user.json"
+LINKED_FROM_TRACK_FILE_NAME : Final[str] = "linked_from_track.json"
 PLAY_HISTORY_FILE_NAME : Final[str] = "play_history.json"
 PLAYLIST_TRACK_FILENAME : Final[str] = "playlist_track.json"
 SAVED_ALBUM_FILE_NAME : Final[str] = "saved_album.json"
 PLAYLIST_FILE_NAME : Final[str] = "playlist.json"
 SAVED_TRACK_FILENAME : Final[str] = "saved_track.json"
+AVAILABLE_MARKETS_FILE_NAME : Final[str] = "available_markets.json"
+SPOTIFY_ID_FILE_NAME : Final[str] = "spotify_id.json"
 
 # constantes type tests/unit/models
 TRACK_TYPE: Final[type] = Track
@@ -58,7 +62,8 @@ SAVED_ALBUM_TYPE: Final[type] = SavedAlbum
 PLAYLIST_TRACK_TYPE: Final[type] = PlaylistTrack
 PLAY_HISTORY_TYPE: Final[type] = PlayHistory
 PAGINATED_RESPONSE_TYPE: Final[type] = PaginatedResponse
-LINKED_FROM_TYPE: Final[type] = LinkedFrom
+LINKED_FROM_USER_TYPE: Final[type] = LinkedFromUser
+LINKED_FROM_TRACK_TYPE: Final[type] = LinkedFromTrack
 IMAGE_TYPE: Final[type] = Image
 FOLLOWERS_TYPE: Final[type] = Followers
 EXTERNAL_URLS_TYPE: Final[type] = ExternalUrls
@@ -67,5 +72,6 @@ CURSORS_TYPE: Final[type] = Cursors
 COPYRIGHT_TYPE: Final[type] = Copyright
 CONTEXT_TYPE: Final[type] = Context
 RESTRICTIONS_TYPE: Final[type] = Restrictions
-TRACK_WITHOUT_AVAILABLE_MARKETS_TYPE : Final[type] = TrackWithoutAvailableMarkets
-ALBUM_WITHOUT_AVAILABLE_MARKETS_TYPE : Final[type] = AlbumWithoutAvailableMarkets
+PLAYLIST_TYPE : Final[type] = Playlist
+AVAILABLE_MARKETS_TYPE : Final[type] = AvailableMarkets
+SPOTIFY_ID_TYPE : Final[type] = SpotifyID

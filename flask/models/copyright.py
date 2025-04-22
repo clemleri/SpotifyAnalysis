@@ -1,4 +1,4 @@
-# copyright.py
+# models/copyright.py
 from pydantic import BaseModel
 
 class Copyright(BaseModel):

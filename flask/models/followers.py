@@ -1,4 +1,4 @@
-# followers.py
+# models/followers.py
 from pydantic import BaseModel, HttpUrl, PositiveInt
 from typing import Optional
 

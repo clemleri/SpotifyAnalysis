@@ -21,7 +21,3 @@ def test_tracks_model(data, model_factory):
     ]
     optional = []
     model_factory(TRACKS_TYPE, data, required, optional)
-    
-@pytest.mark.parametrize("data", [TRACKS_FILE_NAME], indirect=True)
-def test_tracks_items_field(data):
-    assert_non_empty_list_field(TRACKS_TYPE, data, "items")

@@ -28,6 +28,7 @@ def assert_constr_regex_field(
     for bad in invalid_values:
         d = data.copy()
         d[field] = bad
+        print(f"valeur testé : {bad}")
         with pytest.raises(ValidationError, match=field):
             model_cls.model_validate(d)
 

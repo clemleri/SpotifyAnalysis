@@ -1,4 +1,4 @@
-# external_urls.py
+# models/external_urls.py
 from pydantic import BaseModel, HttpUrl
 
 class ExternalUrls(BaseModel):

@@ -1,12 +1,12 @@
-# saved_track.py
+# models/saved_track.py
 from datetime import datetime, timezone
 from pydantic import BaseModel, field_validator
-from models.track_without_available_markets import TrackWithoutAvailableMarkets
+from models.track import Track
 
 
 class SavedTrack(BaseModel):
     added_at: datetime
-    track: TrackWithoutAvailableMarkets
+    track: Track
 
     @field_validator('added_at', mode='before')
     def parse_and_check_added_at(cls, v):
