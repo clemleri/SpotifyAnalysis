@@ -1,3 +1,16 @@
+"use client"
+
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.5 },
+  }),
+};
+
 const features = [
   {
     title: "Advanced Insights",
@@ -37,10 +50,16 @@ export default function Features() {
         Lyra makes your Spotify stats simple again
       </p>
 
+      {/* Garde le grid ici */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map((feature, index) => (
-          <div
+          <motion.div
             key={index}
+            custom={index}
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
             className={`${
               feature.layout === "wide" ? "lg:col-span-2" : ""
             } dark:bg-[#141414] bg-white border dark:border-[#212121] border-[#b5b5b5] rounded-xl p-8 shadow-lg min-h-80 flex flex-col justify-between ${
@@ -51,7 +70,11 @@ export default function Features() {
             <div className="absolute inset-0 flex justify-center items-center z-0 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition duration-500 ease-out">
               <div
                 className={`w-[300px] h-[300px] rounded-full blur-[100px] lg:animate-pulse`}
-                style={{ backgroundColor: feature.glowColor }}
+                style={{
+                  backgroundColor: feature.glowColor,
+                  willChange: "transform",
+                  transform: "translateZ(0)",
+                }}
               />
             </div>
 
@@ -69,7 +92,7 @@ export default function Features() {
                 ))}
               </p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

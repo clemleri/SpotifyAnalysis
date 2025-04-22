@@ -24,8 +24,11 @@ export default function RootLayout({ children }) {
             `,
           }}
         />
+        <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
       </head>
-      <body className="bg-white dark:bg-[#0f0f0f] text-black dark:text-white">
+      <body className="bg-white dark:bg-background text-black dark:text-white">
         {children}
       </body>
     </html>

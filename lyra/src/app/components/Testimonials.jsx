@@ -1,3 +1,15 @@
+'use client';
+import { motion } from 'framer-motion';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.05, duration: 0.4, ease: 'easeOut' },
+  }),
+};
+
 const testimonials = [
   {
     name: "Ryan Carniato",
@@ -58,17 +70,21 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section className="max-w-6xl mx-auto px-4 py-20">
-      <h2 className="text-3xl font-bold text-center mb-3">Loved by the community</h2>
-      <p className="dark:text-gray-400 text-gray-500 text-center mb-10">
+      <h2 className="text-5xl font-medium text-center mb-3">Loved by the community</h2>
+      <p className="dark:text-gray-400 text-gray-500 text-center mb-10 text-lg">
         Don't take our word for it — listen to what the Lyra community has to say.
       </p>
 
-      {/* Masonry layout */}
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
         {testimonials.map((t, index) => (
-          <div
+          <motion.div
             key={index}
             className="break-inside-avoid dark:bg-[#141414] bg-white border dark:border-[#212121] border-[#b5b5b5] rounded-xl p-6 shadow-md"
+            custom={index}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUp}
           >
             <div className="flex items-center gap-3 mb-4">
               <img
@@ -83,12 +99,12 @@ export default function Testimonials() {
             </div>
             <p
               className={`dark:text-gray-300 text-gray-500 text-sm ${
-                t.text.length > 150 ? "text-[0.875rem]" : "text-base"
+                t.text.length > 150 ? 'text-[0.875rem]' : 'text-base'
               }`}
             >
               {t.text}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

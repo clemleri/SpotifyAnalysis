@@ -22,12 +22,12 @@ import {
   StarIcon,
   MusicalNoteIcon,
 } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 
 const topsMenu = [
-  { name: 'Top Tracks', href: '/tops/tracks', icon: MusicalNoteIcon },
-  { name: 'Top Artists', href: '/tops/artists', icon: StarIcon },
+  { name: 'Top Tracks', href: '/tops', icon: MusicalNoteIcon },
+  { name: 'Top Artists', href: '/tops', icon: StarIcon },
 ]
-
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(() => {
@@ -53,7 +53,7 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
         {/* Logo */}
         <div className="flex lg:flex-1">
-          <a href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <img
               src="/assets/Lyre_black.png"
               alt="Lyra Logo Light"
@@ -69,7 +69,7 @@ export default function Navbar() {
               className="hidden dark:block"
             />
             <span className="text-xl font-bold">Lyra</span>
-          </a>
+          </Link>
         </div>
 
         {/* Mobile menu toggle */}
@@ -92,22 +92,22 @@ export default function Navbar() {
             <PopoverPanel className="absolute top-full z-10 mt-2 w-56 rounded-xl bg-white dark:bg-zinc-800 shadow-lg ring-1 ring-gray-200 dark:ring-zinc-600">
               <div className="p-2">
                 {topsMenu.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
                     href={item.href}
                     className="flex items-center gap-2 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-700 text-sm text-gray-800 dark:text-white"
                   >
                     <item.icon className="w-5 h-5 text-primary" />
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </PopoverPanel>
           </Popover>
 
-          <a href="/profile" className="text-sm font-semibold text-primary border border-primary px-4 py-2 rounded-xl hover:bg-primary hover:text-white transition">
+          <Link href="/profile" className="text-sm font-semibold text-primary border border-primary px-4 py-2 rounded-xl hover:bg-primary hover:text-white transition">
             Profile
-          </a>
+          </Link>
 
           <button
             onClick={() => setDarkMode(!darkMode)}

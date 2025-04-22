@@ -55,11 +55,11 @@ export default function Pricing() {
 
       <div className="mx-auto max-w-4xl text-center">
         <h2 className="text-base font-semibold text-primary">Pricing</h2>
-        <p className="mt-2 text-5xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
+        <p className="mt-2 text-5xl font-medium tracking-tight text-gray-900 dark:text-white">
           Choose the right plan for you
         </p>
       </div>
-      <p className="mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-gray-600 dark:text-gray-400 sm:text-xl">
+      <p className="mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-gray-600 dark:text-gray-400 ">
         Lyra is free forever — or go premium for an ad-free experience.
       </p>
 
@@ -68,7 +68,7 @@ export default function Pricing() {
           <div
             key={tier.id}
             className={classNames(
-              tier.featured ? 'relative bg-gray-900 shadow-2xl text-white' : 'bg-white/60 dark:bg-[#141414]',
+              tier.featured ? 'relative dark:bg-primary-darkDeep bg-primary-lightDeep shadow-2xl text-white' : 'bg-white/60 dark:bg-[#141414]',
               tier.featured
                 ? ''
                 : tierIdx === 0
