@@ -5,7 +5,7 @@ export default function Footer() {
       <div className="w-full h-full mb-48">
         <div className="relative w-20 h-20 mx-auto mb-16">
           {/* Glow */}
-          <div className="absolute -inset-48 z-0 rounded-full blur-[180px] bg-primary dark:bg-white/60"></div>
+          <div className="absolute -inset-48 z-[-1] rounded-full blur-[180px] bg-primary dark:bg-white/60"></div>
 
           {/* Icône */}
           <div className="relative z-10 flex items-center justify-center w-full h-full rounded-[10px] dark:bg-zinc-900 bg-white shadow-lg border dark:border-zinc-800 border-gray-200">

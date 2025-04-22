@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="text-center max-w-4xl mx-auto overflow-x-clip md:overflow-visible">
+    <section className="text-center max-w-4xl mx-auto overflow-x-clip md:overflow-visible mt-[-4rem]">
       <div className="w-full h-screen flex flex-col justify-center items-center ">
         <h1 className="z-10 text-5xl font-extrabold mb-4 leading-tight">
           The Build Tool<br />
@@ -29,7 +29,7 @@ export default function Hero() {
 
       {/* Logo avec glow */}
       <div className="relative w-28 h-28 mx-auto mb-80">
-        <div className="absolute -inset-64 rounded-full blur-[180px] animate-pulse z-0 bg-primary dark:bg-white/60"></div>
+        <div className="absolute -inset-64 z-[-1] rounded-full blur-[180px] animate-pulse z-0 bg-primary dark:bg-white/60"></div>
 
         <div className="relative z-10 flex items-center justify-center w-full h-full rounded-[20px] dark:bg-zinc-900 bg-white shadow-lg border dark:border-zinc-800 border-gray-200">
           <img
