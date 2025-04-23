@@ -36,7 +36,7 @@ export default function Breadcrumb({ items = [] }) {
               ) : item.label === 'Home' ? (
                 <Link
                   href={item.href}
-                  className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-primary dark:text-white dark:hover:text-primary-light"
+                  className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-primary-dark dark:text-white dark:hover:text-primary-light"
                 >
                   {item.icon && <item.icon className="w-3 h-3 me-2.5" />}
                   {item.label}
@@ -44,7 +44,7 @@ export default function Breadcrumb({ items = [] }) {
               ) : (
                 <a
                   href={item.href}
-                  className="inline-flex items-center ml-2 text-sm font-medium text-gray-700 hover:text-primary dark:text-white dark:hover:text-primary-light"
+                  className="inline-flex items-center ml-2 text-sm font-medium text-gray-700 hover:text-primary-dark dark:text-white dark:hover:text-primary-light"
                 >
                   {item.icon && <item.icon className="w-3 h-3 me-2.5" />}
                   {item.label}

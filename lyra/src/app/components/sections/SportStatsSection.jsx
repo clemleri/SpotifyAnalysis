@@ -11,7 +11,7 @@ export default function SportStatsSection() {
     <div className="flex flex-col items-center justify-center gap-4 min-h-[60vh]">
       {notConnected ? (
         <>
-          <p className="text-sm text-gray-500 dark:text-gray-300">
+          <p className="text-sm text-gray-500 dark:text-gray-300 text-center">
             Connectez vos comptes Spotify et Strava pour voir vos stats sportives.
           </p>
           <SpotifyLoginButton isConnected={spotifyConnected} />
