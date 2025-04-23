@@ -10,7 +10,7 @@ export default function TopArtistsSection() {
     <div className="flex flex-col items-center justify-center gap-4 min-h-[60vh]">
       {notConnected ? (
         <>
-          <p className="text-sm text-gray-500 dark:text-gray-300">
+          <p className="text-sm text-gray-500 dark:text-gray-300 text-center">
             Connectez votre compte Spotify pour voir vos artistes préférés.
           </p>
           <SpotifyLoginButton isConnected={spotifyConnected} />

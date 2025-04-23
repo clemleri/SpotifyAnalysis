@@ -1,26 +1,35 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   ChartBarIcon,
   Squares2X2Icon,
   InboxIcon,
   UsersIcon,
-  ShoppingBagIcon,
   HeartIcon,
 } from '@heroicons/react/24/outline'
 
-
 export default function Sidebar() {
   const [open, setOpen] = useState(false)
+  const [activeHash, setActiveHash] = useState("#dashboard")
 
   const links = [
     { name: 'Dashboard', href: '#dashboard', icon: ChartBarIcon },
-    { name: 'Tops Tracks', href: '#topsTracks', icon: Squares2X2Icon, },
-    { name: 'Tops Artists', href: '#topsArtists', icon: UsersIcon, },
+    { name: 'Tops Tracks', href: '#topsTracks', icon: Squares2X2Icon },
+    { name: 'Tops Artists', href: '#topsArtists', icon: UsersIcon },
     { name: 'Recent Tracks', href: '#recentTracks', icon: InboxIcon },
     { name: 'Sport Stats', href: '#sportStats', icon: HeartIcon },
   ]
+
+  useEffect(() => {
+    const updateHash = () => {
+      setActiveHash(window.location.hash || '#dashboard')
+    }
+
+    updateHash()
+    window.addEventListener('hashchange', updateHash)
+    return () => window.removeEventListener('hashchange', updateHash)
+  }, [])
 
   return (
     <>
@@ -29,12 +38,7 @@ export default function Sidebar() {
         className="inline-flex fixed items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
       >
         <span className="sr-only">Open sidebar</span>
-        <svg
-          className="w-6 h-6"
-          aria-hidden="true"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
+        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
           <path
             clipRule="evenodd"
             fillRule="evenodd"
@@ -48,32 +52,29 @@ export default function Sidebar() {
           open ? 'translate-x-0' : '-translate-x-full'
         } sm:translate-x-0`}
       >
-        <div className="h-full  border-r dark:border-zinc-700 border-gray-300 px-3 py-4 overflow-y-auto mt-[4.5rem]">
+        <div className="h-full border-r dark:border-zinc-700 border-gray-300 px-3 py-4 overflow-y-auto mt-[4.5rem]">
           <ul className="space-y-2 font-medium">
-            {links.map((link) => (
-              <li key={link.name}>
-                <a
-                  href={link.href}
-                  onClick={() => {
-                    if (window.innerWidth < 640) setOpen(false)
-                  }}
-                  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-800 group"
-                >
-                  <link.icon className="w-5 h-5 text-gray-500 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
-                  <span className="ms-3 flex-1 whitespace-nowrap">{link.name}</span>
-
-                  {typeof link.badge === 'string' ? (
-                    <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
-                      {link.badge}
-                    </span>
-                  ) : typeof link.badge === 'number' ? (
-                    <span className="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                      {link.badge}
-                    </span>
-                  ) : null}
-                </a>
-              </li>
-            ))}
+            {links.map((link) => {
+              const isActive = activeHash === link.href
+              return (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    onClick={() => {
+                      if (window.innerWidth < 640) setOpen(false)
+                    }}
+                    className={`flex items-center p-2 rounded-lg group ${
+                      isActive
+                        ? 'bg-primary-200 dark:bg-primary-darkDeep text-primary-900 dark:text-white'
+                        : 'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-800'
+                    }`}
+                  >
+                    <link.icon className="w-5 h-5 text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-white" />
+                    <span className="ms-3 flex-1 whitespace-nowrap">{link.name}</span>
+                  </a>
+                </li>
+              )
+            })}
           </ul>
         </div>
       </aside>

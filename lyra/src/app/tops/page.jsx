@@ -63,7 +63,7 @@ import SportStatsSection from "../components/sections/SportStatsSection"
       <main className="text-black dark:text-white min-h-screen">
         <Navbar />
         <LayoutWithSidebar>
-          <div className="px-4 pt-4 ml-16 mt-1 sm:ml-0">
+          <div className="px-4 pt-4 ml-16 mt-1 sm:ml-0 sm:mt-0">
             <Breadcrumb items={breadcrumbItems} />
           </div>
           
