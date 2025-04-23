@@ -1,26 +1,59 @@
-"use client"
-import { CheckCircleIcon } from '@heroicons/react/24/outline';
+"use client";
+import { useEffect, useState } from "react";
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
+import { useConnection } from "../context/ConnectionContext";
 
-const SpotifyLoginButton = ({ isConnected }) => {
-  const CLIENT_ID = "VOTRE_SPOTIFY_CLIENT_ID";
-  const REDIRECT_URI = "http://localhost:3000/auth/spotify/callback";
-  const SCOPES = [
-    "user-read-email",
-    "user-read-private",
-    "user-top-read",
-    "user-read-recently-played"
-  ];
+const SpotifyLoginButton = ({ isConnected, onTokenReceived }) => {
+  const [loading, setLoading] = useState(false);
+  const { spotifyConnected, setSpotifyConnected } = useConnection();
 
-  const handleLogin = () => {
-    if (isConnected) return;
-    const authUrl = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=${encodeURIComponent(SCOPES.join(" "))}`;
-    window.location.href = authUrl;
+  useEffect(() => {
+    // Écoute une seule fois après montage
+    const handleMessage = (event) => {
+      if (event.origin !== "http://localhost:8080") return;
+      const { access_token, refresh_token, expires_in } = event.data;
+
+
+      if (access_token) {
+        console.log("🎉 Token reçu ");
+        localStorage.setItem("spotify_token", access_token);
+        setSpotifyConnected(true); // 🟢 MAJ du contexte global
+      }
+      
+      if (onTokenReceived) onTokenReceived(access_token);
+
+      // Tu peux aussi stocker refresh_token, expires_in si tu veux les gérer
+    };
+
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, [onTokenReceived]);
+
+  const handleLogin = async () => {
+    if (isConnected || loading) return;
+    setLoading(true);
+
+    try {
+      const res = await fetch("http://localhost:8080/api/login-url");
+      const data = await res.json();
+
+      if (data.url) {
+        // Ouvre la popup au lieu de rediriger
+        window.open(data.url, "_blank", "width=500,height=700");
+      } else {
+        console.error("Erreur : URL de connexion non reçue");
+      }
+    } catch (err) {
+      console.error("Erreur lors de la récupération de l'URL de login Spotify", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <button
       onClick={handleLogin}
-      disabled={isConnected}
+      disabled={isConnected || loading}
       className={`flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-medium transition
         ${isConnected ? "bg-green-200 text-green-800 cursor-default" : "bg-green-600/80 border-2 border-green-600 hover:bg-green-600 "}`}
     >
@@ -32,7 +65,7 @@ const SpotifyLoginButton = ({ isConnected }) => {
       ) : (
         <>
           <img src="/assets/spotify_icon.png" alt="Spotify" className="h-5 w-5 dark:invert" />
-          <span>Connexion</span>
+          <span>{loading ? "Connexion..." : "Connexion"}</span>
         </>
       )}
     </button>

@@ -14,7 +14,7 @@ const StravaLoginButton = ({ isConnected }) => {
 
   return (
     <button
-      onClick={handleLogin}
+      
       disabled={isConnected}
       className={`flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-medium transition
         ${isConnected ? "bg-orange-200 text-orange-800 cursor-default" : "bg-orange-600/80 border-2 border-orange-600 hover:bg-orange-600"}`}

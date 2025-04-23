@@ -5,7 +5,8 @@ import StravaLoginButton from '../StravaLoginButton'
 
 export default function SportStatsSection() {
   const { spotifyConnected, stravaConnected } = useConnection()
-  const notConnected = !spotifyConnected || !stravaConnected
+  const isConnected = Boolean(localStorage.getItem("spotify_token"));
+  const notConnected = !isConnected || !stravaConnected
 
   return (
     <div className="flex flex-col items-center justify-center gap-4 min-h-[60vh]">
@@ -14,7 +15,7 @@ export default function SportStatsSection() {
           <p className="text-sm text-gray-500 dark:text-gray-300 text-center">
             Connectez vos comptes Spotify et Strava pour voir vos stats sportives.
           </p>
-          <SpotifyLoginButton isConnected={spotifyConnected} />
+          <SpotifyLoginButton isConnected={isConnected} />
           <StravaLoginButton isConnected={stravaConnected} />
         </>
       ) : (

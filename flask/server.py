@@ -15,7 +15,7 @@ app.secret_key = 'spotify_secret_key'
 
 CLIENT_ID = "9bf2c0b082f847baa3d7bc2110eed0a4"
 CLIENT_SECRET = "16e18a5a0c0e4e01a64069a8c2a89de7"
-REDIRECT_URI = "http://127.0.0.1:8080/callback"
+REDIRECT_URI = "http://localhost:8080/callback"
 SCOPE = "user-read-private user-read-email user-top-read user-read-recently-played user-library-read"
 
 auth_url = "https://accounts.spotify.com/authorize"
@@ -204,4 +204,5 @@ def logout():
     return render_template("index.html")
 
 if __name__ == "__main__":
-    app.run(port=8080, debug=True)
+    app.run(host="localhost", port=8080, debug=True)
+
