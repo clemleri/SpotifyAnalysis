@@ -52,7 +52,7 @@ export default function Navbar() {
               height={30}
               className="hidden dark:block"
             />
-            <span className="text-xl font-bold">Lyra</span>
+            <span className="text-xl font-bold">lyra</span>
           </Link>
         </div>
 
