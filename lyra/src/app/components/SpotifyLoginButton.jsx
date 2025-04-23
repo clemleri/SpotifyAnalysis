@@ -22,7 +22,7 @@ const SpotifyLoginButton = ({ isConnected }) => {
       onClick={handleLogin}
       disabled={isConnected}
       className={`flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-medium transition
-        ${isConnected ? "bg-green-200 text-green-800 cursor-default" : "bg-green-600/80 border-2 border-green-600 hover:bg-green-600 text-white dark:text-black"}`}
+        ${isConnected ? "bg-green-200 text-green-800 cursor-default" : "bg-green-600/80 border-2 border-green-600 hover:bg-green-600 "}`}
     >
       {isConnected ? (
         <>
@@ -31,7 +31,7 @@ const SpotifyLoginButton = ({ isConnected }) => {
         </>
       ) : (
         <>
-          <img src="/assets/spotify_icon.png" alt="Spotify" className="h-5 w-5 invert dark:invert-0" />
+          <img src="/assets/spotify_icon.png" alt="Spotify" className="h-5 w-5 dark:invert" />
           <span>Connexion</span>
         </>
       )}

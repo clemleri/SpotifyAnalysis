@@ -16,16 +16,17 @@ import {
   Bars3Icon,
   XMarkIcon,
   ChevronDownIcon,
-  UserIcon,
-  StarIcon,
-  MusicalNoteIcon,
+  ChartBarIcon,
+  Squares2X2Icon,
+  UsersIcon,
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import ThemeToggleButton from './ThemeToggleButton' // 👈 Import du bouton thème
 
 const topsMenu = [
-  { name: 'Top Tracks', href: '/tops', icon: MusicalNoteIcon },
-  { name: 'Top Artists', href: '/tops', icon: StarIcon },
+  { name: 'Dashboard', href: '/tops#dashboard', icon: ChartBarIcon },
+  { name: 'Tops Tracks', href: '/tops#topsTracks', icon: Squares2X2Icon, },
+  { name: 'Tops Artists', href: '/tops#topsArtists', icon: UsersIcon, },
 ]
 
 export default function Navbar() {

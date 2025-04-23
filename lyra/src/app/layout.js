@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { ConnectionProvider } from './context/ConnectionContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,7 +30,9 @@ export default function RootLayout({ children }) {
 
       </head>
       <body className="bg-white dark:bg-background text-black dark:text-white">
-        {children}
+          <ConnectionProvider>
+            {children}
+          </ConnectionProvider>
       </body>
     </html>
   )
