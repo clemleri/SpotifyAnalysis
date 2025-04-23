@@ -1,4 +1,4 @@
-# models/spotify_id.py
+# models/ids/spotify_id.py
 from pydantic import constr
 
 # Type alias pour un ID Spotify (au moins 22 caractères alphanumériques)

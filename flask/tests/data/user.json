@@ -1,0 +1,33 @@
+{
+    "country": "FR",
+    "display_name": "Clem",
+    "email": "lerouley.2005@gmail.com",
+    "explicit_content": {
+      "filter_enabled": false,
+      "filter_locked": false
+    },
+    "external_urls": {
+      "spotify": "https://open.spotify.com/user/31b3yikgfs3a6dypwxxij2ts5jz4"
+    },
+    "followers": {
+      "href": null,
+      "total": 3
+    },
+    "href": "https://api.spotify.com/v1/users/31b3yikgfs3a6dypwxxij2ts5jz4",
+    "id": "31b3yikgfs3a6dypwxxij2ts5jz4",
+    "images": [
+      {
+        "url": "https://i.scdn.co/image/ab6775700000ee85fbb96df58c175a5289077394",
+        "height": 300,
+        "width": 300
+      },
+      {
+        "url": "https://i.scdn.co/image/ab67757000003b82fbb96df58c175a5289077394",
+        "height": 64,
+        "width": 64
+      }
+    ],
+    "product": "premium",
+    "type": "user",
+    "uri": "spotify:user:31b3yikgfs3a6dypwxxij2ts5jz4"
+  }

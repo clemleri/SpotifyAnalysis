@@ -26,6 +26,7 @@ from models.restrictions import Restrictions
 from models.playlist import Playlist
 from models.available_markets import AvailableMarkets
 from models.spotify_id import SpotifyID
+from models.user import User
 
 # constantes file_name tests/unit/models
 TRACK_FILE_NAME: Final[str] = "track.json"
@@ -47,6 +48,7 @@ PLAYLIST_FILE_NAME : Final[str] = "playlist.json"
 SAVED_TRACK_FILENAME : Final[str] = "saved_track.json"
 AVAILABLE_MARKETS_FILE_NAME : Final[str] = "available_markets.json"
 SPOTIFY_ID_FILE_NAME : Final[str] = "spotify_id.json"
+USER_FILE_NAME : Final[str] = "user.json"
 
 # constantes type tests/unit/models
 TRACK_TYPE: Final[type] = Track
@@ -75,3 +77,4 @@ RESTRICTIONS_TYPE: Final[type] = Restrictions
 PLAYLIST_TYPE : Final[type] = Playlist
 AVAILABLE_MARKETS_TYPE : Final[type] = AvailableMarkets
 SPOTIFY_ID_TYPE : Final[type] = SpotifyID
+USER_TYPE : Final[type] = User
