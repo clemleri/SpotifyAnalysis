@@ -16,6 +16,32 @@
   }
 }
 
+@layer utilities {
+  .animate-loading-bar {
+    position: relative;
+    width: 150%; /* dépasse le conteneur */
+    height: 100%;
+    background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+    background-size: 200% auto;
+    animation: shimmer 1.5s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+}
+
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;

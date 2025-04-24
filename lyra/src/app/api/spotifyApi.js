@@ -12,6 +12,13 @@ function getAuthHeaders() {
   };
 }
 
+function logError(label, error) {
+  console.groupCollapsed(`🔴 [${label}]`);
+  console.error(error.message || error);
+  if (error.stack) console.trace(error.stack);
+  console.groupEnd();
+}
+
 async function refreshAccessToken() {
   const refreshToken = localStorage.getItem("spotify_refresh_token");
   if (!refreshToken) return null;
@@ -25,7 +32,10 @@ async function refreshAccessToken() {
       body: JSON.stringify({ refresh_token: refreshToken })
     });
 
-    if (!response.ok) return null;
+    if (!response.ok) {
+      logError("Refresh Token", new Error(`Échec de rafraîchissement : ${response.status}`));
+      return null;
+    }
 
     const data = await response.json();
 
@@ -35,9 +45,11 @@ async function refreshAccessToken() {
       localStorage.setItem("spotify_token_expires_at", expiresAt.toString());
     }
 
+    console.log("🔁 Nouveau token rafraîchi !");
     return data.access_token;
+
   } catch (err) {
-    console.error("Erreur lors du refresh_token :", err);
+    logError("Refresh Token", err);
     return null;
   }
 }
@@ -48,15 +60,17 @@ export async function handleResponse(response, originalRequestFn) {
     const success = await refreshAccessToken();
 
     if (success) {
-      console.log("🔁 Token rafraîchi, re-tentative de la requête...");
-      return originalRequestFn(); // ⬅️ on rejoue la requête
+      console.log("✅ Token rafraîchi, nouvelle tentative de la requête.");
+      return originalRequestFn(); // Rejouer la requête
     } else {
-      throw new Error("Token expiré et non renouvelable");
+      throw new Error("⛔ Token expiré et non renouvelable");
     }
   }
 
   if (!response.ok) {
-    throw new Error(`Erreur API Spotify : ${response.status}`);
+    const error = new Error(`Erreur API Spotify : ${response.status}`);
+    logError("API Spotify", error);
+    throw error;
   }
 
   return await response.json();
