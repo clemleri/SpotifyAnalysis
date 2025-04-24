@@ -53,15 +53,25 @@ export default function Hero() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* === Courbes SVG avec opacité 50% === */}
-          <path id="curve1" d="M -100 0 C 500 0, 650 250, 750 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-30" />
-          <path id="curve2" d="M -100 80 C 500 80, 650 250, 750 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-30" />
-          <path id="curve3" d="M -100 160 C 500 160, 650 250, 750 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-30" />
-          <path id="curve4" d="M -100 250 C 500 250, 650 250, 750 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-30" />
-          <path id="curve5" d="M -100 340 C 500 340, 650 250, 750 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-30" />
-          <path id="curve6" d="M -100 420 C 500 420, 650 250, 750 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-30" />
-          <path id="curve7" d="M -100 500 C 500 500, 650 250, 750 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-30" />
-          <path id="exit" d="M 750 250 L 1600 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-30" />
+        {/* Courbes exponentielles haut */}
+            <path id="curve0" d="M -100 -300 C -100 -300, -50 40, 750 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-15" />
+            <path id="curve1" d="M -100 -60 C -100 -60, 100 100, 750 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-15" />
+            <path id="curve2" d="M -100 60 C -100 60, -50 120, 750 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-15" />
+
+            {/* Courbes exponentielles milieu */}
+            <path id="curve3" d="M -100 160 C -100 160, 100 200, 750 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-15" />
+            <path id="curve4" d="M -100 250 C 500 250, 650 250, 750 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-15" />
+            <path id="curve5" d="M -100 340 C -100 340, 100 300, 750 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-15" />
+
+            {/* Courbes exponentielles bas */}
+            <path id="curve6" d="M -100 420 C -100 420, 100 350, 750 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-15" />
+            <path id="curve7" d="M -100 500 C -100 500, 100 400, 750 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-15" />
+            <path id="curve8" d="M -100 700 C -100 700, 0 440, 750 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-15" />
+
+            {/* Ligne de sortie */}
+            <path id="exit" d="M 750 250 L 1600 250" stroke="black" strokeWidth="2" className="dark:stroke-white opacity-15" />
+
+
 
           {/* === Images animées === */}
 
@@ -70,8 +80,8 @@ export default function Hero() {
             <set attributeName="visibility" to="visible" begin="0s" />
             <image
               href="/assets/track_hero.png"
-              width="32"
-              height="32"
+              width="28"
+              height="28"
               x="-16"
               y="-16"
               className='dark:invert'
@@ -87,8 +97,8 @@ export default function Hero() {
           <set attributeName="visibility" to="visible" begin="1s" />
             <image
               href="/assets/user_hero.png"
-              width="32"
-              height="32"
+              width="28"
+              height="28"
               x="-16"
               y="-16"
               className='dark:invert'
@@ -103,8 +113,8 @@ export default function Hero() {
             <set attributeName="visibility" to="visible" begin="2s" />
             <image
               href="/assets/albums_hero.png"
-              width="32"
-              height="32"
+              width="28"
+              height="28"
               x="-16"
               y="-16"
               className='dark:invert'
