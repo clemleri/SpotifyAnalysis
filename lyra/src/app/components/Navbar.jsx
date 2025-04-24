@@ -152,13 +152,23 @@ export default function Navbar() {
             </DisclosureButton>
             <DisclosurePanel className="pl-4">
               {topsMenu.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="block py-2 text-sm text-gray-700 dark:text-gray-300 hover:underline "
-                >
-                  {item.name}
-                </Link>
+                isOnTopsPage ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="block py-2 text-sm text-gray-700 dark:text-gray-300 hover:underline"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block py-2 text-sm text-gray-700 dark:text-gray-300 hover:underline"
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
             </DisclosurePanel>
           </Disclosure>

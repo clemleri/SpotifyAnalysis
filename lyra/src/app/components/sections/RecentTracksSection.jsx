@@ -25,7 +25,7 @@ export default function RecentTracksSection({ recent = [] }) {
   }
 
   return (
-    <div className="px-4 py-8 w-full max-w-3xl mx-auto mt-24 space-y-4">
+    <div className="px-4 py-8 w-[100vw] max-w-lg xl:max-w-2xl mx-auto mt-24 space-y-4">
       {recent.map((item, index) => {
         const track = item.track;
         const date = new Date(item.played_at);
@@ -43,8 +43,8 @@ export default function RecentTracksSection({ recent = [] }) {
             />
             <div className="flex flex-col">
               <p className="text-sm font-medium">{track.name}</p>
-              <p className="text-xs text-gray-500">{track.artists.map(a => a.name).join(', ')}</p>
-              <p className="text-xs text-gray-400 mt-1">{formatted}</p>
+              <p className="text-xs text-gray-800 dark:text-gray-300">{track.artists.map(a => a.name).join(', ')}</p>
+              <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">{formatted}</p>
             </div>
           </div>
         );

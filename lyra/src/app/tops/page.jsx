@@ -15,6 +15,7 @@ import {
 } from "@heroicons/react/24/outline"
 import { useRouter } from "next/navigation"
 import LoadingProgressBar from "../components/LoadingProgressBar"
+import { AnimatePresence, motion } from "framer-motion"
 
 export default function Tops() {
   const [hash, setHash] = useState(null)
@@ -22,8 +23,12 @@ export default function Tops() {
   const [topArtists, setTopArtists] = useState([])
   const [recentTracks, setRecentTracks] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [hasLoaded, setHasLoaded] = useState(false)
 
   const router = useRouter()
+
+  const token = typeof window !== "undefined" ? localStorage.getItem("spotify_token") : null
+  const isConnected = Boolean(token)
 
   useEffect(() => {
     const updateHash = () => {
@@ -37,12 +42,11 @@ export default function Tops() {
 
   useEffect(() => {
     async function fetchData() {
-      const token = localStorage.getItem("spotify_token")
       if (!token) {
         setIsLoading(false)
         return
       }
-  
+
       try {
         const [tracks, artists, recent] = await Promise.all([
           getTopTracks(),
@@ -58,49 +62,17 @@ export default function Tops() {
         setIsLoading(false)
       }
     }
-  
+
     fetchData()
   }, [])
-  
 
-  const isConnected = Boolean(localStorage.getItem("spotify_token"))
-
-  const renderSection = () => {
-    if (isLoading) {
-      return (
-        <div className="flex flex-col items-center justify-center min-h-[60vh]">
-          <LoadingProgressBar />
-        </div>
-      )
+  // ✅ Déclenche l’animation d’apparition une fois le fetch terminé
+  useEffect(() => {
+    if (!isLoading) {
+      const timeout = setTimeout(() => setHasLoaded(true), 100)
+      return () => clearTimeout(timeout)
     }
-    
-
-    if (!isConnected) {
-      return (
-        <div className="flex flex-col items-center justify-center min-h-[60vh] text-center gap-4">
-          <p className="text-sm text-gray-500 dark:text-gray-300">
-            Connectez votre compte Spotify pour accéder à cette section.
-          </p>
-          <SpotifyLoginButton isConnected={false} />
-        </div>
-      )
-    }
-
-    switch (hash) {
-      case "#dashboard":
-        return <DashboardSection topTracks={topTracks} topArtists={topArtists} recentTracks={recentTracks} />
-      case "#topsTracks":
-        return <TopTracksSection tracks={topTracks} />
-      case "#topsArtists":
-        return <TopArtistsSection artists={topArtists} />
-      case "#recentTracks":
-        return <RecentTracksSection recent={recentTracks} />
-      case "#sportStats":
-        return <SportStatsSection />
-      default:
-        return null
-    }
-  }
+  }, [isLoading])
 
   const labelMap = {
     "#dashboard": { label: "Dashboard", icon: ChartBarIcon },
@@ -128,9 +100,54 @@ export default function Tops() {
           <Breadcrumb items={breadcrumbItems} />
         </div>
 
-        <div className="w-full h-full mt-[-4rem] gap-6 flex-col md:flex-row flex justify-center items-center">
-          {renderSection()}
-        </div>
+        {isLoading ? (
+          <div className="flex flex-col items-center justify-center min-h-[60vh]">
+            <LoadingProgressBar />
+          </div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={hasLoaded ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6 }}
+            className="w-full"
+          >
+            <div className="w-full h-full mt-[-4rem] gap-6 flex-col md:flex-row flex justify-center items-center">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={hash}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="w-full"
+                >
+                  {!isConnected ? (
+                    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center gap-4">
+                      <p className="text-sm text-gray-500 dark:text-gray-300">
+                        Connectez votre compte Spotify pour accéder à cette section.
+                      </p>
+                      <SpotifyLoginButton isConnected={false} />
+                    </div>
+                  ) : (
+                    <>
+                      {hash === "#dashboard" && (
+                        <DashboardSection
+                          topTracks={topTracks}
+                          topArtists={topArtists}
+                          recentTracks={recentTracks}
+                        />
+                      )}
+                      {hash === "#topsTracks" && <TopTracksSection tracks={topTracks} />}
+                      {hash === "#topsArtists" && <TopArtistsSection artists={topArtists} />}
+                      {hash === "#recentTracks" && <RecentTracksSection recent={recentTracks} />}
+                      {hash === "#sportStats" && <SportStatsSection />}
+                    </>
+                  )}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </motion.div>
+        )}
       </LayoutWithSidebar>
     </main>
   )
