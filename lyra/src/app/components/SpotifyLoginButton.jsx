@@ -35,6 +35,9 @@ const SpotifyLoginButton = ({ isConnected, onTokenReceived }) => {
       if (onTokenReceived) onTokenReceived(access_token);
 
       // Tu peux aussi stocker refresh_token, expires_in si tu veux les gérer
+      setTimeout(() => {
+        window.location.reload()
+      }, 100) // petit délai pour s'assurer que le state est bien sauvegardé
     };
 
     window.addEventListener("message", handleMessage);

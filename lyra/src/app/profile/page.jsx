@@ -6,6 +6,7 @@ import Footer from "../components/Footer"
 import UserAvatar from "../components/UserAvatar"
 import SpotifyLoginButton from "../components/SpotifyLoginButton"
 import { getSpotifyUser, logout } from "../api/spotifyApi"
+import LoadingProgressBar from "../components/LoadingProgressBar"
 
 export default function Profile() {
   const token = localStorage.getItem("spotify_token");
@@ -51,7 +52,9 @@ export default function Profile() {
       <Navbar />
       <div className="mt-[-4rem] flex items-center justify-center min-h-screen px-4">
         {loading ? (
-          <p>Chargement du profil...</p>
+          <div className="flex flex-col items-center justify-center min-h-[60vh]">
+            <LoadingProgressBar />
+          </div>
         ) : isConnected && userData ? (
           <UserAvatar
             username={userData.username}

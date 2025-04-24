@@ -10,7 +10,9 @@ export default function UserAvatar({ username, language, followers, avatarUrl, o
           src={avatarUrl}
           alt={`${username}'s avatar`}
           fill
+          sizes="100%"
           className="object-cover"
+          priority 
         />
       </div>
 

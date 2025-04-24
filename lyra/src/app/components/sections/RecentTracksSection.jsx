@@ -1,5 +1,5 @@
-'use client'
-import SpotifyLoginButton from '../SpotifyLoginButton'
+import { format } from 'date-fns'
+import { fr } from 'date-fns/locale'
 
 export default function RecentTracksSection({ recent = [] }) {
   const isConnected = Boolean(localStorage.getItem("spotify_token"));
@@ -28,10 +28,13 @@ export default function RecentTracksSection({ recent = [] }) {
     <div className="px-4 py-8 w-full max-w-3xl mx-auto mt-24 space-y-4">
       {recent.map((item, index) => {
         const track = item.track;
+        const date = new Date(item.played_at);
+        const formatted = format(date, "dd MMM yyyy 'à' HH:mm", { locale: fr });
+
         return (
           <div
             key={`${track.id}-${index}`}
-            className="flex items-center gap-4 p-3 bg-gray-200 dark:bg-zinc-800 rounded-xl "
+            className="flex items-center gap-4 p-3 bg-gray-200 dark:bg-zinc-800 rounded-xl"
           >
             <img
               src={track.album.images[0]?.url}
@@ -40,9 +43,8 @@ export default function RecentTracksSection({ recent = [] }) {
             />
             <div className="flex flex-col">
               <p className="text-sm font-medium">{track.name}</p>
-              <p className="text-xs text-gray-500">
-                {track.artists.map((a) => a.name).join(', ')}
-              </p>
+              <p className="text-xs text-gray-500">{track.artists.map(a => a.name).join(', ')}</p>
+              <p className="text-xs text-gray-400 mt-1">{formatted}</p>
             </div>
           </div>
         );

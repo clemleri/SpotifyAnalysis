@@ -2,23 +2,56 @@
 
 import { useState, useEffect } from 'react'
 import {
-  ChartBarIcon,
-  Squares2X2Icon,
-  InboxIcon,
-  UsersIcon,
-  HeartIcon,
+  ChartBarIcon as ChartBarOutline,
+  Squares2X2Icon as SquaresOutline,
+  InboxIcon as InboxOutline,
+  UsersIcon as UsersOutline,
+  HeartIcon as HeartOutline,
 } from '@heroicons/react/24/outline'
+
+import {
+  ChartBarIcon as ChartBarSolid,
+  Squares2X2Icon as SquaresSolid,
+  InboxIcon as InboxSolid,
+  UsersIcon as UsersSolid,
+  HeartIcon as HeartSolid,
+} from '@heroicons/react/24/solid'
 
 export default function Sidebar() {
   const [open, setOpen] = useState(false)
   const [activeHash, setActiveHash] = useState("#dashboard")
 
   const links = [
-    { name: 'Dashboard', href: '#dashboard', icon: ChartBarIcon },
-    { name: 'Tops Tracks', href: '#topsTracks', icon: Squares2X2Icon },
-    { name: 'Tops Artists', href: '#topsArtists', icon: UsersIcon },
-    { name: 'Recent Tracks', href: '#recentTracks', icon: InboxIcon },
-    { name: 'Sport Stats', href: '#sportStats', icon: HeartIcon },
+    {
+      name: 'Dashboard',
+      href: '#dashboard',
+      iconOutline: ChartBarOutline,
+      iconSolid: ChartBarSolid
+    },
+    {
+      name: 'Tops Tracks',
+      href: '#topsTracks',
+      iconOutline: SquaresOutline,
+      iconSolid: SquaresSolid
+    },
+    {
+      name: 'Tops Artists',
+      href: '#topsArtists',
+      iconOutline: UsersOutline,
+      iconSolid: UsersSolid
+    },
+    {
+      name: 'Recent Tracks',
+      href: '#recentTracks',
+      iconOutline: InboxOutline,
+      iconSolid: InboxSolid
+    },
+    {
+      name: 'Sport Stats',
+      href: '#sportStats',
+      iconOutline: HeartOutline,
+      iconSolid: HeartSolid
+    },
   ]
 
   useEffect(() => {
@@ -56,12 +89,13 @@ export default function Sidebar() {
           <ul className="space-y-2 font-medium">
             {links.map((link) => {
               const isActive = activeHash === link.href
+              const Icon = isActive ? link.iconSolid : link.iconOutline
               return (
                 <li key={link.name}>
                   <a
                     href={link.href}
                     onClick={() => {
-                      if (window.innerWidth < 640) setOpen(false)
+                      if (window.innerWidth < 768) setOpen(false)
                     }}
                     className={`flex items-center p-2 rounded-lg group ${
                       isActive
@@ -69,7 +103,11 @@ export default function Sidebar() {
                         : 'text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-zinc-800'
                     }`}
                   >
-                    <link.icon className="w-5 h-5 text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-white" />
+                    <Icon className={`w-5 h-5 ${
+                      isActive
+                        ? 'text-black dark:text-white'
+                        : 'text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-white'
+                    }`} />
                     <span className="ms-3 flex-1 whitespace-nowrap">{link.name}</span>
                   </a>
                 </li>
