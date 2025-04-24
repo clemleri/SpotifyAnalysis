@@ -22,6 +22,7 @@ import {
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import ThemeToggleButton from './ThemeToggleButton' // 👈 Import du bouton thème
+import { usePathname } from "next/navigation"
 
 const topsMenu = [
   { name: 'Dashboard', href: '/tops#dashboard', icon: ChartBarIcon },
@@ -31,6 +32,10 @@ const topsMenu = [
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const pathname = usePathname()
+  const isOnTopsPage = pathname === "/tops"
+
 
   return (
     <header className="bg-white dark:bg-[#0f0f0f] border-b dark:border-zinc-700 border-gray-300 sticky top-0 z-50">
@@ -75,16 +80,28 @@ export default function Navbar() {
             </PopoverButton>
             <PopoverPanel className="absolute top-full z-10 mt-2 w-56 rounded-xl bg-white dark:bg-zinc-800 shadow-lg ring-1 ring-gray-200 dark:ring-zinc-600">
               <div className="p-2">
-                {topsMenu.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="flex items-center gap-2 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-700 text-sm text-gray-800 dark:text-white"
-                  >
-                    <item.icon className="w-5 h-5 text-primary" />
-                    {item.name}
-                  </Link>
-                ))}
+              {topsMenu.map((item) =>
+                  isOnTopsPage ? (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="flex items-center gap-2 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-700 text-sm text-gray-800 dark:text-white"
+                    >
+                      <item.icon className="w-5 h-5 text-primary" />
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="flex items-center gap-2 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-700 text-sm text-gray-800 dark:text-white"
+                    >
+                      <item.icon className="w-5 h-5 text-primary" />
+                      {item.name}
+                    </Link>
+                  )
+                )}
+
               </div>
             </PopoverPanel>
           </Popover>

@@ -4,7 +4,7 @@ from flask_cors import CORS
 from flask import render_template_string
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:3000"])
+CORS(app, supports_credentials=True)
 
 # Configuration Spotify
 CLIENT_ID = "9bf2c0b082f847baa3d7bc2110eed0a4"
@@ -123,6 +123,28 @@ def recently_played():
     headers = {"Authorization": f"Bearer {token}"}
     resp = requests.get("https://api.spotify.com/v1/me/player/recently-played?limit=20", headers=headers)
     return jsonify(resp.json()), resp.status_code
+
+@app.route("/api/refresh-token", methods=["POST"])
+def refresh_token():
+    refresh_token = request.json.get("refresh_token")
+
+    if not refresh_token:
+        return jsonify({"error": "Refresh token manquant"}), 400
+
+    data = {
+        "grant_type": "refresh_token",
+        "refresh_token": refresh_token,
+        "client_id": CLIENT_ID,
+        "client_secret": CLIENT_SECRET
+    }
+
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+    response = requests.post(TOKEN_URL, data=data, headers=headers)
+
+    if response.ok:
+        return jsonify(response.json())
+    else:
+        return jsonify({"error": "Échec du refresh"}), 400
 
 
 # 🔧 Lancer le serveur

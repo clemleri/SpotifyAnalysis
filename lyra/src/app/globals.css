@@ -46,3 +46,29 @@ body {
     opacity: 0;
   }
 }
+
+@keyframes glowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+.animate-glow-gold {
+  animation: glowPulse 2s ease-in-out infinite;
+  background-color: rgba(234, 179, 8, 1); /* jaune or */
+}
+
+.animate-glow-silver {
+  animation: glowPulse 2s ease-in-out infinite;
+  background-color: rgba(156, 163, 175, 1); /* gris argent */
+}
+
+.animate-glow-bronze {
+  animation: glowPulse 2s ease-in-out infinite;
+  background-color: rgba(249, 115, 22, 1); /* orange bronze */
+}

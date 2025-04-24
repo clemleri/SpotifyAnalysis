@@ -15,9 +15,21 @@ const SpotifyLoginButton = ({ isConnected, onTokenReceived }) => {
 
 
       if (access_token) {
-        console.log("🎉 Token reçu ");
         localStorage.setItem("spotify_token", access_token);
         setSpotifyConnected(true); // 🟢 MAJ du contexte global
+        console.log("🎉 Token Save ");
+
+        // ✅ Stockage supplémentaire pour la reconnexion automatique :
+        if (refresh_token) {
+          localStorage.setItem("spotify_refresh_token", refresh_token);
+          console.log("🎉 Refresh Token Save ");
+        }
+        if (expires_in) {
+          const expiresAt = Date.now() + expires_in * 1000;
+          localStorage.setItem("spotify_token_expires_at", expiresAt.toString());
+          console.log("🎉 Expire Time Save ");
+        }
+
       }
       
       if (onTokenReceived) onTokenReceived(access_token);
