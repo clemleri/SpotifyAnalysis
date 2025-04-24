@@ -24,7 +24,7 @@ export default function DashboardSection({ topTracks = [], topArtists = [], rece
               {/* 🎧 Top Tracks */}
               
               <div>
-                <h3 className="hidden sm:flex text-sm uppercase font-semibold text-gray-500 mb-4 text-left">🎧 Top Tracks</h3>
+                <h3 className="flex text-sm uppercase font-semibold text-gray-500 dark:text-gray-200 mb-4 text-left">🎧 Top Tracks</h3>
                 <div className="sm:hidden">
                   <PodiumCarousel items={topTracks.slice(0, 3)} />
                 </div>
@@ -58,7 +58,7 @@ export default function DashboardSection({ topTracks = [], topArtists = [], rece
               {/* Mobile version */}
               
               <div>
-                <h3 className="text-sm uppercase font-semibold text-gray-500 mb-4 text-left">🧑‍🎤 Top Artists</h3>
+                <h3 className="text-sm uppercase font-semibold text-gray-500 dark:text-gray-200 mb-4 text-left">🧑‍🎤 Top Artists</h3>
                 <div className="sm:hidden">
                   <PodiumCarousel items={topArtists.slice(0, 3)} isArtist />
                 </div>
@@ -90,7 +90,7 @@ export default function DashboardSection({ topTracks = [], topArtists = [], rece
 
             {/* ⏪ Écoutes Récentes */}
             <div>
-              <h3 className="text-sm uppercase font-semibold text-gray-500 mb-4 text-left">⏪ Écoutes Récentes</h3>
+              <h3 className="text-sm uppercase font-semibold text-gray-500 dark:text-gray-200 mb-4 text-left">⏪ Écoutes Récentes</h3>
               <ul className="flex flex-col gap-4">
                 {recentTracks.slice(0, 5).map((item, i) => (
                   <li

@@ -36,9 +36,21 @@ export default function TopTracksSection({ tracks = [] }) {
         <div className="hidden sm:flex justify-center gap-8">
           {tracks.slice(0, 3).map((track, index) => {
             const medals = [
-              { emoji: '🥇', pulseClass: 'animate-glow-gold' },
-              { emoji: '🥈', pulseClass: 'animate-glow-silver' },
-              { emoji: '🥉', pulseClass: 'animate-glow-bronze' },
+              {
+                emoji: '🥇',
+                pulseClass: 'animate-glow-gold',
+                borderClass: 'border-yellow-400'
+              },
+              {
+                emoji: '🥈',
+                pulseClass: 'animate-glow-silver',
+                borderClass: 'border-gray-400'
+              },
+              {
+                emoji: '🥉',
+                pulseClass: 'animate-glow-bronze',
+                borderClass: 'border-amber-700'
+              },
             ];
             const style = medals[index] || {};
 
@@ -49,7 +61,7 @@ export default function TopTracksSection({ tracks = [] }) {
                 <img
                   src={track.album.images[0]?.url}
                   alt={track.name}
-                  className="w-32 h-32 object-cover rounded-md shadow relative z-10"
+                  className={`w-32 h-32 object-cover rounded-md shadow relative z-10 border-4 ${style.borderClass}`}
                 />
                 <p className="w-32 text-sm font-medium text-center mt-2 z-10 break-words">{track.name}</p>
                 <p className="text-xs text-gray-500 text-center z-10">{track.artists.map(a => a.name).join(', ')}</p>
@@ -68,13 +80,13 @@ export default function TopTracksSection({ tracks = [] }) {
               key={track.id}
               className="flex flex-col items-center p-4 bg-gray-200 dark:bg-zinc-800 rounded-2xl transition hover:scale-[1.02]"
             >
-              <span className="text-xs text-gray-400 mb-1">#{index + 4}</span>
+              <span className="text-xs font-bold dark:text-gray-400 text-gray-600 mb-2">{index + 4}</span>
               <img
                 src={track.album.images[0]?.url}
                 alt={track.name}
                 className="w-24 h-24 rounded-lg mb-2 shadow"
               />
-              <p className="text-center font-medium  text-sm">{track.name}</p>
+              <p className="text-center font-medium text-sm">{track.name}</p>
               <p className="text-xs text-gray-500 text-center">{track.artists.map(a => a.name).join(', ')}</p>
             </div>
           ))}

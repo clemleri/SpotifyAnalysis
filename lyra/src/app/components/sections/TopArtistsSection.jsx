@@ -64,11 +64,13 @@ export default function TopArtistsSection({ artists = [] }) {
       <h3 className="text-sm uppercase font-semibold text-gray-500 mb-4">Autres artistes écoutés</h3>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
       
-        {artists.slice(3).map(artist => (
+        {artists.slice(3).map((artist, index) => (
           <div
             key={artist.id}
             className="flex flex-col items-center p-4 bg-gray-200 dark:bg-zinc-800 rounded-2xl  transition hover:scale-[1.02]"
           >
+            <span className="text-xs font-bold dark:text-gray-400 text-gray-600 mb-2">{index + 4}</span>
+
             <img
               src={artist.images[0]?.url}
               alt={artist.name}
