@@ -1,44 +1,46 @@
 'use client'
 
+import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
-import { MoonIcon, SunIcon } from '@heroicons/react/24/outline'
-import { useClient } from '../hooks/useClient'
+import { MoonIcon, SunIcon, ArrowPathIcon } from '@heroicons/react/24/outline'
 
 export default function ThemeToggleButton({ mobile = false }) {
-  const [darkMode, setDarkMode] = useState(false)
-  const isClient = useClient()
+  const { setTheme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
-  // Lecture initiale du thème
+  // Fix le problème d'hydratation avec next-themes
   useEffect(() => {
-    if (!isClient) return
-    const savedTheme = localStorage.getItem('theme')
-    const initial = (savedTheme === 'dark')
-    setDarkMode(initial)
-  }, [isClient])
+    setMounted(true)
+  }, [])
 
-  // Applique le thème quand `darkMode` change
-  useEffect(() => {
-    if (!isClient) return
-    if (darkMode) {
-      document.documentElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-    }
-  }, [darkMode, isClient])
-
-  if (!isClient) return null
-
-  return (
+  if (!mounted) return (
     <button
-      onClick={() => setDarkMode(!darkMode)}
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
       className={`p-2 rounded-full transition ${
-        mobile ? 'flex items-center gap-2 hover:bg-gray-300 dark:hover:bg-zinc-700' : 'hover:bg-gray-100 dark:hover:bg-zinc-700'
+        mobile
+          ? 'flex items-center gap-2 hover:bg-gray-300 dark:hover:bg-zinc-700'
+          : 'hover:bg-gray-100 dark:hover:bg-zinc-700'
       }`}
       aria-label="Toggle Theme"
     >
-      {darkMode ? (
+        <ArrowPathIcon className="w-5 h-5 animate-spin" />
+        {mobile && <span className="text-sm text-gray-900 dark:text-white">Loading...</span>}
+    </button>
+  )
+
+  const isDark = resolvedTheme === 'dark'
+
+  return (
+    <button
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      className={`p-2 rounded-full transition ${
+        mobile
+          ? 'flex items-center gap-2 hover:bg-gray-300 dark:hover:bg-zinc-700'
+          : 'hover:bg-gray-100 dark:hover:bg-zinc-700'
+      }`}
+      aria-label="Toggle Theme"
+    >
+      {isDark ? (
         <>
           <SunIcon className="w-5 h-5 text-yellow-400" />
           {mobile && <span className="text-sm text-gray-900 dark:text-white">Light Mode</span>}
