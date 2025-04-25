@@ -26,6 +26,8 @@ export default function RecentTracksSection({ recent = [] }) {
 
   return (
     <div className="px-4 py-8 w-[100vw] max-w-lg xl:max-w-2xl mx-auto mt-24 space-y-4">
+      <h3 className="flex sm:hidden text-sm uppercase font-semibold text-gray-500 dark:text-gray-200 mb-8 text-left">⏪ Écoutes Récentes</h3>
+
       {recent.map((item, index) => {
         const track = item.track;
         const date = new Date(item.played_at);

@@ -68,7 +68,7 @@ export default function Sidebar() {
     <>
       <button
         onClick={() => setOpen(!open)}
-        className="inline-flex fixed items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        className=" hidden sm:inline-flex fixed items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
       >
         <span className="sr-only">Open sidebar</span>
         <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -83,7 +83,7 @@ export default function Sidebar() {
       <aside
         className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform bg-white dark:bg-[#0f0f0f] ${
           open ? 'translate-x-0' : '-translate-x-full'
-        } md:translate-x-0`}
+        } lg:translate-x-0`}
       >
         <div className="h-full border-r dark:border-zinc-700 border-gray-300 px-3 py-4 overflow-y-auto mt-[4.5rem]">
           <ul className="space-y-2 font-medium">
@@ -95,7 +95,7 @@ export default function Sidebar() {
                   <a
                     href={link.href}
                     onClick={() => {
-                      if (window.innerWidth < 768) setOpen(false)
+                      setOpen(false)
                     }}
                     className={`flex items-center p-2 rounded-lg group ${
                       isActive

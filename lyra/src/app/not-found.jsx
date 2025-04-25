@@ -1,7 +1,10 @@
+import BottomNav from "./components/BottomNav";
+
 export default function NotFound() {
     return (
       <main className="relative grid min-h-screen place-items-center bg-white dark:bg-[#0f0f0f] px-6 py-24 sm:py-32 lg:px-8 overflow-hidden">
         {/* Radial background glow */}
+        <BottomNav/>
         <div
           className="absolute inset-0 z-0"
           style={{

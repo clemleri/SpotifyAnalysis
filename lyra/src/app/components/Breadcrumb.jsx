@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 export default function Breadcrumb({ items = [] }) {
   return (
-    <nav className="flex relative z-[30]" aria-label="Breadcrumb">
-      <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
+    <nav className="hidden sm:flex relative z-[30]" aria-label="Breadcrumb">
+      <ol className="inline-flex items-center space-x-1 lg:space-x-2 rtl:space-x-reverse">
         {items.map((item, index) => {
           const isLast = index === items.length - 1
           const showChevron = index > 0

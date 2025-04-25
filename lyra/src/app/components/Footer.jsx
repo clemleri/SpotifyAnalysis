@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer({ extend = true }) {
   return (
-    <footer className="mt-32">
+    <footer className="mt-32 overflow-x-clip md:overflow-visible">
       {/* Partie top : uniquement si extend === true */}
       {extend && (
         <div className="w-full h-full mb-48">

@@ -6,11 +6,13 @@ import Testimonials from "../components/Testimonials";
 import Pricing from "../components/Pricing";
 import Footer from "../components/Footer";
 import FadeInWhenVisible from "../components/FadeInWhenVisible";
+import BottomNav from "../components/BottomNav";
 
 export default function Homepage() {
   return (
     <main className="text-black dark:text-white min-h-screen space-y-24">
       <Navbar />
+      <BottomNav />
 
       <FadeInWhenVisible><Hero /></FadeInWhenVisible>
 

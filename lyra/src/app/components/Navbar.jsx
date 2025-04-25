@@ -37,7 +37,7 @@ export default function Navbar() {
   const isOnTopsPage = pathname === '/tops'
 
   return (
-    <header className="bg-white dark:bg-[#0f0f0f] border-b dark:border-zinc-700 border-gray-300 sticky top-0 z-50">
+    <header className="hidden sm:block bg-white dark:bg-[#0f0f0f] border-b dark:border-zinc-700 border-gray-300 sticky top-0 z-50">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
         {/* Logo */}
         <div className="flex lg:flex-1">

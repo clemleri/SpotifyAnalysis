@@ -8,6 +8,9 @@ module.exports = {
   darkMode: 'class', // ← active le dark mode basé sur une classe
   theme: {
     extend: {
+      screens: {
+        'xs': '400px', // 👈 pour cibler les petits écrans précis
+      },
       colors: {
         primary: {
           DEFAULT: '#8a5cf6', // couleur principale par défaut

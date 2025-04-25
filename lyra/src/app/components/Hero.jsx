@@ -30,7 +30,7 @@ export default function Hero() {
 
         <div className="flex justify-center gap-4 mb-10">
           <Link
-            href="/login"
+            href="/tops"
             className="z-10 dark:bg-primary bg-background hover:bg-background-600 dark:hover:bg-primary-dark text-white dark:text-black px-6 py-3 text-lg font-medium rounded-xl hover:-translate-y-1 transition duration-300"
           >
             Get started
@@ -46,7 +46,7 @@ export default function Hero() {
       
       {showSVG && (
         <svg
-          className="absolute left-0 top-[34.2rem] z-0 w-screen overflow-visible opacity-0 animate-fade-in delay-[1000ms] ..."
+          className="hidden sm:block absolute left-0 top-[34.2rem] z-0 w-screen overflow-visible opacity-0 animate-fade-in delay-[1000ms] ..."
           width="100%"
           height="500"
           viewBox="-100 0 1700 500"

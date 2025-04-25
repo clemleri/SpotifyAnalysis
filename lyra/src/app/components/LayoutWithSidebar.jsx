@@ -9,7 +9,7 @@ export default function LayoutWithSidebar({ children }) {
       <Sidebar />
 
       {/* Contenu principal avec padding à gauche quand sidebar visible sur desktop */}
-      <div className="md:pl-64 transition-all duration-300">
+      <div className="lg:pl-64 transition-all duration-300">
         <div className="flex flex-col min-h-screen">
           <div className="flex-grow w-full h-full">{children}</div>
           <Footer extend={false} />

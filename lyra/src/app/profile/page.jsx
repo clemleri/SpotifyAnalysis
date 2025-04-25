@@ -8,6 +8,7 @@ import SpotifyLoginButton from "../components/SpotifyLoginButton"
 import { getSpotifyUser, logout } from "../api/spotifyApi"
 import LoadingProgressBar from "../components/LoadingProgressBar"
 import { motion, AnimatePresence } from "framer-motion"
+import BottomNav from "../components/BottomNav"
 
 export default function Profile() {
   const token = typeof window !== "undefined" ? localStorage.getItem("spotify_token") : null
@@ -48,6 +49,8 @@ export default function Profile() {
   return (
     <main className="text-black dark:text-white min-h-screen">
       <Navbar />
+      <BottomNav/>
+      
       <div className="mt-[-4rem] flex items-center justify-center min-h-screen px-4">
         {loading ? (
           <div className="flex flex-col items-center justify-center min-h-[60vh]">

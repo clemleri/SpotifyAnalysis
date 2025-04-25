@@ -16,6 +16,8 @@ import {
 import { useRouter } from "next/navigation"
 import LoadingProgressBar from "../components/LoadingProgressBar"
 import { AnimatePresence, motion } from "framer-motion"
+import BottomNav from "../components/BottomNav"
+import TopTabs from "../components/TopTabs"
 
 export default function Tops() {
   const [hash, setHash] = useState(null)
@@ -95,8 +97,10 @@ export default function Tops() {
   return (
     <main className="text-black dark:text-white min-h-screen">
       <Navbar />
+      <BottomNav/>
+      <TopTabs />
       <LayoutWithSidebar>
-        <div className="px-4 pt-4 ml-16 mt-1 md:ml-0 md:mt-0">
+        <div className="px-4 pt-4 ml-16 mt-1 lg:ml-0 lg:mt-0">
           <Breadcrumb items={breadcrumbItems} />
         </div>
 
@@ -111,7 +115,7 @@ export default function Tops() {
             transition={{ duration: 0.6 }}
             className="w-full"
           >
-            <div className="w-full h-full mt-[-4rem] gap-6 flex-col md:flex-row flex justify-center items-center">
+            <div className="w-full h-full mt-[-3rem] md:mt-[-4rem] gap-6 flex-col md:flex-row flex justify-center items-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={hash}

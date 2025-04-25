@@ -26,7 +26,8 @@ export default function TopTracksSection({ tracks = [] }) {
   }
 
   return (
-    <div className="px-4 py-8 w-full max-w-6xl mx-auto mt-24 space-y-12">
+    <div className="px-4 py-8 w-full max-w-6xl mx-auto mt-24">
+    <h3 className="flex sm:hidden text-sm uppercase font-semibold text-gray-500 dark:text-gray-200 mb-16 text-left">🎧 Top Tracks</h3>
 
       {/* 🏆 Podium Top 3 */}
       <div>
@@ -74,7 +75,7 @@ export default function TopTracksSection({ tracks = [] }) {
       {/* 🎶 Autres titres */}
       <div>
         <h3 className="text-sm uppercase font-semibold text-gray-500 mb-4">Autres titres écoutés</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
           {tracks.slice(3).map((track, index) => (
             <div
               key={track.id}

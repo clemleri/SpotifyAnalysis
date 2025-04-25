@@ -33,6 +33,8 @@ export default function TopArtistsSection({ artists = [] }) {
 
   return (
     <div className="px-4 py-8 w-full max-w-6xl mx-auto mt-24">
+    <h3 className="flex sm:hidden text-sm uppercase font-semibold text-gray-500 dark:text-gray-200 mb-16 text-left">🧑‍🎤 Top Artists</h3>
+
       {/* Podium */}
       <div className="sm:hidden mb-16">
         <PodiumCarousel items={artists.slice(0, 3)} isArtist />
@@ -62,7 +64,7 @@ export default function TopArtistsSection({ artists = [] }) {
 
       {/* Reste des artistes */}
       <h3 className="text-sm uppercase font-semibold text-gray-500 mb-4">Autres artistes écoutés</h3>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
       
         {artists.slice(3).map((artist, index) => (
           <div
